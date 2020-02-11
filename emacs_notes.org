@@ -452,6 +452,11 @@ emacs --no-initial-file --load-file=~/youemacs.el
    7. ~git commit -m "add readme.txt"~
    8. ~touch .gitignore~ ignore these files
 *** switch to branch
-   9. ~git branch mybranch~
-   10. ~git checkout mybranch~
-   11. ~touch branch.txt~
+   1. ~git branch mybranch~
+   2. ~git checkout mybranch~
+   3. ~touch branch.txt~
+   4. ~git add .~
+   5. ~git commit -m "branch changed"~
+*** switch back to master
+   1. ~git chechout master~
+
