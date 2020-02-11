@@ -457,6 +457,7 @@ emacs --no-initial-file --load-file=~/youemacs.el
    3. ~touch branch.txt~
    4. ~git add .~
    5. ~git commit -m "branch changed"~
-*** switch back to master
+*** switch back to master and merge
    1. ~git chechout master~
+   2. ~git merge mybranch~
 
