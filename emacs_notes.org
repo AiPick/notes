@@ -460,4 +460,9 @@ emacs --no-initial-file --load-file=~/youemacs.el
 *** switch back to master and merge
    1. ~git chechout master~
    2. ~git merge mybranch~
+*** git to remote
+   1. git remote add origin https://github.com/AiPick/notes.git
+   2. git remote
+   3. git push -u origin master
+      input username & password
 
