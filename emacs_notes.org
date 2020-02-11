@@ -478,4 +478,12 @@ emacs --no-initial-file --load-file=~/youemacs.el
    2. committed file @@html:<kbd>@@ s @@html:</kbd>@@
    3. committed to repo @@html:<kbd>@@ c @@html:</kbd>@@ 
    4. use @@html:<kbd>@@ , , @@html:</kbd>@@  to actually commit changed files.
-   5. use @@html:<kbd>@@ p @@html:</kbd>@@ to push local repo to remote repo. 
+   5. use @@html:<kbd>@@ p @@html:</kbd>@@ to push local repo to remote repo.
+   6. use @@html:<kbd>@@ F @@html:</kbd>@@ to pull from remote repo.
+   7. use @@html:<kbd>@@ e @@html:</kbd>@@ to solve conflict in Ediff. 
+      use @@html:<kbd>@@ N & P @@html:</kbd>@@ to navigate between the Ediff.
+      use @@html:<kbd>@@ A & B @@html:</kbd>@@ to choice what you want to reserve code.
+   8. @@html:<kbd>@@ SPC g b @@html:</kbd>@@ is blame state to show different
+      author comment and revised code on the timeline. You could press
+      @@html:<kbd>@@ b @@html:</kbd>@@ to backtrace in the history.
+
