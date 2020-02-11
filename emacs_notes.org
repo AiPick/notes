@@ -448,4 +448,6 @@ emacs --no-initial-file --load-file=~/youemacs.el
    4. ~git add *.*~ all files *NOT* including subdir
       ~git add .~  add all file include subdir
    5. ~git status~
-   6. ~git rm --cached [uncached filename]~ 
+   6. ~git rm --cached [uncached filename]~
+   7. ~git commit -m "add readme.txt"~
+   8. ~touch .gitignore~ ignore these files
