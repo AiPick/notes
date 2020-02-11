@@ -441,7 +441,7 @@ emacs --no-initial-file --load-file=~/youemacs.el
    :CLOCKLOG:
    CLOCK: [2020-02-11 Tue 20:15]
    :END:
-
+*** in master
    1. ~git init~
    2. ~git config --global user.name 'AiPick'~
    3. ~git config --global user.emal '2585957571@qq.com'~
@@ -451,3 +451,7 @@ emacs --no-initial-file --load-file=~/youemacs.el
    6. ~git rm --cached [uncached filename]~
    7. ~git commit -m "add readme.txt"~
    8. ~touch .gitignore~ ignore these files
+*** switch to branch
+   9. ~git branch mybranch~
+   10. ~git checkout mybranch~
+   11. ~touch branch.txt~
