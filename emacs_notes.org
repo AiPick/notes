@@ -439,7 +439,7 @@ emacs --no-initial-file --load-file=~/youemacs.el
 * Git
 ** Git Basic 
    :CLOCKLOG:
-   CLOCK: [2020-02-11 Tue 20:15]
+   CLOCK: [2020-02-11 Tue 20:15]--[2020-02-11 Tue 21:47] =>  1:32
    :END:
 *** in master
    1. ~git init~
@@ -470,4 +470,9 @@ emacs --no-initial-file --load-file=~/youemacs.el
    6. ~git add .~
    7. ~git commit -m "test with newtest.txt which pushed to remote"~
    8. ~git push~ before refresh github pages to get ~newtest.txt~ appeared in remote repo.
+*** get newest repo
+   1. ~git pull~
 
+** magit
+   1. @@html:<kbd>@@ SPC g s @@html:</kbd>@@ magit status
+   2. committed file @@html:<kbd>@@ s @@html:</kbd>@@ 
