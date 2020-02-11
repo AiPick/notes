@@ -442,9 +442,10 @@ emacs --no-initial-file --load-file=~/youemacs.el
    CLOCK: [2020-02-11 Tue 20:15]
    :END:
 
-   1. git init
-   2. git config --global user.name 'AiPick'
-   3. git config --global user.emal '2585957571@qq.com'
-   4. git add *.*
-   5. git status
-   6. git rm --cached [uncached filename] 
+   1. ~git init~
+   2. ~git config --global user.name 'AiPick'~
+   3. ~git config --global user.emal '2585957571@qq.com'~
+   4. ~git add *.*~ all files *NOT* including subdir
+      ~git add .~  add all file include subdir
+   5. ~git status~
+   6. ~git rm --cached [uncached filename]~ 
