@@ -1,0 +1,450 @@
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+# #+SETUPFILE: /home/hxz/gitdown/org-html-themes/setup/theme-readtheorg-local.setup
+#+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
+
+# no default toc at all
+# #+OPTIONS: toc:2
+#+OPTIONS: p:2
+
+# only number at level 2
+#+OPTIONS: H:3
+
+# can use colors,date,email,.....
+#+INCLUDE: "~/gitdown/org-macros/org-macros.setup"
+
+#+COLUMNS: %7TODO(To Do) %40ITEM(TASK) %TAGS(Tags) %6CLOCKSUM(Clock) %8Effort(Effort){:}
+#+PROPERTIES: Effort_ALL 0:15 0:30 0:45 1:00 1:30 2:00
+#+PROPERTIES: Rating_ALL + ++ +++ ++++ +++++
+#+SEQ_TODO: NEXT(n) TODO(t) WAITING(w) SOMEDAY(s) PROJ(p)| DONE(d) CANCELLED(c)
+                         
+* 问题
+- [-] org 转换为标准 latex 文件
+- [-] org 输出为 html 文件
+- [-] 使用 github 样式显示文件
+- [X] 在 github 上建立自己的站点
+- [X] 默认浏览器改为 qutebrowser
+- [-] 安装 emacs 26.1 。主要是 emacs-26-non-common-dfsg.
+- [-] Open org-mode html in EWW.
+
+* 调试脚本
+- 单独加载另外一个 emacs 的初始化文件
+#+begin_src bash
+emacs -q -l ~/youemacs.el
+emacs --no-initial-file --load-file=~/youemacs.el
+#+end_src
+
+- 调试 elisp 语言,@@html:<kbd>@@ , ' @@html:</kbd>@@ ，或是@@html:<kbd>@@ M-x
+  @@html:</kbd>@@ ielm 。
+
+* 澄清概念
+**** 组合键的术语是 Command， 而不是 ShortCut
+     例如，搜索插入文件变量的组合键，关键词应为 _command file variable emacs_
+     。如使用 _shortcut ..._ 则无法找到有用结果。
+* 重要概念
+** 屏幕（Screen）
+   Emacs 的显示区域称为 Frame ， 在 Frame 中可包含多个 Windows。 Emacs 中 Frame 在 IDE 中称为 Windows， 而 Emacs 的 Windows 在 IDE 中称为 View。
+*** Point
+    称为输入提示符号。通过 Cursor 可以改变输入符号的显示。
+*** Echo Area
+    显示输入命令的区域。Display Custom 修改 Echo Area。Echo Area 用于显示 Minibuffer。退出 Minibuffer 命令是 C-g。
+*** Mode Line
+    窗口底部是 Mode Line，显示当前 buffer 状态。Mode Line 文本格式如下
+
+    |cs | ch-fr | buf |   pos|line| (major | minor)|
+
+    以下是详细解释
+
+    | cs             | Coding System 的缩写。C-h C unix 给出 unix coding 的具体信息。 C-h C uft-8 给出 utf-8 coding 的具体信息。               |
+    | ch             | 表示文件是否保存。 * 表示文件未保存， - 表示文件已保存，% 表示为只读文件。                                              |
+    | fr             | Frame 缩写。 F1 为第 1 个 Frame，F2 为第 2 个 Frame。                                                                       |
+    | buf            | Buffer name，即当前 Buffer 中文件名。                                                                                   |
+    | pos            | 当前 Buffer 中显示的文件位置。 Top 靠近文件首部， Bot 靠近文件尾部， All 显示了全部文件，nn% 以百分比形式指出显示位置。 |
+    | line           | 18:10 表示 第 18 行第 10 个字符位置。                                                                                       |
+    | major          | 主编辑模式，如 Text mode，Lisp mode，Latex mode 等。                                                                    |
+    | minor          | 次编辑模式，可附加到主编辑模式之后。                                                                                    |
+    | recursive edit | [...] 表示处于循环编辑模式。                                                                                            |
+
+** 用户输入（User input）
+   Emacs 主要设计目的是通过键盘与用户交互，当然 Emacs 也使用鼠标，但这不是设计的出发点。 因而要能熟练使用键盘快捷键操作和编辑文件。
+** 输入键 （Keys）
+   Key 和其组合键会引发 key event。如果一组 Key 引发一条命令，称为 Complete Key。 如果无法触发命令，称为 Prefix key，如 C-x 和 M-x。
+** 命令 （Command）
+   每条命令是一个 Lisp 函数。 将命令与组合键绑定在一起称为 Keymaps。 C-n 之所以能跳到下一行，是因为绑定了函数 next-line。
+** 进入 Emacs
+   如果 inhibit-startup-screen 为 non-nil 将不会显示欢迎界面，而直接进入到 *scratch* 文件，在其中能运行一些待测试的 Lisp 程序。
+
+   如果希望启动 Emacs 时，进入到某个目录或是打开特定文件，可配置 initial-buffer-choice 。
+** 退出 Emacs
+   C-x C-x 退出 Emacs (save-buffers-kill-terminal)
+   C-z     Emacs 最小化 (suspend-frame)
+   M-x kill-emacs 退出 Emacs，不需要任何提示
+
+   Emacs 能在退出时保存当前会话 Session，下次启动后可先加载此会话。
+* 基本编辑命令
+** 基础
+*** 插入文本 (Insert Text)
+    ~C-j~ [O] 插入新的空行，新行没有 auto-indent 。 在 Minor Mode 中， 可以改变插入方式。 例如， ~Auto Fill Mode~ 可自动截取超出长度的文本(参见 Filling)。
+
+    如要插入非图形化字符，先输入 ~C-q~ (quoted-insert)
+    + 输入 DEL 。 ~C-q~ 后，紧接着输入 <DEL>。
+    + 输入 Unicode。 ~C-q 1 0 1 B~ 显示 AB。
+    
+    ~read-quoted-char-radix~ 控制基数，如果为 10 表示十进制，如果为 16 表示十六进制。
+
+    Unicode 字符还可以通过 ~C-x 8~ 命令插入， ~C-x 8 C-h~ 查看具体插入 Unicode 字符的命令。 例如， ~C-x 8 $~ 插入字符  ¤ 。
+    或者 ~C-x 8 <RET>~ 会列出所有 Unicode 可用字符。 例如，输入 lambda ，找到对应命令 ~Greek Small Letter Lambda~ 就能插入 λ 。
+    
+*** 移动光标 (Move Point)
+    我使用 Evil-mode 所以不太用这些操作。
+
+*** 删除 (Erasing)
+    | Emacs       | Function             | Evil |
+    |-------------+----------------------+------|
+    | <DEL>       | delete-forward-char  | x    |
+    | <BACKSPACE> | delete-backward-char | X    |
+    | ~C-d~       | delete-char          | x    |
+    | ~C-k~       | kill-line            | dd   |
+    | ~M-d~       | kill-word            | D    |
+
+*** 基本撤销 (Basic Undo)
+    
+    | Emacs   | Function | Evil |
+    | ~C-x u~ | undo     | u    |
+    | ~M-x _~ | redo     |      |
+*** 文件 (Files)
+    
+    | Emacs     | Function    | Evil |
+    | ~C-x C-f~ | find-file   |      |
+    | ~C-x C-s~ | save-buffer |      |
+    
+*** 帮助 (Help)
+    简单，直接 ~C-h~ 即可。
+
+*** 空行 (Blank Lines)
+    
+    | Emacs     | Function           | Evil   |
+    | ~C-x C-o~ | delete-blank-lines | 类似 J |
+    | ~C-o~     | open-line          | o      |
+    
+*** 连续行 (Continuation Lines)
+
+    :PROPERTIES:
+    :ID:       0500a5b8-4fdb-4b52-9beb-472db7ab2bda
+    :END:
+    
+    在新版 org-mode (>9.0) 中， 不再使用 ~<s tab~ 插入代码。Easy template 换为了 ~C-c C-,~ 。
+
+    在 org-mode 中，插入按键顺序的命令@@html:<kbd>@@ SPC m i k @@html:</kbd>@@ 。
+      
+#+CAPTION: 使用@@html:<kbd>@@ SPC t l @@html:</kbd>@@ 启用 line truncation
+#+NAME:   fig:trunc1
+   [[./pic/trunc1.png]]
+
+*** 位置信息 (Position Info)
+*** 参数 (Arguments)
+*** 重复 (Repeating)
+** Minibuffer
+** M-x
+** 帮助(help)
+* org-mode
+** Agenda Views
+   Todo items 、 time-stamped items 和 tagged headlines 可能分布在不同的文件中。
+   有时为了能将这些信息搜集、整理并按照要求提取信息，在特定 buffer 中显示，这种
+   方式称为 Agenda。
+*** Agenda Files
+    ~org-agenda-files~ 存放 agenda 文件指定位置，通常是配置为目录，该目录下所
+    有 .org 文件都是 agenda 文件。 如果只有一个 agenda 文件就必须明确给出文件名。
+#+begin_src Org
+  (setq org-agenda-files (list "~/gitdown/MyThrougth/mytime.org"))
+#+end_src
+
+    因此 agenda 是由一组 org 文件构成的，依次读取每个文件内容，搜集文件信息。
+    比较便捷的方式是直接用命令@@html:<kbd>@@ C-c [ @@html:</kbd>@@ 把当前文件
+    添加到 agenda 中 ，@@html:<kbd>@@ C-c ] @@html:</kbd>@@ 已修改为在当前文件
+    中插入 Bibtex 引用。因此，要使用 org-remove-file 命令直接从 agenda 文件中
+    移除当前 org 文件。@@html:<kbd>@@ C-c , @@html:</kbd>@@ 循环访问 agenda 文件。
+
+
+ # Local Variables:
+ # fill-column: 78
+ # End:
+
+** Document Structure
+*** Headlines
+    | local visible cycling  | @@html:<kbd>@@ <tab> @@html:</kbd>@@                                           |
+    | global visible cycling | @@html:<kbd>@@ <backtab> @@html:</kbd>@@                                       |
+    | move up/down           | @@html:<kbd>@@ <M-up> @@html:</kbd>@@ /@@html:<kbd>@@ <M-down> @@html:</kbd>@@ |
+** ToDo Items
+**** Basic
+** Datetimes
+   ToDo items 可以标记 date 和 time， 在 org 中称之为 timestamp。
+*** Timestamps
+    时间戳分类
+**** 普通时间戳；事件；约会
+     只分配 date/time 形式的时间戳，在显示 agenda 时，只显示 date。
+***** 周六看电影<2019-11-30 Sat>
+***** 周四吃晚餐<2019-11-28 Thu> 
+**** 规律重复出现的时间戳       
+     如每天下午 5 点跑步，每周六去公园玩，每年的生日等。
+     *d* 表示 day， *w* 表示 week ， *m* 表示 month。
+**** 用 sexp 表示复杂日期
+     牵涉到 LISP 语言中的 S-exp 表达式，暂不考虑。可以用来安排课程表。 
+**** 指定 Time/Date 范围
+     由 ~--~ 连接的两个日期表示范围。
+***** 论文答辩<2019-12-10 Tue>--<2019-12-13 Fri>      
+**** 非激活日期
+     由 ~[ ]~ 包含的日期，并不会出现在 agenda 中。
+***** 和朋友聚餐 [2019-11-28 Thu] 
+*** 创建时间戳
+    | @@html:<kbd>@@ C-c . @@html:</kbd>@@                                            | 插入日期/连续日期                  |
+    | @@html:<kbd>@@ C-c ! @@html:</kbd>@@                                            | 插入非激活日期                     |
+    | @@html:<kbd>@@ C-c < @@html:</kbd>@@                                            | 插入当前日期                       |
+    | @@html:<kbd>@@ C-c C-o @@html:</kbd>@@                                          | 列出光标下日期/日期范围中的 agenda |
+    | @@html:<kbd>@@ <S-right> @@html:</kbd>@@@@html:<kbd>@@ <S-left> @@html:</kbd>@@ | 调整月份                           |
+    | @@html:<kbd>@@ <S-up> @@html:</kbd>@@@@html:<kbd>@@ <S-down> @@html:</kbd>@@    | 调整天数                           |
+    | @@html:<kbd>@@ C-c C-y @@html:</kbd>@@                                          | 计算有多少天                       |
+*** Deadlines 和 Scheduling
+    时间戳可配置特殊关键字帮助进行计划，例如 Deadlines 和 Scheduling。
+
+    使用@@html:<kbd>@@ C-c / @@html:</kbd>@@  会出现 sparse tree。
+
+**** DEADLINE
+      所有 DEADLINE 日期之前计划的事件都会显示在 agenda 中，
+      ~org-deadline-warning-days~ 指定 DEADLINE 日期之前几天发出警告，直到将事
+      件标志为 DONE 才会停止提示警告。
+***** DONE 完成课程教案编写工作
+#+begin_src orgmode
+      DEADLINE:<2019-11-30 Sat>
+      第一次编辑:[[bbdb:Ford Prefect]]
+#+end_src
+
+     使用 ~-2d~ 表示提前 2 天发出警告提示。
+***** TODO 与张总见面约谈
+#+begin_src orgmode
+      DEADLINE:<2019-11-30 Sat -2d> 
+#+end_src
+      
+      重复某个 Deadlines，使用 ~+1m~ 表示每月重复一次，~-2d~ 表示提前 2 天提示。
+      当本月任务完成后，再次使用@@html:<kbd>@@ C-c C-t @@html:</kbd>@@ 不但能
+      标记本月任务已经完成，而且还能启用下月任务。 凡是标记为 DONE 的任务不再
+      出现在 agenda 中。
+***** DONE 交房租
+#+begin_src orgmode
+      DEADLINE: <2019-08-15 Thu +1m -2d>
+      :PROPERTIES:
+      :LAST_REPEAT: [2019-11-28 Thu 15:27]
+      :END:
+#+end_src
+
+***** DONE 与 Scott 老师视频通话
+#+begin_src orgmode
+      SCHEDULED: <2019-10-25 Fri ++1w>
+      :PROPERTIES:
+      :LAST_REPEAT: [2019-11-28 Thu 15:26]
+      :END:
+#+end_src
+**** SCHEDULED
+     计划何时开始某项新任务。如果延迟两天才开始该任务，则显示为 ~2x~ 。如果计
+     划推迟 3 天，则在时间上使用 ~-3d~ 表示。
+
+     SCHEDULED 经常会被误解。 例如，与某人约会是 appointment，使用简单的计划即
+     可。 一旦使用 SCHEDULED , 则表示在该任务在指定日期才会在时间线中出现。
+***** DONE 去新加坡旅行     
+#+begin_src orgmode
+      SCHEDULED:<2019-11-24 Sun --2d> 
+#+end_src
+
+* Timer Example 
+
+** Clocking 命令
+     :PROPERTIES:
+     :ORDERED:  t
+     :END:
+     :CLOCKLOG:
+     CLOCK: [2020-02-09 Sun 21:28]--[2020-02-09 Sun 21:56] =>  0:28
+     CLOCK: [2020-02-09 Sun 20:40]--[2020-02-09 Sun 20:54] =>  0:14
+     CLOCK: [2019-11-28 Thu 16:52]--[2019-11-28 Thu 16:58] =>  0:06
+     CLOCK: [2019-11-28 Thu 16:59]--[2019-11-28 Thu 17:00] =>  0:01
+     :END:
+     :LOGBOOK:
+     :END:
+
+     
+     |-----------------------------+--------------------------------------------|
+     | Clocking in                 | @@html:<kbd>@@ C-c C-x C-i @@html:</kbd>@@ |
+     | Clocking out                | @@html:<kbd>@@ C-c C-x C-o @@html:</kbd>@@ |
+     | Restart a clock             | @@html:<kbd>@@ C-c C-x C-x @@html:</kbd>@@ |
+     | Jump to Clocked task        | @@html:<kbd>@@ C-c C-x C-j @@html:</kbd>@@ |
+     | Cancel a Clock in           | @@html:<kbd>@@ C-c C-x C-q @@html:</kbd>@@ |
+     | Show times                  | @@html:<kbd>@@ C-c C-x C-d @@html:</kbd>@@ |
+     | Recompute time              | @@html:<kbd>@@ C-c C-c @@html:</kbd>@@     |
+     | Start countdown timer       | @@html:<kbd>@@ C-c C-x ; @@html:</kbd>@@   |
+     | Pause a timer or continue   | @@html:<kbd>@@ C-c C-x , @@html:</kbd>@@   |
+     | Insert current timer        | @@html:<kbd>@@ C-c C-x . @@html:</kbd>@@   |
+     | Start a relative timer      | @@html:<kbd>@@ C-c C-x 0 @@html:</kbd>@@   |
+     | Calc & display spended time | @@html:<kbd>@@ C-c C-x C-d @@html:</kbd>@@ |
+     | Enter Column view           | @@html:<kbd>@@ C-c C-x C-c @@html:</kbd>@@ |
+     | Leave column view           | @@html:<kbd>@@ Q @@html:</kbd>@@           |
+     |-----------------------------+--------------------------------------------|
+
+** Relative timer example
+    *Football notes*
+
+     You'll start relative timer by @@html:<kbd>@@ C-c C-x 0 @@html:</kbd>@@
+     . The timer will be tick from 00:00:01, 00:00:02, ... , 00:01:08, ....
+
+     Suppose team A get a score at sometimes, press @@html:<kbd>@@ C-c C-x .
+     @@html:</kbd>@@ to get current relative time and insert below current
+     cursor.
+
+     - 0:04:31 :: Team A scored a goal 1:0 .
+     - 0:05:26 :: [When press @@html:<kbd>@@ O @@html:</kbd>@@ to get a
+                  newline, insert current timer automatically.] Team B scored
+                  a goal 1:1.
+     [If you go out to get a dink, you could press @@html:<kbd>@@ C-c C-x , @@html:</kbd>@@ 
+      to pause timer. Repeat such combination keys when coming back from outside.]
+     - Stop timer by @@html:<kbd>@@ C-c C-x _ @@html:</kbd>@@
+    
+** Clock Tracking example
+   :CLOCKLOG:
+   CLOCK: [2020-02-10 Mon 08:32]--[2020-02-10 Mon 09:13] =>  0:41
+   :END:
+*** Task A
+    :PROPERTIES:
+    :Effort:   20:00
+    :END:
+    :CLOCKLOG:
+    CLOCK: [2020-02-10 Mon 08:58]--[2020-02-10 Mon 08:59] =>  0:01
+    CLOCK: [2020-02-10 Mon 08:37]--[2020-02-10 Mon 08:40] =>  0:03
+    :END:
+    - Some task that we need to know how much time it take.
+
+    Use @@html:<kbd>@@ C-c C-x TAB @@html:</kbd>@@ to insert timestamp, Use
+    @@html:<kbd>@@ C-c C-x C-j @@html:</kbd>@@ to jump to the last insert
+    timestamp，Use @@html:<kbd>@@ C-c C-x C-o @@html:</kbd>@@ to close
+    timestamp.
+
+*** Task B
+    :CLOCKLOG:
+    CLOCK: [2020-02-10 Mon 08:56]--[2020-02-10 Mon 08:58] =>  0:02
+    CLOCK: [2020-02-10 Mon 08:40]--[2020-02-10 Mon 08:42] =>  0:02
+    :END:
+    - Some other task to clock.
+    
+    Use @@html:<kbd>@@ C-c C-c @@html:</kbd>@@ to recompute timer.
+    Use @@html:<kbd>@@ C-c C-x C-d @@html:</kbd>@@ to calculate spended time.
+    Use @@html:<kbd>@@ C-c C-c @@html:</kbd>@@ to cancel display total spended time.
+
+** Clock column view example
+   :CLOCKLOG:
+   CLOCK: [2020-02-10 Mon 11:45]--[2020-02-10 Mon 12:03] =>  0:18
+   :END:
+   
+#+begin_src lisp
+#+COLUMNS: %7TODO(To Do) %40ITEM(TASK) %TAGS(Tags) %6CLOCKSUM(Clock)
+#+end_src
+
+     | Enter Column view           | @@html:<kbd>@@ C-c C-x C-c @@html:</kbd>@@ |
+     | Leave column view           | @@html:<kbd>@@ Q @@html:</kbd>@@           |
+
+ 
+** Effort estimate example
+   :CLOCKLOG:
+   CLOCK: [2020-02-10 Mon 12:05]--[2020-02-10 Mon 12:40] =>  0:35
+   :END:
+   
+   Goal: Estimate the effort that your task will take.
+
+   Recipe: Effort are properties stored in ~:Effort:~ . Easy setup: Define
+   ~#+PROPERTIES: Effort_ALL~ .
+
+   Add ~#+COLUMNS: %8Effort(Effort){:}~ in column view. {:} means sum up times.
+
+| Show column view  | @@html:<kbd>@@ C-c C-x C-c @@html:</kbd>@@ |
+| increase effort   | @@html:<kbd>@@ <S-right> @@html:</kbd>@@   |
+| decrease effort   | @@html:<kbd>@@ <S-left> @@html:</kbd>@@    |
+| Leave column view | @@html:<kbd>@@ Q @@html:</kbd>@@           |
+
+* Orgmode (Studing)
+  :PROPERTIES:
+  :ORDERED:  t
+  :END:
+  :CLOCKLOG:
+  CLOCK: [2020-02-10 Mon 17:18]--[2020-02-10 Mon 17:55] =>  0:37
+  :END:
+** DONE E01S01 : Headlines & outline mode
+   CLOSED: [2020-02-10 Mon 21:25]
+   :CLOCKLOG:
+   CLOCK: [2020-02-10 Mon 20:24]--[2020-02-10 Mon 20:34] =>  0:10
+   :END:
+   
+   | Local expand/collapse cycle  | @@html:<kbd>@@ <tab> @@html:</kbd>@@       |
+   | Global expand/collapse cycle | @@html:<kbd>@@ <backtab> @@html:</kbd>@@   |
+   | Increase level               | @@html:<kbd>@@ <alt-right> @@html:</kbd>@@ |
+   | Decrease level               | @@html:<kbd>@@ <alt-left> @@html:</kbd>@@  |
+   | Move up                      | @@html:<kbd>@@ <M-up> @@html:</kbd>@@      |
+   | Move down                    | @@html:<kbd>@@ <M-down> @@html:</kbd>@@    |
+
+** DONE E01S02 : ToDo Keywords
+   :CLOCKLOG:
+   CLOCK: [2020-02-11 Tue 11:46]--[2020-02-11 Tue 12:03] =>  0:17
+   CLOCK: [2020-02-10 Mon 21:26]--[2020-02-10 Mon 21:50] =>  0:24
+   :END:
+   
+   More keywords by define ~#+SEQ_TODO:~ . 
+   Item of left | are TODO items (red).
+   Item of right | are DONE items (green).
+   
+   | Cycle through them           | @@html:<kbd>@@ <S-right> @@html:</kbd>@@ |
+   | Active local setup line with | @@html:<kbd>@@ C-c C-c @@html:</kbd>@@   |
+   | Get a menu of all keywords   | @@html:<kbd>@@ C-c C-t @@html:</kbd>@@   |
+
+** DONE E01S03 : Schedule, Deadlines & Agenda views
+   :CLOCKLOG:
+   CLOCK: [2020-02-11 Tue 12:32]--[2020-02-11 Tue 13:32] =>  1:00
+   CLOCK: [2020-02-11 Tue 12:04]--[2020-02-11 Tue 12:07] =>  0:03
+   :END:
+   
+   | Schedule done     | @@html:<kbd>@@ C-c C-s @@html:</kbd>@@ |
+   | Deadlines defined | @@html:<kbd>@@ C-c C-d @@html:</kbd>@@ |
+   | Agenda switch     | @@html:<kbd>@@ C-a a @@html:</kbd>@@   |
+   | Follow mode       | @@html:<kbd>@@ S-f @@html:</kbd>@@     |
+   | Move forward      | @@html:<kbd>@@ f @@html:</kbd>@@       |
+   | Move backward     | @@html:<kbd>@@ b @@html:</kbd>@@       |
+** DONE E01S04 : Repeating tasks
+   :CLOCKLOG:
+   CLOCK: [2020-02-11 Tue 17:46]--[2020-02-11 Tue 18:17] =>  0:31
+   :END:
+
+   | regular every week (d=day w=weak m=month y=year) | +1w  |
+   | repeat every week, definitely in the future      | ++1w |
+   | Next 4 week after the task is DONE               | .+4w |
+
+   If repeated event was setting by SCHEDULED @@html:<kbd>@@ C-c C-t
+   @@html:</kbd>@@ , you could press @@html:<kbd>@@ C-c C-t @@html:</kbd>@@
+   again to change current SCHEDULED event to state DONE and restart a new
+   SCHEDULED event.
+
+*** 规律重复出现的时间戳       
+    如每天下午 5 点跑步，每周六去公园玩，每年的生日等。
+    *d* 表示 day， *w* 表示 week ， *m* 表示 month。
+* Use Emacs
+** TODO 62 : Magit
+   :CLOCKLOG:
+   CLOCK: [2020-02-11 Tue 18:28]--[2020-02-11 Tue 18:48] =>  0:20
+   :END:
+   
+   I must learn git before using Magit.
+
+* Git
+** Git Basic 
+   :CLOCKLOG:
+   CLOCK: [2020-02-11 Tue 20:15]
+   :END:
+
+   1. git init
+   2. git config --global user.name 'AiPick'
+   3. git config --global user.emal '2585957571@qq.com'
+   4. git add *.*
+   5. git status
+   6. git rm --cached [uncached filename] 
