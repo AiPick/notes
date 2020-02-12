@@ -430,7 +430,7 @@ emacs --no-initial-file --load-file=~/youemacs.el
     *d* 表示 day， *w* 表示 week ， *m* 表示 month。
 ** DONE E01S05 : Checklists [2/4]
    :PROPERTIES:
-   :Effort:   20
+   :Effort:   0:20
    :END:
    :CLOCKLOG:
    CLOCK: [2020-02-12 Wed 08:14]--[2020-02-12 Wed 08:31] =>  0:17
@@ -440,12 +440,12 @@ emacs --no-initial-file --load-file=~/youemacs.el
   - [ ] New checklist by @@html:<kbd>@@ <M-S-return> @@html:</kbd>@@
   - [X] You can see the completion of the checklist with [0/0] or [0%] on headlines.
   - [X] Checkbox toggled with @@html:<kbd>@@ C-c C-c @@html:</kbd>@@ 
-** NEXT E02S01 : Tags                                         :TAGS:ORGMODE:
+** DONE E02S01 : Tags                                         :TAGS:ORGMODE:
    :PROPERTIES:
-   :Effort:   10:00
+   :Effort:   0:10
    :END:
    :CLOCKLOG:
-   CLOCK: [2020-02-12 Wed 08:41]
+   CLOCK: [2020-02-12 Wed 08:41]--[2020-02-12 Wed 08:59] =>  0:18
    :END:
 
    Tags can be added to headlines and are often used as a way to mark GTD contexts.
@@ -456,6 +456,20 @@ emacs --no-initial-file --load-file=~/youemacs.el
    of predefined tags. Clear tags by @@html:<kbd>@@ SPC @@html:</kbd>@@ .
 
 ** NEXT E02S02 : Agenda view (advanced)
+   :PROPERTIES:
+   :Effort:   0:20
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-12 Wed 09:33]--[2020-02-12 Wed 09:44] =>  0:11
+   :END:
+   
+   | Timeline for current buffer          | @@html:<kbd>@@ L @@html:</kbd>@@ |
+   | List all TODO entries                | @@html:<kbd>@@ t @@html:</kbd>@@ |
+   | Entries with a special TODO Keywords | @@html:<kbd>@@ T @@html:</kbd>@@ |
+   | Match tags/propoerties/TODO keywords | @@html:<kbd>@@ M @@html:</kbd>@@ |
+   | Like before, but only TODO keywords  | @@html:<kbd>@@ M @@html:</kbd>@@ |
+   | Search for keywords                  | @@html:<kbd>@@ s @@html:</kbd>@@ |
+   
 ** NEXT E02S03 : Customized Agenda view
 ** NEXT E02S05 : Archiving.mp4
 ** NEXT E03S01 : Automatic logging of status changes
