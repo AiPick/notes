@@ -347,7 +347,6 @@ emacs --no-initial-file --load-file=~/youemacs.el
      | Enter Column view           | @@html:<kbd>@@ C-c C-x C-c @@html:</kbd>@@ |
      | Leave column view           | @@html:<kbd>@@ Q @@html:</kbd>@@           |
 
- 
 ** Effort estimate example
    :CLOCKLOG:
    CLOCK: [2020-02-10 Mon 12:05]--[2020-02-10 Mon 12:40] =>  0:35
@@ -428,6 +427,19 @@ emacs --no-initial-file --load-file=~/youemacs.el
 *** 规律重复出现的时间戳       
     如每天下午 5 点跑步，每周六去公园玩，每年的生日等。
     *d* 表示 day， *w* 表示 week ， *m* 表示 month。
+** DONE E01S05 : Checklists [2/4]
+   :PROPERTIES:
+   :Effort:   20
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-12 Wed 08:14]--[2020-02-12 Wed 08:31] =>  0:17
+   :END:
+   
+  - [ ] This is checklist
+  - [ ] New checklist by @@html:<kbd>@@ <M-S-return> @@html:</kbd>@@
+  - [X] You can see the completion of the checklist with [0/0] or [0%] on headlines.
+  - [X] Checkbox toggled with @@html:<kbd>@@ C-c C-c @@html:</kbd>@@ 
+   
 * Use Emacs
 ** TODO 62 : Magit
    :CLOCKLOG:
@@ -474,6 +486,9 @@ emacs --no-initial-file --load-file=~/youemacs.el
    1. ~git pull~
 
 ** magit
+   :CLOCKLOG:
+   CLOCK: [2020-02-11 Tue 22:20]--[2020-02-11 Tue 23:20] =>  1:00
+   :END:
    1. @@html:<kbd>@@ SPC g s @@html:</kbd>@@ magit status
    2. committed file @@html:<kbd>@@ s @@html:</kbd>@@
    3. committed to repo @@html:<kbd>@@ c @@html:</kbd>@@ 
@@ -486,4 +501,4 @@ emacs --no-initial-file --load-file=~/youemacs.el
    8. @@html:<kbd>@@ SPC g b @@html:</kbd>@@ is blame state to show different
       author comment and revised code on the timeline. You could press
       @@html:<kbd>@@ b @@html:</kbd>@@ to backtrace in the history.
-
+   9. use @@html:<kbd>@@ f @@html:</kbd>@@ to fetch repo files.
