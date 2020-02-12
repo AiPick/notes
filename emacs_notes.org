@@ -16,7 +16,8 @@
 #+PROPERTIES: Effort_ALL 0:15 0:30 0:45 1:00 1:30 2:00
 #+PROPERTIES: Rating_ALL + ++ +++ ++++ +++++
 #+SEQ_TODO: NEXT(n) TODO(t) WAITING(w) SOMEDAY(s) PROJ(p)| DONE(d) CANCELLED(c)
-#+TAGS: REVIEW(r) ORGMODE(o) SHORTCUT(s) 
+#+TAGS: REVIEW(r) SHORTCUT(s) ADVANCED(a) USEFUL(u) NORMAL(n) BASIC(b) FUTURE(f)
+#+ARCHIVE: myarchive.org::
                          
 * 问题
 - [-] org 转换为标准 latex 文件
@@ -440,7 +441,7 @@ emacs --no-initial-file --load-file=~/youemacs.el
   - [ ] New checklist by @@html:<kbd>@@ <M-S-return> @@html:</kbd>@@
   - [X] You can see the completion of the checklist with [0/0] or [0%] on headlines.
   - [X] Checkbox toggled with @@html:<kbd>@@ C-c C-c @@html:</kbd>@@ 
-** DONE E02S01 : Tags                                         :TAGS:ORGMODE:
+** DONE E02S01 : Tags                                                :BASIC:
    :PROPERTIES:
    :Effort:   0:10
    :END:
@@ -455,7 +456,7 @@ emacs --no-initial-file --load-file=~/youemacs.el
    headline. Use @@html:<kbd>@@ <tab> @@html:</kbd>@@ to enter new tags instead
    of predefined tags. Clear tags by @@html:<kbd>@@ SPC @@html:</kbd>@@ .
 
-** NEXT E02S02 : Agenda view (advanced)
+** DONE E02S02 : Agenda view (advanced)                              :BASIC:
    :PROPERTIES:
    :Effort:   0:20
    :END:
@@ -470,18 +471,105 @@ emacs --no-initial-file --load-file=~/youemacs.el
    | Like before, but only TODO keywords  | @@html:<kbd>@@ M @@html:</kbd>@@ |
    | Search for keywords                  | @@html:<kbd>@@ s @@html:</kbd>@@ |
    
-** NEXT E02S03 : Customized Agenda view
-** NEXT E02S05 : Archiving.mp4
-** NEXT E03S01 : Automatic logging of status changes
-** NEXT E03S02 : Splitting your system up to several files
-** NEXT E03S03 : The first capture template(s)
-** NEXT E03S04 : The  -PROPERTIES - drawer
-** NEXT E03S05 : Archiving to different files
-** NEXT E04S01 : Ordered tasks
-** NEXT E04S02 : Timers
-** NEXT E04S03 : Clocking (aka time tracking)
-** NEXT E04S04 : Column view
-** NEXT E04S05 : Effort estimates
+** DONE E02S03 : Customized Agenda view
+   :PROPERTIES:
+   :Effort:   0:20
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-12 Wed 09:46]--[2020-02-12 Wed 09:55] =>  0:09
+   :END:
+   
+   for customizing agenda command 
+** DONE E02S04 : Drawers,Logging & quick notes                    :ADVANCED:
+   :PROPERTIES:
+   :Effort:   0:20
+   :END:
+   - Note taken on [2020-02-12 Wed 10:14] \\
+     test quick notes
+   :CLOCKLOG:
+   CLOCK: [2020-02-12 Wed 09:57]--[2020-02-12 Wed 10:30] =>  0:33
+   :END:
+ 
+   I want to add quick notes. If you want ~:LOGBOOK:~ appeared in the body, you
+   must customize ~org-log-into-drawer~.
+   
+  :HiddenNote:
+  We could create *DRAWER* by @@html:<kbd>@@ C-c C-x d @@html:</kbd>@@ .
+  :END:
+ 
+   :DRAWER:
+   - This is the usually *hidden* content of drawer
+   - The drawer ends with the line that says :END:
+   - Reserved drawer names are e.g. :LOGBOOK: or :PROPERTIES:
+   :END:
+   ~:LOGBOOK:~ don't display in the ouput html files!? 
+
+    This is the source orgfiles
+#+begin_src orgmode
+   :LOGBOOK:
+   - Note taken on [2020-02-12 Wed 10:25] \\
+     After customize ~org-log-into-drawer~, I could get quick notes into body.
+   - Note taken on [2020-02-12 Wed 10:09] \\
+     This is a quick notes using @@html:<kbd>@@ C-c C-z @@html:</kbd>@@ . That's good!
+   :END:
+#+end_src
+
+   :LOGBOOK:
+   - Note taken on [2020-02-12 Wed 10:25] \\
+     After customize ~org-log-into-drawer~, I could get quick notes into body.
+   - Note taken on [2020-02-12 Wed 10:09] \\
+     This is a quick notes using @@html:<kbd>@@ C-c C-z @@html:</kbd>@@ . That's good!
+   :END:
+   
+** DONE E02S05 : Archiving                                          :FUTURE:
+   :PROPERTIES:
+   :Effort:   0:20
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-12 Wed 10:45]--[2020-02-12 Wed 10:57] =>  0:12
+   :END:
+   Finished tasks collected up your org file. Define a global archives file with
+   ~#+ARCHIVE: myarchive.org::~. Archive an entry with @@html:<kbd>@@ C-c C-x
+   C-a @@html:</kbd>@@ . Archive a subtree with @@html:<kbd>@@ C-c C-x C-s @@html:</kbd>@@ .
+
+   When you complete you task, you can move out of your DONE tasks to archives files.
+
+** DONE E03S01 : Automatic logging of status changes                :FUTURE:
+   :PROPERTIES:
+   :Effort:   0:20
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-12 Wed 10:58]--[2020-02-12 Wed 11:07] =>  0:09
+   :END:
+   automatic logging of status changes for complicated tasks. I think I will
+   never use this feature.
+** WAITING E03S02 : Splitting your system up to several files       :FUTURE:
+   :PROPERTIES:
+   :Effort:   0:20
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-12 Wed 11:08]--[2020-02-12 Wed 11:18] =>  0:10
+   :END:
+   
+   See in the future.
+** WAITING E03S03 : The first capture template(s)                   :USEFUL:
+   :PROPERTIES:
+   :Effort:   0:20
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-12 Wed 11:21]--[2020-02-12 Wed 11:34] =>  0:13
+   :END:
+   
+   Goal: Capturing tasks, ideas and whatever you want!
+
+   Use @@html:<kbd>@@ SPC C c @@html:</kbd>@@ to open capture template.
+** WAITING E03S04 : The  -PROPERTIES - drawer                       :FUTURE:
+** WAITING E03S05 : Archiving to different files                    :FUTURE:
+** WAITING E04S01 : Ordered tasks                          :ADVANCED:FUTURE:
+** DONE E04S02 : Timers
+** DONE E04S03 : Clocking (aka time tracking)
+** DONE E04S04 : Column view
+** DONE E04S05 : Effort estimates
 ** NEXT E05S01 : Linking (internal)
 ** NEXT E05S02 : Linking (external)
 ** NEXT E05S03 : Attachments
