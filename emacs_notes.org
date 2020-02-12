@@ -18,6 +18,7 @@
 #+SEQ_TODO: NEXT(n) TODO(t) WAITING(w) SOMEDAY(s) PROJ(p)| DONE(d) CANCELLED(c)
 #+TAGS: REVIEW(r) SHORTCUT(s) ADVANCED(a) USEFUL(u) NORMAL(n) BASIC(b) FUTURE(f)
 #+ARCHIVE: myarchive.org::
+#+OPTIONS: d:t p:t todo:t
                          
 * 问题
 - [-] org 转换为标准 latex 文件
@@ -258,113 +259,10 @@ emacs --no-initial-file --load-file=~/youemacs.el
 
 * Timer Example 
 
-** Clocking 命令
-     :PROPERTIES:
-     :ORDERED:  t
-     :END:
-     :CLOCKLOG:
-     CLOCK: [2020-02-09 Sun 21:28]--[2020-02-09 Sun 21:56] =>  0:28
-     CLOCK: [2020-02-09 Sun 20:40]--[2020-02-09 Sun 20:54] =>  0:14
-     CLOCK: [2019-11-28 Thu 16:52]--[2019-11-28 Thu 16:58] =>  0:06
-     CLOCK: [2019-11-28 Thu 16:59]--[2019-11-28 Thu 17:00] =>  0:01
-     :END:
-     :LOGBOOK:
-     :END:
-
-     
-     |-----------------------------+--------------------------------------------|
-     | Clocking in                 | @@html:<kbd>@@ C-c C-x C-i @@html:</kbd>@@ |
-     | Clocking out                | @@html:<kbd>@@ C-c C-x C-o @@html:</kbd>@@ |
-     | Restart a clock             | @@html:<kbd>@@ C-c C-x C-x @@html:</kbd>@@ |
-     | Jump to Clocked task        | @@html:<kbd>@@ C-c C-x C-j @@html:</kbd>@@ |
-     | Cancel a Clock in           | @@html:<kbd>@@ C-c C-x C-q @@html:</kbd>@@ |
-     | Show times                  | @@html:<kbd>@@ C-c C-x C-d @@html:</kbd>@@ |
-     | Recompute time              | @@html:<kbd>@@ C-c C-c @@html:</kbd>@@     |
-     | Start countdown timer       | @@html:<kbd>@@ C-c C-x ; @@html:</kbd>@@   |
-     | Pause a timer or continue   | @@html:<kbd>@@ C-c C-x , @@html:</kbd>@@   |
-     | Insert current timer        | @@html:<kbd>@@ C-c C-x . @@html:</kbd>@@   |
-     | Start a relative timer      | @@html:<kbd>@@ C-c C-x 0 @@html:</kbd>@@   |
-     | Calc & display spended time | @@html:<kbd>@@ C-c C-x C-d @@html:</kbd>@@ |
-     | Enter Column view           | @@html:<kbd>@@ C-c C-x C-c @@html:</kbd>@@ |
-     | Leave column view           | @@html:<kbd>@@ Q @@html:</kbd>@@           |
-     |-----------------------------+--------------------------------------------|
-
-** Relative timer example
-    *Football notes*
-
-     You'll start relative timer by @@html:<kbd>@@ C-c C-x 0 @@html:</kbd>@@
-     . The timer will be tick from 00:00:01, 00:00:02, ... , 00:01:08, ....
-
-     Suppose team A get a score at sometimes, press @@html:<kbd>@@ C-c C-x .
-     @@html:</kbd>@@ to get current relative time and insert below current
-     cursor.
-
-     - 0:04:31 :: Team A scored a goal 1:0 .
-     - 0:05:26 :: [When press @@html:<kbd>@@ O @@html:</kbd>@@ to get a
-                  newline, insert current timer automatically.] Team B scored
-                  a goal 1:1.
-     [If you go out to get a dink, you could press @@html:<kbd>@@ C-c C-x , @@html:</kbd>@@ 
-      to pause timer. Repeat such combination keys when coming back from outside.]
-     - Stop timer by @@html:<kbd>@@ C-c C-x _ @@html:</kbd>@@
     
-** Clock Tracking example
-   :CLOCKLOG:
-   CLOCK: [2020-02-10 Mon 08:32]--[2020-02-10 Mon 09:13] =>  0:41
-   :END:
-*** Task A
-    :PROPERTIES:
-    :Effort:   20:00
-    :END:
-    :CLOCKLOG:
-    CLOCK: [2020-02-10 Mon 08:58]--[2020-02-10 Mon 08:59] =>  0:01
-    CLOCK: [2020-02-10 Mon 08:37]--[2020-02-10 Mon 08:40] =>  0:03
-    :END:
-    - Some task that we need to know how much time it take.
-
-    Use @@html:<kbd>@@ C-c C-x TAB @@html:</kbd>@@ to insert timestamp, Use
-    @@html:<kbd>@@ C-c C-x C-j @@html:</kbd>@@ to jump to the last insert
-    timestamp，Use @@html:<kbd>@@ C-c C-x C-o @@html:</kbd>@@ to close
-    timestamp.
-
-*** Task B
-    :CLOCKLOG:
-    CLOCK: [2020-02-10 Mon 08:56]--[2020-02-10 Mon 08:58] =>  0:02
-    CLOCK: [2020-02-10 Mon 08:40]--[2020-02-10 Mon 08:42] =>  0:02
-    :END:
-    - Some other task to clock.
-    
-    Use @@html:<kbd>@@ C-c C-c @@html:</kbd>@@ to recompute timer.
-    Use @@html:<kbd>@@ C-c C-x C-d @@html:</kbd>@@ to calculate spended time.
-    Use @@html:<kbd>@@ C-c C-c @@html:</kbd>@@ to cancel display total spended time.
-
 ** Clock column view example
-   :CLOCKLOG:
-   CLOCK: [2020-02-10 Mon 11:45]--[2020-02-10 Mon 12:03] =>  0:18
-   :END:
-   
-#+begin_src lisp
-#+COLUMNS: %7TODO(To Do) %40ITEM(TASK) %TAGS(Tags) %6CLOCKSUM(Clock)
-#+end_src
-
-     | Enter Column view           | @@html:<kbd>@@ C-c C-x C-c @@html:</kbd>@@ |
-     | Leave column view           | @@html:<kbd>@@ Q @@html:</kbd>@@           |
 
 ** Effort estimate example
-   :CLOCKLOG:
-   CLOCK: [2020-02-10 Mon 12:05]--[2020-02-10 Mon 12:40] =>  0:35
-   :END:
-   
-   Goal: Estimate the effort that your task will take.
-
-   Recipe: Effort are properties stored in ~:Effort:~ . Easy setup: Define
-   ~#+PROPERTIES: Effort_ALL~ .
-
-   Add ~#+COLUMNS: %8Effort(Effort){:}~ in column view. {:} means sum up times.
-
-| Show column view  | @@html:<kbd>@@ C-c C-x C-c @@html:</kbd>@@ |
-| increase effort   | @@html:<kbd>@@ <S-right> @@html:</kbd>@@   |
-| decrease effort   | @@html:<kbd>@@ <S-left> @@html:</kbd>@@    |
-| Leave column view | @@html:<kbd>@@ Q @@html:</kbd>@@           |
 
 * Orgmode (Studing)
   :PROPERTIES:
@@ -515,6 +413,8 @@ emacs --no-initial-file --load-file=~/youemacs.el
 #+end_src
 
    :LOGBOOK:
+   - Note taken on [2020-02-12 Wed 15:36] \\
+     You can use ~#+OPTIONS: d:t~ to show drawer.
    - Note taken on [2020-02-12 Wed 10:25] \\
      After customize ~org-log-into-drawer~, I could get quick notes into body.
    - Note taken on [2020-02-12 Wed 10:09] \\
@@ -566,16 +466,137 @@ emacs --no-initial-file --load-file=~/youemacs.el
 ** WAITING E03S04 : The  -PROPERTIES - drawer                       :FUTURE:
 ** WAITING E03S05 : Archiving to different files                    :FUTURE:
 ** WAITING E04S01 : Ordered tasks                          :ADVANCED:FUTURE:
-** DONE E04S02 : Timers
-** DONE E04S03 : Clocking (aka time tracking)
-** DONE E04S04 : Column view
-** DONE E04S05 : Effort estimates
+** DONE E04S02 : Timers                                              :BASIC:
+     :PROPERTIES:
+     :ORDERED:  t
+     :END:
+     :CLOCKLOG:
+     CLOCK: [2020-02-09 Sun 21:28]--[2020-02-09 Sun 21:56] =>  0:28
+     CLOCK: [2020-02-09 Sun 20:40]--[2020-02-09 Sun 20:54] =>  0:14
+     CLOCK: [2019-11-28 Thu 16:52]--[2019-11-28 Thu 16:58] =>  0:06
+     CLOCK: [2019-11-28 Thu 16:59]--[2019-11-28 Thu 17:00] =>  0:01
+     :END:
+     :LOGBOOK:
+     :END:
+
+     |-----------------------------+--------------------------------------------|
+     | Clocking in                 | @@html:<kbd>@@ C-c C-x C-i @@html:</kbd>@@ |
+     | Clocking out                | @@html:<kbd>@@ C-c C-x C-o @@html:</kbd>@@ |
+     | Restart a clock             | @@html:<kbd>@@ C-c C-x C-x @@html:</kbd>@@ |
+     | Jump to Clocked task        | @@html:<kbd>@@ C-c C-x C-j @@html:</kbd>@@ |
+     | Cancel a Clock in           | @@html:<kbd>@@ C-c C-x C-q @@html:</kbd>@@ |
+     | Show times                  | @@html:<kbd>@@ C-c C-x C-d @@html:</kbd>@@ |
+     | Recompute time              | @@html:<kbd>@@ C-c C-c @@html:</kbd>@@     |
+     | Start countdown timer       | @@html:<kbd>@@ C-c C-x ; @@html:</kbd>@@   |
+     | Pause a timer or continue   | @@html:<kbd>@@ C-c C-x , @@html:</kbd>@@   |
+     | Insert current timer        | @@html:<kbd>@@ C-c C-x . @@html:</kbd>@@   |
+     | Start a relative timer      | @@html:<kbd>@@ C-c C-x 0 @@html:</kbd>@@   |
+     | Calc & display spended time | @@html:<kbd>@@ C-c C-x C-d @@html:</kbd>@@ |
+     | Enter Column view           | @@html:<kbd>@@ C-c C-x C-c @@html:</kbd>@@ |
+     | Leave column view           | @@html:<kbd>@@ Q @@html:</kbd>@@           |
+     |-----------------------------+--------------------------------------------|
+
+** DONE E04S03 : Clocking (aka time tracking)                        :BASIC:
+*** Football notes
+
+     You'll start relative timer by @@html:<kbd>@@ C-c C-x 0 @@html:</kbd>@@
+     . The timer will be tick from 00:00:01, 00:00:02, ... , 00:01:08, ....
+
+     Suppose team A get a score at sometimes, press @@html:<kbd>@@ C-c C-x .
+     @@html:</kbd>@@ to get current relative time and insert below current
+     cursor.
+
+     - 0:04:31 :: Team A scored a goal 1:0 .
+     - 0:05:26 :: [When press @@html:<kbd>@@ O @@html:</kbd>@@ to get a
+                  newline, insert current timer automatically.] Team B scored
+                  a goal 1:1.
+     [If you go out to get a dink, you could press @@html:<kbd>@@ C-c C-x , @@html:</kbd>@@ 
+      to pause timer. Repeat such combination keys when coming back from outside.]
+     - Stop timer by @@html:<kbd>@@ C-c C-x _ @@html:</kbd>@@
+     
+*** Clock Tracking example
+    :CLOCKLOG:
+    CLOCK: [2020-02-10 Mon 08:32]--[2020-02-10 Mon 09:13] =>  0:41
+    :END:
+**** Task A
+     :PROPERTIES:
+    :Effort:   20:00
+    :END:
+    :CLOCKLOG:
+    CLOCK: [2020-02-10 Mon 08:58]--[2020-02-10 Mon 08:59] =>  0:01
+    CLOCK: [2020-02-10 Mon 08:37]--[2020-02-10 Mon 08:40] =>  0:03
+    :END:
+    - Some task that we need to know how much time it take.
+
+    Use @@html:<kbd>@@ C-c C-x TAB @@html:</kbd>@@ to insert timestamp, Use
+    @@html:<kbd>@@ C-c C-x C-j @@html:</kbd>@@ to jump to the last insert
+    timestamp，Use @@html:<kbd>@@ C-c C-x C-o @@html:</kbd>@@ to close
+    timestamp.
+
+**** Task B
+     :CLOCKLOG:
+     CLOCK: [2020-02-10 Mon 08:56]--[2020-02-10 Mon 08:58] =>  0:02
+     CLOCK: [2020-02-10 Mon 08:40]--[2020-02-10 Mon 08:42] =>  0:02
+     :END:
+     - Some other task to clock.
+    
+     Use @@html:<kbd>@@ C-c C-c @@html:</kbd>@@ to recompute timer.
+     Use @@html:<kbd>@@ C-c C-x C-d @@html:</kbd>@@ to calculate spended time.
+     Use @@html:<kbd>@@ C-c C-c @@html:</kbd>@@ to cancel display total spended time.
+
+** DONE E04S04 : Column view                                         :BASIC:
+   :CLOCKLOG:
+   CLOCK: [2020-02-10 Mon 11:45]--[2020-02-10 Mon 12:03] =>  0:18
+   :END:
+   
+#+begin_src lisp
+#+COLUMNS: %7TODO(To Do) %40ITEM(TASK) %TAGS(Tags) %6CLOCKSUM(Clock)
+#+end_src
+
+     | Enter Column view | @@html:<kbd>@@ C-c C-x C-c @@html:</kbd>@@ |
+     | Leave column view | @@html:<kbd>@@ Q @@html:</kbd>@@           |
+** DONE E04S05 : Effort estimates                                    :BASIC:
+   :CLOCKLOG:
+   CLOCK: [2020-02-10 Mon 12:05]--[2020-02-10 Mon 12:40] =>  0:35
+   :END:
+   
+   Goal: Estimate the effort that your task will take.
+
+   Recipe: Effort are properties stored in ~:Effort:~ . Easy setup: Define
+   ~#+PROPERTIES: Effort_ALL~ .
+
+   Add ~#+COLUMNS: %8Effort(Effort){:}~ in column view. {:} means sum up times.
+
+| Show column view  | @@html:<kbd>@@ C-c C-x C-c @@html:</kbd>@@ |
+| increase effort   | @@html:<kbd>@@ <S-right> @@html:</kbd>@@   |
+| decrease effort   | @@html:<kbd>@@ <S-left> @@html:</kbd>@@    |
+| Leave column view | @@html:<kbd>@@ Q @@html:</kbd>@@           |
+   
 ** NEXT E05S01 : Linking (internal)
 ** NEXT E05S02 : Linking (external)
 ** NEXT E05S03 : Attachments
 ** NEXT E05S04 : Priorities
 ** NEXT E05S05 : Tables
-** NEXT E06S01 : Exporting
+** NEXT E06S01 : Exporting                                    :USEFUL:BASIC:
+   :PROPERTIES:
+   :Effort:   0:20
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-12 Wed 15:13]
+   :END:
+   - Goal:export files into HTML and PDF
+   - Key :@@html:<kbd>@@ C-c C-e @@html:</kbd>@@ 
+   - Customization: Setting ~org-file-apps~ determines the application to open files. 
+
+   [*IMPORTANT*] I have been set how to open html files with qutebrowser and how
+   to open pdf files with zathura.
+   
+   Add a line with ~#+OPTIONS:~ to fine tune the output, ~t~ is true.
+   | Show the contents of drawer              | ~d:t~    |
+   | Preserve line breaks                     | ~\n:t~   |
+   | Export planing information               | ~p:t~    |
+   | Include TODO keywords into exported text | ~todo:t~ |
+
 ** NEXT E06S02 : Advanced exporting
 ** NEXT E06S03 : Publishing
 ** NEXT E06S04 : Dynamic blocks

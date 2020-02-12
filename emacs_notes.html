@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-02-12 Wed 10:30 -->
+<!-- 2020-02-12 Wed 15:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -253,151 +253,148 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge54b290">1. 问题</a></li>
-<li><a href="#org6f31cd2">2. 调试脚本</a></li>
-<li><a href="#org25f87f0">3. 澄清概念</a></li>
-<li><a href="#orgefebd65">4. 重要概念</a>
+<li><a href="#org200470d">1. 问题</a></li>
+<li><a href="#org26d03f0">2. 调试脚本</a></li>
+<li><a href="#org55eeef2">3. 澄清概念</a></li>
+<li><a href="#orgab28651">4. 重要概念</a>
 <ul>
-<li><a href="#orgd99433b">4.1. 屏幕（Screen）</a>
+<li><a href="#org7415b9f">4.1. 屏幕（Screen）</a>
 <ul>
-<li><a href="#orgb1739b6">4.1.1. Point</a></li>
-<li><a href="#org406509b">4.1.2. Echo Area</a></li>
-<li><a href="#orge5cb43c">4.1.3. Mode Line</a></li>
+<li><a href="#org19fe837">4.1.1. Point</a></li>
+<li><a href="#orga40b4d9">4.1.2. Echo Area</a></li>
+<li><a href="#org1b35f34">4.1.3. Mode Line</a></li>
 </ul>
 </li>
-<li><a href="#orgf65d1fa">4.2. 用户输入（User input）</a></li>
-<li><a href="#orge768aff">4.3. 输入键 （Keys）</a></li>
-<li><a href="#orgee407ea">4.4. 命令 （Command）</a></li>
-<li><a href="#org04134d1">4.5. 进入 Emacs</a></li>
-<li><a href="#orge4f450c">4.6. 退出 Emacs</a></li>
+<li><a href="#org760eb49">4.2. 用户输入（User input）</a></li>
+<li><a href="#orga0adc46">4.3. 输入键 （Keys）</a></li>
+<li><a href="#orged9dad2">4.4. 命令 （Command）</a></li>
+<li><a href="#org0f68bb5">4.5. 进入 Emacs</a></li>
+<li><a href="#org2a7dfee">4.6. 退出 Emacs</a></li>
 </ul>
 </li>
-<li><a href="#org635dada">5. 基本编辑命令</a>
+<li><a href="#orga29c7aa">5. 基本编辑命令</a>
 <ul>
-<li><a href="#org68f9f64">5.1. 基础</a>
+<li><a href="#org9e69991">5.1. 基础</a>
 <ul>
-<li><a href="#org1e7ca75">5.1.1. 插入文本 (Insert Text)</a></li>
-<li><a href="#orgf431a9b">5.1.2. 移动光标 (Move Point)</a></li>
-<li><a href="#org621bf7f">5.1.3. 删除 (Erasing)</a></li>
-<li><a href="#orgd6ee619">5.1.4. 基本撤销 (Basic Undo)</a></li>
-<li><a href="#org6050a8e">5.1.5. 文件 (Files)</a></li>
-<li><a href="#orgb0ae182">5.1.6. 帮助 (Help)</a></li>
-<li><a href="#org99fc752">5.1.7. 空行 (Blank Lines)</a></li>
-<li><a href="#org4a37280">5.1.8. 连续行 (Continuation Lines)</a></li>
-<li><a href="#org05b15c4">5.1.9. 位置信息 (Position Info)</a></li>
-<li><a href="#org574487e">5.1.10. 参数 (Arguments)</a></li>
-<li><a href="#org0393e61">5.1.11. 重复 (Repeating)</a></li>
+<li><a href="#orgf14f21b">5.1.1. 插入文本 (Insert Text)</a></li>
+<li><a href="#org106eeda">5.1.2. 移动光标 (Move Point)</a></li>
+<li><a href="#orge5b63d6">5.1.3. 删除 (Erasing)</a></li>
+<li><a href="#orge0b8ad3">5.1.4. 基本撤销 (Basic Undo)</a></li>
+<li><a href="#org3930cc2">5.1.5. 文件 (Files)</a></li>
+<li><a href="#org2ff893a">5.1.6. 帮助 (Help)</a></li>
+<li><a href="#org3505937">5.1.7. 空行 (Blank Lines)</a></li>
+<li><a href="#org389fbc9">5.1.8. 连续行 (Continuation Lines)</a></li>
+<li><a href="#org39c4888">5.1.9. 位置信息 (Position Info)</a></li>
+<li><a href="#org9d1e045">5.1.10. 参数 (Arguments)</a></li>
+<li><a href="#org225e62f">5.1.11. 重复 (Repeating)</a></li>
 </ul>
 </li>
-<li><a href="#org2cd506a">5.2. Minibuffer</a></li>
-<li><a href="#orga646eb0">5.3. M-x</a></li>
-<li><a href="#orgcb0258b">5.4. 帮助(help)</a></li>
+<li><a href="#org1e34cae">5.2. Minibuffer</a></li>
+<li><a href="#org5f1012d">5.3. M-x</a></li>
+<li><a href="#orgdcce321">5.4. 帮助(help)</a></li>
 </ul>
 </li>
-<li><a href="#orga915d13">6. org-mode</a>
+<li><a href="#org2fad268">6. org-mode</a>
 <ul>
-<li><a href="#org2dd66ce">6.1. Agenda Views</a>
+<li><a href="#orgec5186b">6.1. Agenda Views</a>
 <ul>
-<li><a href="#org4ac59d7">6.1.1. Agenda Files</a></li>
+<li><a href="#orgfb058ab">6.1.1. Agenda Files</a></li>
 </ul>
 </li>
-<li><a href="#org4d8be54">6.2. Document Structure</a>
+<li><a href="#orgf3218f7">6.2. Document Structure</a>
 <ul>
-<li><a href="#orga97a776">6.2.1. Headlines</a></li>
+<li><a href="#org170d7bc">6.2.1. Headlines</a></li>
 </ul>
 </li>
-<li><a href="#org1126cd8">6.3. ToDo Items</a></li>
-<li><a href="#org58144a3">6.4. Datetimes</a>
+<li><a href="#orgf5dfd8f">6.3. ToDo Items</a></li>
+<li><a href="#org0b1b323">6.4. Datetimes</a>
 <ul>
-<li><a href="#orgae9a898">6.4.1. Timestamps</a></li>
-<li><a href="#org43caa2e">6.4.2. 创建时间戳</a></li>
-<li><a href="#orge5dd7d5">6.4.3. Deadlines 和 Scheduling</a></li>
+<li><a href="#org55a75ac">6.4.1. Timestamps</a></li>
+<li><a href="#org9c9a37b">6.4.2. 创建时间戳</a></li>
+<li><a href="#org2778fda">6.4.3. Deadlines 和 Scheduling</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgca1d61b">7. Timer Example</a>
+<li><a href="#orgaa1ea57">7. Timer Example</a>
 <ul>
-<li><a href="#org5f5fa19">7.1. Clocking 命令</a></li>
-<li><a href="#org0ce550b">7.2. Relative timer example</a></li>
-<li><a href="#orgd76e949">7.3. Clock Tracking example</a>
-<ul>
-<li><a href="#orge66c32a">7.3.1. Task A</a></li>
-<li><a href="#orgace9ae0">7.3.2. Task B</a></li>
+<li><a href="#org27c2d21">7.1. Clock column view example</a></li>
+<li><a href="#orgdae465a">7.2. Effort estimate example</a></li>
 </ul>
 </li>
-<li><a href="#org958adc2">7.4. Clock column view example</a></li>
-<li><a href="#orgcf92713">7.5. Effort estimate example</a></li>
+<li><a href="#org2b3a112">8. Orgmode (Studing)</a>
+<ul>
+<li><a href="#org63da2db">8.1. <span class="todo DONE">DONE</span> E01S01 : Headlines &amp; outline mode</a></li>
+<li><a href="#org6e8ba14">8.2. <span class="todo DONE">DONE</span> E01S02 : ToDo Keywords</a></li>
+<li><a href="#org58771d1">8.3. <span class="todo DONE">DONE</span> E01S03 : Schedule, Deadlines &amp; Agenda views</a></li>
+<li><a href="#orgde16ff9">8.4. <span class="todo DONE">DONE</span> E01S04 : Repeating tasks</a>
+<ul>
+<li><a href="#org3e15e64">8.4.1. 规律重复出现的时间戳</a></li>
 </ul>
 </li>
-<li><a href="#org9024e98">8. Orgmode (Studing)</a>
+<li><a href="#org0f01e02">8.5. <span class="todo DONE">DONE</span> E01S05 : Checklists <code>[2/4]</code></a></li>
+<li><a href="#orge1ca932">8.6. <span class="todo DONE">DONE</span> E02S01 : Tags&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BASIC">BASIC</span></span></a></li>
+<li><a href="#org43fc864">8.7. <span class="todo DONE">DONE</span> E02S02 : Agenda view (advanced)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BASIC">BASIC</span></span></a></li>
+<li><a href="#orgd86f18b">8.8. <span class="todo DONE">DONE</span> E02S03 : Customized Agenda view</a></li>
+<li><a href="#org7af247d">8.9. <span class="todo DONE">DONE</span> E02S04 : Drawers,Logging &amp; quick notes&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ADVANCED">ADVANCED</span></span></a></li>
+<li><a href="#org84a7cb0">8.10. <span class="todo DONE">DONE</span> E02S05 : Archiving&#xa0;&#xa0;&#xa0;<span class="tag"><span class="FUTURE">FUTURE</span></span></a></li>
+<li><a href="#org5c8758b">8.11. <span class="todo DONE">DONE</span> E03S01 : Automatic logging of status changes&#xa0;&#xa0;&#xa0;<span class="tag"><span class="FUTURE">FUTURE</span></span></a></li>
+<li><a href="#orgf15c30e">8.12. <span class="todo WAITING">WAITING</span> E03S02 : Splitting your system up to several files&#xa0;&#xa0;&#xa0;<span class="tag"><span class="FUTURE">FUTURE</span></span></a></li>
+<li><a href="#orgd0937a8">8.13. <span class="todo WAITING">WAITING</span> E03S03 : The first capture template(s)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="USEFUL">USEFUL</span></span></a></li>
+<li><a href="#orgc6aa8bf">8.14. <span class="todo WAITING">WAITING</span> E03S04 : The  -PROPERTIES - drawer&#xa0;&#xa0;&#xa0;<span class="tag"><span class="FUTURE">FUTURE</span></span></a></li>
+<li><a href="#orga4ed41e">8.15. <span class="todo WAITING">WAITING</span> E03S05 : Archiving to different files&#xa0;&#xa0;&#xa0;<span class="tag"><span class="FUTURE">FUTURE</span></span></a></li>
+<li><a href="#org95b6c76">8.16. <span class="todo WAITING">WAITING</span> E04S01 : Ordered tasks&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ADVANCED">ADVANCED</span>&#xa0;<span class="FUTURE">FUTURE</span></span></a></li>
+<li><a href="#org611bdcb">8.17. <span class="todo DONE">DONE</span> E04S02 : Timers&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BASIC">BASIC</span></span></a></li>
+<li><a href="#org47c9f32">8.18. <span class="todo DONE">DONE</span> E04S03 : Clocking (aka time tracking)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BASIC">BASIC</span></span></a>
 <ul>
-<li><a href="#orgacfbfc0">8.1. <span class="todo DONE">DONE</span> E01S01 : Headlines &amp; outline mode</a></li>
-<li><a href="#org98fbddc">8.2. <span class="todo DONE">DONE</span> E01S02 : ToDo Keywords</a></li>
-<li><a href="#org3b38a5a">8.3. <span class="todo DONE">DONE</span> E01S03 : Schedule, Deadlines &amp; Agenda views</a></li>
-<li><a href="#org0d230e6">8.4. <span class="todo DONE">DONE</span> E01S04 : Repeating tasks</a>
-<ul>
-<li><a href="#orgab9905f">8.4.1. 规律重复出现的时间戳</a></li>
+<li><a href="#org6b8a13e">8.18.1. Football notes</a></li>
+<li><a href="#orgabc734a">8.18.2. Clock Tracking example</a></li>
 </ul>
 </li>
-<li><a href="#org47e5e95">8.5. <span class="todo DONE">DONE</span> E01S05 : Checklists <code>[2/4]</code></a></li>
-<li><a href="#org178a5d6">8.6. <span class="todo DONE">DONE</span> E02S01 : Tags&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TAGS">TAGS</span>&#xa0;<span class="ORGMODE">ORGMODE</span></span></a></li>
-<li><a href="#org2058606">8.7. <span class="todo DONE">DONE</span> E02S02 : Agenda view (advanced)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ORGMODE">ORGMODE</span></span></a></li>
-<li><a href="#org80a724e">8.8. <span class="todo DONE">DONE</span> E02S03 : Customized Agenda view&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ORGMODE">ORGMODE</span>&#xa0;<span class="Advanced">Advanced</span></span></a></li>
-<li><a href="#org6dace04">8.9. <span class="todo NEXT">NEXT</span> E02S04 : Drawers,Logging &amp; quick notes&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ORGMODE">ORGMODE</span></span></a></li>
-<li><a href="#org3273e5b">8.10. <span class="todo NEXT">NEXT</span> E02S05 : Archiving.mp4</a></li>
-<li><a href="#org381e376">8.11. <span class="todo NEXT">NEXT</span> E03S01 : Automatic logging of status changes</a></li>
-<li><a href="#orge8f5630">8.12. <span class="todo NEXT">NEXT</span> E03S02 : Splitting your system up to several files</a></li>
-<li><a href="#org9c2b06e">8.13. <span class="todo NEXT">NEXT</span> E03S03 : The first capture template(s)</a></li>
-<li><a href="#orga2b8770">8.14. <span class="todo NEXT">NEXT</span> E03S04 : The  -PROPERTIES - drawer</a></li>
-<li><a href="#org9d402e7">8.15. <span class="todo NEXT">NEXT</span> E03S05 : Archiving to different files</a></li>
-<li><a href="#org5f17df7">8.16. <span class="todo NEXT">NEXT</span> E04S01 : Ordered tasks</a></li>
-<li><a href="#org648cb7e">8.17. <span class="todo NEXT">NEXT</span> E04S02 : Timers</a></li>
-<li><a href="#org71e4aee">8.18. <span class="todo NEXT">NEXT</span> E04S03 : Clocking (aka time tracking)</a></li>
-<li><a href="#org43090be">8.19. <span class="todo NEXT">NEXT</span> E04S04 : Column view</a></li>
-<li><a href="#orgcb63366">8.20. <span class="todo NEXT">NEXT</span> E04S05 : Effort estimates</a></li>
-<li><a href="#org0f6984c">8.21. <span class="todo NEXT">NEXT</span> E05S01 : Linking (internal)</a></li>
-<li><a href="#org3c17343">8.22. <span class="todo NEXT">NEXT</span> E05S02 : Linking (external)</a></li>
-<li><a href="#org8c02c51">8.23. <span class="todo NEXT">NEXT</span> E05S03 : Attachments</a></li>
-<li><a href="#orge5cbee7">8.24. <span class="todo NEXT">NEXT</span> E05S04 : Priorities</a></li>
-<li><a href="#org9b14352">8.25. <span class="todo NEXT">NEXT</span> E05S05 : Tables</a></li>
-<li><a href="#orgc6c8f09">8.26. <span class="todo NEXT">NEXT</span> E06S01 : Exporting</a></li>
-<li><a href="#org65b2a7b">8.27. <span class="todo NEXT">NEXT</span> E06S02 : Advanced exporting</a></li>
-<li><a href="#org3e20361">8.28. <span class="todo NEXT">NEXT</span> E06S03 : Publishing</a></li>
-<li><a href="#orgbd6469e">8.29. <span class="todo NEXT">NEXT</span> E06S04 : Dynamic blocks</a></li>
-<li><a href="#orgaad3f0f">8.30. <span class="todo NEXT">NEXT</span> E06S05 : Tracking habits</a></li>
-<li><a href="#orgaffe67e">8.31. <span class="todo NEXT">NEXT</span> E07S01 : Bulk agenda actions</a></li>
-<li><a href="#orgc357426">8.32. <span class="todo NEXT">NEXT</span> E07S02 : Presenting my system</a></li>
-<li><a href="#orgd84ce6e">8.33. <span class="todo NEXT">NEXT</span> E07S03 : Google Calendar integration</a></li>
-<li><a href="#orgf20073e">8.34. <span class="todo NEXT">NEXT</span> E07S04 : Source code in OrgMode</a></li>
-<li><a href="#org7905751">8.35. <span class="todo NEXT">NEXT</span> E07S05 :</a></li>
+<li><a href="#orgd1ff503">8.19. <span class="todo DONE">DONE</span> E04S04 : Column view&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BASIC">BASIC</span></span></a></li>
+<li><a href="#org05f54bc">8.20. <span class="todo DONE">DONE</span> E04S05 : Effort estimates&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BASIC">BASIC</span></span></a></li>
+<li><a href="#org675c526">8.21. <span class="todo NEXT">NEXT</span> E05S01 : Linking (internal)</a></li>
+<li><a href="#orge129057">8.22. <span class="todo NEXT">NEXT</span> E05S02 : Linking (external)</a></li>
+<li><a href="#org3b8df26">8.23. <span class="todo NEXT">NEXT</span> E05S03 : Attachments</a></li>
+<li><a href="#orgdd124e8">8.24. <span class="todo NEXT">NEXT</span> E05S04 : Priorities</a></li>
+<li><a href="#orgb34f392">8.25. <span class="todo NEXT">NEXT</span> E05S05 : Tables</a></li>
+<li><a href="#org6b63199">8.26. <span class="todo NEXT">NEXT</span> E06S01 : Exporting&#xa0;&#xa0;&#xa0;<span class="tag"><span class="USEFUL">USEFUL</span>&#xa0;<span class="BASIC">BASIC</span></span></a></li>
+<li><a href="#org230f948">8.27. <span class="todo NEXT">NEXT</span> E06S02 : Advanced exporting</a></li>
+<li><a href="#org75a85a7">8.28. <span class="todo NEXT">NEXT</span> E06S03 : Publishing</a></li>
+<li><a href="#org41590e6">8.29. <span class="todo NEXT">NEXT</span> E06S04 : Dynamic blocks</a></li>
+<li><a href="#org541a108">8.30. <span class="todo NEXT">NEXT</span> E06S05 : Tracking habits</a></li>
+<li><a href="#orga175296">8.31. <span class="todo NEXT">NEXT</span> E07S01 : Bulk agenda actions</a></li>
+<li><a href="#org4a03b1d">8.32. <span class="todo NEXT">NEXT</span> E07S02 : Presenting my system</a></li>
+<li><a href="#org1e51a8d">8.33. <span class="todo NEXT">NEXT</span> E07S03 : Google Calendar integration</a></li>
+<li><a href="#orge5d8528">8.34. <span class="todo NEXT">NEXT</span> E07S04 : Source code in OrgMode</a></li>
+<li><a href="#org263e0b9">8.35. <span class="todo NEXT">NEXT</span> E07S05 :</a></li>
 </ul>
 </li>
-<li><a href="#org4d89a25">9. Use Emacs</a>
+<li><a href="#org21936cd">9. Use Emacs</a>
 <ul>
-<li><a href="#org20b2ee2">9.1. <span class="todo TODO">TODO</span> 62 : Magit</a></li>
+<li><a href="#orgc942c4b">9.1. <span class="todo TODO">TODO</span> 62 : Magit</a></li>
 </ul>
 </li>
-<li><a href="#org223922c">10. Git</a>
+<li><a href="#orgff43c20">10. Git</a>
 <ul>
-<li><a href="#org902c3a0">10.1. Git Basic</a>
+<li><a href="#orgf41f994">10.1. Git Basic</a>
 <ul>
-<li><a href="#org720d7eb">10.1.1. in master</a></li>
-<li><a href="#orgb2ef46f">10.1.2. switch to branch</a></li>
-<li><a href="#org71da418">10.1.3. switch back to master and merge</a></li>
-<li><a href="#orgae3f6e3">10.1.4. git to remote</a></li>
-<li><a href="#org7911d86">10.1.5. get newest repo</a></li>
+<li><a href="#orged8eaa3">10.1.1. in master</a></li>
+<li><a href="#org8edbb78">10.1.2. switch to branch</a></li>
+<li><a href="#org37e92a0">10.1.3. switch back to master and merge</a></li>
+<li><a href="#org6215b71">10.1.4. git to remote</a></li>
+<li><a href="#orge8c749b">10.1.5. get newest repo</a></li>
 </ul>
 </li>
-<li><a href="#org44e0f71">10.2. magit</a></li>
+<li><a href="#org964ae7f">10.2. magit</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orge54b290" class="outline-2">
-<h2 id="orge54b290"><span class="section-number-2">1</span> 问题</h2>
+<div id="outline-container-org200470d" class="outline-2">
+<h2 id="org200470d"><span class="section-number-2">1</span> 问题</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li class="trans"><code>[-]</code> org 转换为标准 latex 文件</li>
@@ -411,8 +408,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org6f31cd2" class="outline-2">
-<h2 id="org6f31cd2"><span class="section-number-2">2</span> 调试脚本</h2>
+<div id="outline-container-org26d03f0" class="outline-2">
+<h2 id="org26d03f0"><span class="section-number-2">2</span> 调试脚本</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>单独加载另外一个 emacs 的初始化文件</li>
@@ -430,12 +427,12 @@ emacs --no-initial-file --load-file=~/youemacs.el
 </div>
 </div>
 
-<div id="outline-container-org25f87f0" class="outline-2">
-<h2 id="org25f87f0"><span class="section-number-2">3</span> 澄清概念</h2>
+<div id="outline-container-org55eeef2" class="outline-2">
+<h2 id="org55eeef2"><span class="section-number-2">3</span> 澄清概念</h2>
 <div class="outline-text-2" id="text-3">
 </div>
 <ol class="org-ol">
-<li><a id="orge3031dd"></a>组合键的术语是 Command， 而不是 ShortCut<br />
+<li><a id="org35d9a5d"></a>组合键的术语是 Command， 而不是 ShortCut<br />
 <div class="outline-text-5" id="text-3-0-0-1">
 <p>
 例如，搜索插入文件变量的组合键，关键词应为 <span class="underline">command file variable emacs</span>
@@ -445,35 +442,35 @@ emacs --no-initial-file --load-file=~/youemacs.el
 </li>
 </ol>
 </div>
-<div id="outline-container-orgefebd65" class="outline-2">
-<h2 id="orgefebd65"><span class="section-number-2">4</span> 重要概念</h2>
+<div id="outline-container-orgab28651" class="outline-2">
+<h2 id="orgab28651"><span class="section-number-2">4</span> 重要概念</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgd99433b" class="outline-3">
-<h3 id="orgd99433b"><span class="section-number-3">4.1</span> 屏幕（Screen）</h3>
+<div id="outline-container-org7415b9f" class="outline-3">
+<h3 id="org7415b9f"><span class="section-number-3">4.1</span> 屏幕（Screen）</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Emacs 的显示区域称为 Frame ， 在 Frame 中可包含多个 Windows。 Emacs 中 Frame 在 IDE 中称为 Windows， 而 Emacs 的 Windows 在 IDE 中称为 View。
 </p>
 </div>
-<div id="outline-container-orgb1739b6" class="outline-4">
-<h4 id="orgb1739b6"><span class="section-number-4">4.1.1</span> Point</h4>
+<div id="outline-container-org19fe837" class="outline-4">
+<h4 id="org19fe837"><span class="section-number-4">4.1.1</span> Point</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 称为输入提示符号。通过 Cursor 可以改变输入符号的显示。
 </p>
 </div>
 </div>
-<div id="outline-container-org406509b" class="outline-4">
-<h4 id="org406509b"><span class="section-number-4">4.1.2</span> Echo Area</h4>
+<div id="outline-container-orga40b4d9" class="outline-4">
+<h4 id="orga40b4d9"><span class="section-number-4">4.1.2</span> Echo Area</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <p>
 显示输入命令的区域。Display Custom 修改 Echo Area。Echo Area 用于显示 Minibuffer。退出 Minibuffer 命令是 C-g。
 </p>
 </div>
 </div>
-<div id="outline-container-orge5cb43c" class="outline-4">
-<h4 id="orge5cb43c"><span class="section-number-4">4.1.3</span> Mode Line</h4>
+<div id="outline-container-org1b35f34" class="outline-4">
+<h4 id="org1b35f34"><span class="section-number-4">4.1.3</span> Mode Line</h4>
 <div class="outline-text-4" id="text-4-1-3">
 <p>
 窗口底部是 Mode Line，显示当前 buffer 状态。Mode Line 文本格式如下
@@ -573,32 +570,32 @@ Emacs 的显示区域称为 Frame ， 在 Frame 中可包含多个 Windows。 Em
 </div>
 </div>
 
-<div id="outline-container-orgf65d1fa" class="outline-3">
-<h3 id="orgf65d1fa"><span class="section-number-3">4.2</span> 用户输入（User input）</h3>
+<div id="outline-container-org760eb49" class="outline-3">
+<h3 id="org760eb49"><span class="section-number-3">4.2</span> 用户输入（User input）</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 Emacs 主要设计目的是通过键盘与用户交互，当然 Emacs 也使用鼠标，但这不是设计的出发点。 因而要能熟练使用键盘快捷键操作和编辑文件。
 </p>
 </div>
 </div>
-<div id="outline-container-orge768aff" class="outline-3">
-<h3 id="orge768aff"><span class="section-number-3">4.3</span> 输入键 （Keys）</h3>
+<div id="outline-container-orga0adc46" class="outline-3">
+<h3 id="orga0adc46"><span class="section-number-3">4.3</span> 输入键 （Keys）</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 Key 和其组合键会引发 key event。如果一组 Key 引发一条命令，称为 Complete Key。 如果无法触发命令，称为 Prefix key，如 C-x 和 M-x。
 </p>
 </div>
 </div>
-<div id="outline-container-orgee407ea" class="outline-3">
-<h3 id="orgee407ea"><span class="section-number-3">4.4</span> 命令 （Command）</h3>
+<div id="outline-container-orged9dad2" class="outline-3">
+<h3 id="orged9dad2"><span class="section-number-3">4.4</span> 命令 （Command）</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 每条命令是一个 Lisp 函数。 将命令与组合键绑定在一起称为 Keymaps。 C-n 之所以能跳到下一行，是因为绑定了函数 next-line。
 </p>
 </div>
 </div>
-<div id="outline-container-org04134d1" class="outline-3">
-<h3 id="org04134d1"><span class="section-number-3">4.5</span> 进入 Emacs</h3>
+<div id="outline-container-org0f68bb5" class="outline-3">
+<h3 id="org0f68bb5"><span class="section-number-3">4.5</span> 进入 Emacs</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 如果 inhibit-startup-screen 为 non-nil 将不会显示欢迎界面，而直接进入到 <b>scratch</b> 文件，在其中能运行一些待测试的 Lisp 程序。
@@ -609,8 +606,8 @@ Key 和其组合键会引发 key event。如果一组 Key 引发一条命令，�
 </p>
 </div>
 </div>
-<div id="outline-container-orge4f450c" class="outline-3">
-<h3 id="orge4f450c"><span class="section-number-3">4.6</span> 退出 Emacs</h3>
+<div id="outline-container-org2a7dfee" class="outline-3">
+<h3 id="org2a7dfee"><span class="section-number-3">4.6</span> 退出 Emacs</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
 C-x C-x 退出 Emacs (save-buffers-kill-terminal)
@@ -624,16 +621,16 @@ Emacs 能在退出时保存当前会话 Session，下次启动后可先加载此
 </div>
 </div>
 </div>
-<div id="outline-container-org635dada" class="outline-2">
-<h2 id="org635dada"><span class="section-number-2">5</span> 基本编辑命令</h2>
+<div id="outline-container-orga29c7aa" class="outline-2">
+<h2 id="orga29c7aa"><span class="section-number-2">5</span> 基本编辑命令</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org68f9f64" class="outline-3">
-<h3 id="org68f9f64"><span class="section-number-3">5.1</span> 基础</h3>
+<div id="outline-container-org9e69991" class="outline-3">
+<h3 id="org9e69991"><span class="section-number-3">5.1</span> 基础</h3>
 <div class="outline-text-3" id="text-5-1">
 </div>
-<div id="outline-container-org1e7ca75" class="outline-4">
-<h4 id="org1e7ca75"><span class="section-number-4">5.1.1</span> 插入文本 (Insert Text)</h4>
+<div id="outline-container-orgf14f21b" class="outline-4">
+<h4 id="orgf14f21b"><span class="section-number-4">5.1.1</span> 插入文本 (Insert Text)</h4>
 <div class="outline-text-4" id="text-5-1-1">
 <p>
 <code>C-j</code> [O] 插入新的空行，新行没有 auto-indent 。 在 Minor Mode 中， 可以改变插入方式。 例如， <code>Auto Fill Mode</code> 可自动截取超出长度的文本(参见 Filling)。
@@ -658,8 +655,8 @@ Unicode 字符还可以通过 <code>C-x 8</code> 命令插入， <code>C-x 8 C-h
 </div>
 </div>
 
-<div id="outline-container-orgf431a9b" class="outline-4">
-<h4 id="orgf431a9b"><span class="section-number-4">5.1.2</span> 移动光标 (Move Point)</h4>
+<div id="outline-container-org106eeda" class="outline-4">
+<h4 id="org106eeda"><span class="section-number-4">5.1.2</span> 移动光标 (Move Point)</h4>
 <div class="outline-text-4" id="text-5-1-2">
 <p>
 我使用 Evil-mode 所以不太用这些操作。
@@ -667,8 +664,8 @@ Unicode 字符还可以通过 <code>C-x 8</code> 命令插入， <code>C-x 8 C-h
 </div>
 </div>
 
-<div id="outline-container-org621bf7f" class="outline-4">
-<h4 id="org621bf7f"><span class="section-number-4">5.1.3</span> 删除 (Erasing)</h4>
+<div id="outline-container-orge5b63d6" class="outline-4">
+<h4 id="orge5b63d6"><span class="section-number-4">5.1.3</span> 删除 (Erasing)</h4>
 <div class="outline-text-4" id="text-5-1-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -722,8 +719,8 @@ Unicode 字符还可以通过 <code>C-x 8</code> 命令插入， <code>C-x 8 C-h
 </div>
 </div>
 
-<div id="outline-container-orgd6ee619" class="outline-4">
-<h4 id="orgd6ee619"><span class="section-number-4">5.1.4</span> 基本撤销 (Basic Undo)</h4>
+<div id="outline-container-orge0b8ad3" class="outline-4">
+<h4 id="orge0b8ad3"><span class="section-number-4">5.1.4</span> 基本撤销 (Basic Undo)</h4>
 <div class="outline-text-4" id="text-5-1-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -757,8 +754,8 @@ Unicode 字符还可以通过 <code>C-x 8</code> 命令插入， <code>C-x 8 C-h
 </table>
 </div>
 </div>
-<div id="outline-container-org6050a8e" class="outline-4">
-<h4 id="org6050a8e"><span class="section-number-4">5.1.5</span> 文件 (Files)</h4>
+<div id="outline-container-org3930cc2" class="outline-4">
+<h4 id="org3930cc2"><span class="section-number-4">5.1.5</span> 文件 (Files)</h4>
 <div class="outline-text-4" id="text-5-1-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -793,8 +790,8 @@ Unicode 字符还可以通过 <code>C-x 8</code> 命令插入， <code>C-x 8 C-h
 </div>
 </div>
 
-<div id="outline-container-orgb0ae182" class="outline-4">
-<h4 id="orgb0ae182"><span class="section-number-4">5.1.6</span> 帮助 (Help)</h4>
+<div id="outline-container-org2ff893a" class="outline-4">
+<h4 id="org2ff893a"><span class="section-number-4">5.1.6</span> 帮助 (Help)</h4>
 <div class="outline-text-4" id="text-5-1-6">
 <p>
 简单，直接 <code>C-h</code> 即可。
@@ -802,8 +799,8 @@ Unicode 字符还可以通过 <code>C-x 8</code> 命令插入， <code>C-x 8 C-h
 </div>
 </div>
 
-<div id="outline-container-org99fc752" class="outline-4">
-<h4 id="org99fc752"><span class="section-number-4">5.1.7</span> 空行 (Blank Lines)</h4>
+<div id="outline-container-org3505937" class="outline-4">
+<h4 id="org3505937"><span class="section-number-4">5.1.7</span> 空行 (Blank Lines)</h4>
 <div class="outline-text-4" id="text-5-1-7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -838,8 +835,8 @@ Unicode 字符还可以通过 <code>C-x 8</code> 命令插入， <code>C-x 8 C-h
 </div>
 </div>
 
-<div id="outline-container-org4a37280" class="outline-4">
-<h4 id="org4a37280"><span class="section-number-4">5.1.8</span> 连续行 (Continuation Lines)</h4>
+<div id="outline-container-org389fbc9" class="outline-4">
+<h4 id="org389fbc9"><span class="section-number-4">5.1.8</span> 连续行 (Continuation Lines)</h4>
 <div class="outline-text-4" id="text-5-1-8">
 <p>
 :ID:       0500a5b8-4fdb-4b52-9beb-472db7ab2bda
@@ -854,7 +851,7 @@ Unicode 字符还可以通过 <code>C-x 8</code> 命令插入， <code>C-x 8 C-h
 </p>
 
 
-<div id="orgb4dbdd0" class="figure">
+<div id="orgd99dea7" class="figure">
 <p><img src="./pic/trunc1.png" alt="trunc1.png" />
 </p>
 <p><span class="figure-number">Figure 1: </span>使用<kbd> SPC t l </kbd> 启用 line truncation</p>
@@ -862,32 +859,32 @@ Unicode 字符还可以通过 <code>C-x 8</code> 命令插入， <code>C-x 8 C-h
 </div>
 </div>
 
-<div id="outline-container-org05b15c4" class="outline-4">
-<h4 id="org05b15c4"><span class="section-number-4">5.1.9</span> 位置信息 (Position Info)</h4>
+<div id="outline-container-org39c4888" class="outline-4">
+<h4 id="org39c4888"><span class="section-number-4">5.1.9</span> 位置信息 (Position Info)</h4>
 </div>
-<div id="outline-container-org574487e" class="outline-4">
-<h4 id="org574487e"><span class="section-number-4">5.1.10</span> 参数 (Arguments)</h4>
+<div id="outline-container-org9d1e045" class="outline-4">
+<h4 id="org9d1e045"><span class="section-number-4">5.1.10</span> 参数 (Arguments)</h4>
 </div>
-<div id="outline-container-org0393e61" class="outline-4">
-<h4 id="org0393e61"><span class="section-number-4">5.1.11</span> 重复 (Repeating)</h4>
-</div>
-</div>
-<div id="outline-container-org2cd506a" class="outline-3">
-<h3 id="org2cd506a"><span class="section-number-3">5.2</span> Minibuffer</h3>
-</div>
-<div id="outline-container-orga646eb0" class="outline-3">
-<h3 id="orga646eb0"><span class="section-number-3">5.3</span> M-x</h3>
-</div>
-<div id="outline-container-orgcb0258b" class="outline-3">
-<h3 id="orgcb0258b"><span class="section-number-3">5.4</span> 帮助(help)</h3>
+<div id="outline-container-org225e62f" class="outline-4">
+<h4 id="org225e62f"><span class="section-number-4">5.1.11</span> 重复 (Repeating)</h4>
 </div>
 </div>
-<div id="outline-container-orga915d13" class="outline-2">
-<h2 id="orga915d13"><span class="section-number-2">6</span> org-mode</h2>
+<div id="outline-container-org1e34cae" class="outline-3">
+<h3 id="org1e34cae"><span class="section-number-3">5.2</span> Minibuffer</h3>
+</div>
+<div id="outline-container-org5f1012d" class="outline-3">
+<h3 id="org5f1012d"><span class="section-number-3">5.3</span> M-x</h3>
+</div>
+<div id="outline-container-orgdcce321" class="outline-3">
+<h3 id="orgdcce321"><span class="section-number-3">5.4</span> 帮助(help)</h3>
+</div>
+</div>
+<div id="outline-container-org2fad268" class="outline-2">
+<h2 id="org2fad268"><span class="section-number-2">6</span> org-mode</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org2dd66ce" class="outline-3">
-<h3 id="org2dd66ce"><span class="section-number-3">6.1</span> Agenda Views</h3>
+<div id="outline-container-orgec5186b" class="outline-3">
+<h3 id="orgec5186b"><span class="section-number-3">6.1</span> Agenda Views</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Todo items 、 time-stamped items 和 tagged headlines 可能分布在不同的文件中。
@@ -895,8 +892,8 @@ Todo items 、 time-stamped items 和 tagged headlines 可能分布在不同的�
 方式称为 Agenda。
 </p>
 </div>
-<div id="outline-container-org4ac59d7" class="outline-4">
-<h4 id="org4ac59d7"><span class="section-number-4">6.1.1</span> Agenda Files</h4>
+<div id="outline-container-orgfb058ab" class="outline-4">
+<h4 id="orgfb058ab"><span class="section-number-4">6.1.1</span> Agenda Files</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <p>
 <code>org-agenda-files</code> 存放 agenda 文件指定位置，通常是配置为目录，该目录下所
@@ -918,12 +915,12 @@ Todo items 、 time-stamped items 和 tagged headlines 可能分布在不同的�
 </div>
 </div>
 
-<div id="outline-container-org4d8be54" class="outline-3">
-<h3 id="org4d8be54"><span class="section-number-3">6.2</span> Document Structure</h3>
+<div id="outline-container-orgf3218f7" class="outline-3">
+<h3 id="orgf3218f7"><span class="section-number-3">6.2</span> Document Structure</h3>
 <div class="outline-text-3" id="text-6-2">
 </div>
-<div id="outline-container-orga97a776" class="outline-4">
-<h4 id="orga97a776"><span class="section-number-4">6.2.1</span> Headlines</h4>
+<div id="outline-container-org170d7bc" class="outline-4">
+<h4 id="org170d7bc"><span class="section-number-4">6.2.1</span> Headlines</h4>
 <div class="outline-text-4" id="text-6-2-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -953,41 +950,41 @@ Todo items 、 time-stamped items 和 tagged headlines 可能分布在不同的�
 </div>
 </div>
 </div>
-<div id="outline-container-org1126cd8" class="outline-3">
-<h3 id="org1126cd8"><span class="section-number-3">6.3</span> ToDo Items</h3>
+<div id="outline-container-orgf5dfd8f" class="outline-3">
+<h3 id="orgf5dfd8f"><span class="section-number-3">6.3</span> ToDo Items</h3>
 <div class="outline-text-3" id="text-6-3">
 </div>
 <ol class="org-ol">
-<li><a id="org274b5c2"></a>Basic<br /></li>
+<li><a id="org29aa7f6"></a>Basic<br /></li>
 </ol>
 </div>
-<div id="outline-container-org58144a3" class="outline-3">
-<h3 id="org58144a3"><span class="section-number-3">6.4</span> Datetimes</h3>
+<div id="outline-container-org0b1b323" class="outline-3">
+<h3 id="org0b1b323"><span class="section-number-3">6.4</span> Datetimes</h3>
 <div class="outline-text-3" id="text-6-4">
 <p>
 ToDo items 可以标记 date 和 time， 在 org 中称之为 timestamp。
 </p>
 </div>
-<div id="outline-container-orgae9a898" class="outline-4">
-<h4 id="orgae9a898"><span class="section-number-4">6.4.1</span> Timestamps</h4>
+<div id="outline-container-org55a75ac" class="outline-4">
+<h4 id="org55a75ac"><span class="section-number-4">6.4.1</span> Timestamps</h4>
 <div class="outline-text-4" id="text-6-4-1">
 <p>
 时间戳分类
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org4bf141d"></a>普通时间戳；事件；约会<br />
+<li><a id="orgaca00ce"></a>普通时间戳；事件；约会<br />
 <div class="outline-text-5" id="text-6-4-1-1">
 <p>
 只分配 date/time 形式的时间戳，在显示 agenda 时，只显示 date。
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org4f0e7e7"></a>周六看电影<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-30 Sat&gt;</span></span><br /></li>
-<li><a id="orgd1a3f55"></a>周四吃晚餐<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-28 Thu&gt;</span></span><br /></li>
+<li><a id="org0102619"></a>周六看电影<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-30 Sat&gt;</span></span><br /></li>
+<li><a id="org9767c5a"></a>周四吃晚餐<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-11-28 Thu&gt;</span></span><br /></li>
 </ol>
 </li>
-<li><a id="orgadf4362"></a>规律重复出现的时间戳<br />
+<li><a id="orgb18b08c"></a>规律重复出现的时间戳<br />
 <div class="outline-text-5" id="text-6-4-1-2">
 <p>
 如每天下午 5 点跑步，每周六去公园玩，每年的生日等。
@@ -995,37 +992,37 @@ ToDo items 可以标记 date 和 time， 在 org 中称之为 timestamp。
 </p>
 </div>
 </li>
-<li><a id="org973cb6c"></a>用 sexp 表示复杂日期<br />
+<li><a id="orga814f1b"></a>用 sexp 表示复杂日期<br />
 <div class="outline-text-5" id="text-6-4-1-3">
 <p>
 牵涉到 LISP 语言中的 S-exp 表达式，暂不考虑。可以用来安排课程表。 
 </p>
 </div>
 </li>
-<li><a id="orgcf2477d"></a>指定 Time/Date 范围<br />
+<li><a id="org1c40c68"></a>指定 Time/Date 范围<br />
 <div class="outline-text-5" id="text-6-4-1-4">
 <p>
 由 <code>--</code> 连接的两个日期表示范围。
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org099f61f"></a>论文答辩<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-10 Tue&gt;&#x2013;&lt;2019-12-13 Fri&gt;</span></span><br /></li>
+<li><a id="org1315e41"></a>论文答辩<span class="timestamp-wrapper"><span class="timestamp">&lt;2019-12-10 Tue&gt;&#x2013;&lt;2019-12-13 Fri&gt;</span></span><br /></li>
 </ol>
 </li>
-<li><a id="org64034af"></a>非激活日期<br />
+<li><a id="org08d4661"></a>非激活日期<br />
 <div class="outline-text-5" id="text-6-4-1-5">
 <p>
 由 <code>[ ]</code> 包含的日期，并不会出现在 agenda 中。
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org2934235"></a>和朋友聚餐 <span class="timestamp-wrapper"><span class="timestamp">[2019-11-28 Thu]</span></span><br /></li>
+<li><a id="orgda14379"></a>和朋友聚餐 <span class="timestamp-wrapper"><span class="timestamp">[2019-11-28 Thu]</span></span><br /></li>
 </ol>
 </li>
 </ol>
 </div>
-<div id="outline-container-org43caa2e" class="outline-4">
-<h4 id="org43caa2e"><span class="section-number-4">6.4.2</span> 创建时间戳</h4>
+<div id="outline-container-org9c9a37b" class="outline-4">
+<h4 id="org9c9a37b"><span class="section-number-4">6.4.2</span> 创建时间戳</h4>
 <div class="outline-text-4" id="text-6-4-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1074,8 +1071,8 @@ ToDo items 可以标记 date 和 time， 在 org 中称之为 timestamp。
 </table>
 </div>
 </div>
-<div id="outline-container-orge5dd7d5" class="outline-4">
-<h4 id="orge5dd7d5"><span class="section-number-4">6.4.3</span> Deadlines 和 Scheduling</h4>
+<div id="outline-container-org2778fda" class="outline-4">
+<h4 id="org2778fda"><span class="section-number-4">6.4.3</span> Deadlines 和 Scheduling</h4>
 <div class="outline-text-4" id="text-6-4-3">
 <p>
 时间戳可配置特殊关键字帮助进行计划，例如 Deadlines 和 Scheduling。
@@ -1087,7 +1084,7 @@ ToDo items 可以标记 date 和 time， 在 org 中称之为 timestamp。
 </div>
 
 <ol class="org-ol">
-<li><a id="orgd1bdd2f"></a>DEADLINE<br />
+<li><a id="orge46ba8f"></a>DEADLINE<br />
 <div class="outline-text-5" id="text-6-4-3-1">
 <p>
 所有 DEADLINE 日期之前计划的事件都会显示在 agenda 中，
@@ -1096,7 +1093,7 @@ ToDo items 可以标记 date 和 time， 在 org 中称之为 timestamp。
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org0e16898"></a><span class="todo DONE">DONE</span> 完成课程教案编写工作<br />
+<li><a id="org5479d91"></a><span class="todo DONE">DONE</span> 完成课程教案编写工作<br />
 <div class="outline-text-6" id="text-6-4-3-1-1">
 <div class="org-src-container">
 <pre class="src src-orgmode">DEADLINE:&lt;2019-11-30 Sat&gt;
@@ -1109,7 +1106,7 @@ ToDo items 可以标记 date 和 time， 在 org 中称之为 timestamp。
 </p>
 </div>
 </li>
-<li><a id="orgbdef68c"></a><span class="todo TODO">TODO</span> 与张总见面约谈<br />
+<li><a id="org7918493"></a><span class="todo TODO">TODO</span> 与张总见面约谈<br />
 <div class="outline-text-6" id="text-6-4-3-1-2">
 <div class="org-src-container">
 <pre class="src src-orgmode">DEADLINE:&lt;2019-11-30 Sat -2d&gt; 
@@ -1124,7 +1121,7 @@ ToDo items 可以标记 date 和 time， 在 org 中称之为 timestamp。
 </p>
 </div>
 </li>
-<li><a id="org17321ea"></a><span class="todo DONE">DONE</span> 交房租<br />
+<li><a id="org413c038"></a><span class="todo DONE">DONE</span> 交房租<br />
 <div class="outline-text-6" id="text-6-4-3-1-3">
 <div class="org-src-container">
 <pre class="src src-orgmode">DEADLINE: &lt;2019-08-15 Thu +1m -2d&gt;
@@ -1136,7 +1133,7 @@ ToDo items 可以标记 date 和 time， 在 org 中称之为 timestamp。
 </div>
 </li>
 
-<li><a id="orgd16a2c9"></a><span class="todo DONE">DONE</span> 与 Scott 老师视频通话<br />
+<li><a id="orgfef360d"></a><span class="todo DONE">DONE</span> 与 Scott 老师视频通话<br />
 <div class="outline-text-6" id="text-6-4-3-1-4">
 <div class="org-src-container">
 <pre class="src src-orgmode">SCHEDULED: &lt;2019-10-25 Fri ++1w&gt;
@@ -1149,7 +1146,7 @@ ToDo items 可以标记 date 和 time， 在 org 中称之为 timestamp。
 </li>
 </ol>
 </li>
-<li><a id="orgc682ea8"></a>SCHEDULED<br />
+<li><a id="org5222c1f"></a>SCHEDULED<br />
 <div class="outline-text-5" id="text-6-4-3-2">
 <p>
 计划何时开始某项新任务。如果延迟两天才开始该任务，则显示为 <code>2x</code> 。如果计
@@ -1162,7 +1159,7 @@ SCHEDULED 经常会被误解。 例如，与某人约会是 appointment，使用
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org9f098a6"></a><span class="todo DONE">DONE</span> 去新加坡旅行<br />
+<li><a id="orge34407b"></a><span class="todo DONE">DONE</span> 去新加坡旅行<br />
 <div class="outline-text-6" id="text-6-4-3-2-1">
 <div class="org-src-container">
 <pre class="src src-orgmode">SCHEDULED:&lt;2019-11-24 Sun --2d&gt; 
@@ -1177,13 +1174,385 @@ SCHEDULED 经常会被误解。 例如，与某人约会是 appointment，使用
 </div>
 </div>
 
-<div id="outline-container-orgca1d61b" class="outline-2">
-<h2 id="orgca1d61b"><span class="section-number-2">7</span> Timer Example</h2>
+<div id="outline-container-orgaa1ea57" class="outline-2">
+<h2 id="orgaa1ea57"><span class="section-number-2">7</span> Timer Example</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-org5f5fa19" class="outline-3">
-<h3 id="org5f5fa19"><span class="section-number-3">7.1</span> Clocking 命令</h3>
-<div class="outline-text-3" id="text-7-1">
+<div id="outline-container-org27c2d21" class="outline-3">
+<h3 id="org27c2d21"><span class="section-number-3">7.1</span> Clock column view example</h3>
+</div>
+
+<div id="outline-container-orgdae465a" class="outline-3">
+<h3 id="orgdae465a"><span class="section-number-3">7.2</span> Effort estimate example</h3>
+</div>
+</div>
+
+<div id="outline-container-org2b3a112" class="outline-2">
+<h2 id="org2b3a112"><span class="section-number-2">8</span> Orgmode (Studing)</h2>
+<div class="outline-text-2" id="text-8">
+</div>
+<div id="outline-container-org63da2db" class="outline-3">
+<h3 id="org63da2db"><span class="section-number-3">8.1</span> <span class="todo DONE">DONE</span> E01S01 : Headlines &amp; outline mode</h3>
+<div class="outline-text-3" id="text-8-1">
+<p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">[2020-02-10 Mon 21:25]</span></span></p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Local expand/collapse cycle</td>
+<td class="org-left"><kbd> &lt;tab&gt; </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Global expand/collapse cycle</td>
+<td class="org-left"><kbd> &lt;backtab&gt; </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Increase level</td>
+<td class="org-left"><kbd> &lt;alt-right&gt; </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Decrease level</td>
+<td class="org-left"><kbd> &lt;alt-left&gt; </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Move up</td>
+<td class="org-left"><kbd> &lt;M-up&gt; </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Move down</td>
+<td class="org-left"><kbd> &lt;M-down&gt; </kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org6e8ba14" class="outline-3">
+<h3 id="org6e8ba14"><span class="section-number-3">8.2</span> <span class="todo DONE">DONE</span> E01S02 : ToDo Keywords</h3>
+<div class="outline-text-3" id="text-8-2">
+<p>
+More keywords by define <code>#+SEQ_TODO:</code> . 
+Item of left | are TODO items (red).
+Item of right | are DONE items (green).
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Cycle through them</td>
+<td class="org-left"><kbd> &lt;S-right&gt; </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Active local setup line with</td>
+<td class="org-left"><kbd> C-c C-c </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Get a menu of all keywords</td>
+<td class="org-left"><kbd> C-c C-t </kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org58771d1" class="outline-3">
+<h3 id="org58771d1"><span class="section-number-3">8.3</span> <span class="todo DONE">DONE</span> E01S03 : Schedule, Deadlines &amp; Agenda views</h3>
+<div class="outline-text-3" id="text-8-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Schedule done</td>
+<td class="org-left"><kbd> C-c C-s </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Deadlines defined</td>
+<td class="org-left"><kbd> C-c C-d </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Agenda switch</td>
+<td class="org-left"><kbd> C-a a </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Follow mode</td>
+<td class="org-left"><kbd> S-f </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Move forward</td>
+<td class="org-left"><kbd> f </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Move backward</td>
+<td class="org-left"><kbd> b </kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgde16ff9" class="outline-3">
+<h3 id="orgde16ff9"><span class="section-number-3">8.4</span> <span class="todo DONE">DONE</span> E01S04 : Repeating tasks</h3>
+<div class="outline-text-3" id="text-8-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">regular every week (d=day w=weak m=month y=year)</td>
+<td class="org-left">+1w</td>
+</tr>
+
+<tr>
+<td class="org-left">repeat every week, definitely in the future</td>
+<td class="org-left">++1w</td>
+</tr>
+
+<tr>
+<td class="org-left">Next 4 week after the task is DONE</td>
+<td class="org-left">.+4w</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+If repeated event was setting by SCHEDULED <kbd> C-c C-t
+</kbd> , you could press <kbd> C-c C-t </kbd>
+again to change current SCHEDULED event to state DONE and restart a new
+SCHEDULED event.
+</p>
+</div>
+
+<div id="outline-container-org3e15e64" class="outline-4">
+<h4 id="org3e15e64"><span class="section-number-4">8.4.1</span> 规律重复出现的时间戳</h4>
+<div class="outline-text-4" id="text-8-4-1">
+<p>
+如每天下午 5 点跑步，每周六去公园玩，每年的生日等。
+<b>d</b> 表示 day， <b>w</b> 表示 week ， <b>m</b> 表示 month。
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0f01e02" class="outline-3">
+<h3 id="org0f01e02"><span class="section-number-3">8.5</span> <span class="todo DONE">DONE</span> E01S05 : Checklists <code>[2/4]</code></h3>
+<div class="outline-text-3" id="text-8-5">
+<ul class="org-ul">
+<li class="off"><code>[&#xa0;]</code> This is checklist</li>
+<li class="off"><code>[&#xa0;]</code> New checklist by <kbd> &lt;M-S-return&gt; </kbd></li>
+<li class="on"><code>[X]</code> You can see the completion of the checklist with <code>[0/0]</code> or <code>[0%]</code> on headlines.</li>
+<li class="on"><code>[X]</code> Checkbox toggled with <kbd> C-c C-c </kbd></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orge1ca932" class="outline-3">
+<h3 id="orge1ca932"><span class="section-number-3">8.6</span> <span class="todo DONE">DONE</span> E02S01 : Tags&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BASIC">BASIC</span></span></h3>
+<div class="outline-text-3" id="text-8-6">
+<p>
+Tags can be added to headlines and are often used as a way to mark GTD contexts.
+</p>
+
+<p>
+Tags can be predefined with a line <code>#+TAGS:PHONE(o) ...</code> at the beginning of
+the file. Use <kbd> C-c C-q </kbd> to assign a tags for a
+headline. Use <kbd> &lt;tab&gt; </kbd> to enter new tags instead
+of predefined tags. Clear tags by <kbd> SPC </kbd> .
+</p>
+</div>
+</div>
+
+<div id="outline-container-org43fc864" class="outline-3">
+<h3 id="org43fc864"><span class="section-number-3">8.7</span> <span class="todo DONE">DONE</span> E02S02 : Agenda view (advanced)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BASIC">BASIC</span></span></h3>
+<div class="outline-text-3" id="text-8-7">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Timeline for current buffer</td>
+<td class="org-left"><kbd> L </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">List all TODO entries</td>
+<td class="org-left"><kbd> t </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Entries with a special TODO Keywords</td>
+<td class="org-left"><kbd> T </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Match tags/propoerties/TODO keywords</td>
+<td class="org-left"><kbd> M </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Like before, but only TODO keywords</td>
+<td class="org-left"><kbd> M </kbd></td>
+</tr>
+
+<tr>
+<td class="org-left">Search for keywords</td>
+<td class="org-left"><kbd> s </kbd></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgd86f18b" class="outline-3">
+<h3 id="orgd86f18b"><span class="section-number-3">8.8</span> <span class="todo DONE">DONE</span> E02S03 : Customized Agenda view</h3>
+<div class="outline-text-3" id="text-8-8">
+<p>
+for customizing agenda command 
+</p>
+</div>
+</div>
+<div id="outline-container-org7af247d" class="outline-3">
+<h3 id="org7af247d"><span class="section-number-3">8.9</span> <span class="todo DONE">DONE</span> E02S04 : Drawers,Logging &amp; quick notes&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ADVANCED">ADVANCED</span></span></h3>
+<div class="outline-text-3" id="text-8-9">
+<ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-02-12 Wed 10:14] </span></span> <br />
+test quick notes</li>
+</ul>
+<p>
+I want to add quick notes. If you want <code>:LOGBOOK:</code> appeared in the body, you
+must customize <code>org-log-into-drawer</code>.
+</p>
+
+<p>
+We could create <b>DRAWER</b> by <kbd> C-c C-x d </kbd> .
+</p>
+
+<ul class="org-ul">
+<li>This is the usually <b>hidden</b> content of drawer</li>
+<li>The drawer ends with the line that says :END:</li>
+<li>Reserved drawer names are e.g. :LOGBOOK: or :PROPERTIES:</li>
+</ul>
+<p>
+<code>:LOGBOOK:</code> don't display in the ouput html files!? 
+</p>
+
+<p>
+This is the source orgfiles
+</p>
+<div class="org-src-container">
+<pre class="src src-orgmode">:LOGBOOK:
+- Note taken on [2020-02-12 Wed 10:25] \\
+  After customize ~org-log-into-drawer~, I could get quick notes into body.
+- Note taken on [2020-02-12 Wed 10:09] \\
+  This is a quick notes using @@html:&lt;kbd&gt;@@ C-c C-z @@html:&lt;/kbd&gt;@@ . That's good!
+:END:
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-02-12 Wed 15:36] </span></span> <br />
+You can use <code>#+OPTIONS: d:t</code> to show drawer.</li>
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-02-12 Wed 10:25] </span></span> <br />
+After customize <code>org-log-into-drawer</code>, I could get quick notes into body.</li>
+<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-02-12 Wed 10:09] </span></span> <br />
+This is a quick notes using <kbd> C-c C-z </kbd> . That's good!</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org84a7cb0" class="outline-3">
+<h3 id="org84a7cb0"><span class="section-number-3">8.10</span> <span class="todo DONE">DONE</span> E02S05 : Archiving&#xa0;&#xa0;&#xa0;<span class="tag"><span class="FUTURE">FUTURE</span></span></h3>
+<div class="outline-text-3" id="text-8-10">
+<p>
+Finished tasks collected up your org file. Define a global archives file with
+<code>#+ARCHIVE: myarchive.org::</code>. Archive an entry with <kbd> C-c C-x
+C-a </kbd> . Archive a subtree with <kbd> C-c C-x C-s </kbd> .
+</p>
+
+<p>
+When you complete you task, you can move out of your DONE tasks to archives files.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5c8758b" class="outline-3">
+<h3 id="org5c8758b"><span class="section-number-3">8.11</span> <span class="todo DONE">DONE</span> E03S01 : Automatic logging of status changes&#xa0;&#xa0;&#xa0;<span class="tag"><span class="FUTURE">FUTURE</span></span></h3>
+<div class="outline-text-3" id="text-8-11">
+<p>
+automatic logging of status changes for complicated tasks. I think I will
+never use this feature.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf15c30e" class="outline-3">
+<h3 id="orgf15c30e"><span class="section-number-3">8.12</span> <span class="todo WAITING">WAITING</span> E03S02 : Splitting your system up to several files&#xa0;&#xa0;&#xa0;<span class="tag"><span class="FUTURE">FUTURE</span></span></h3>
+<div class="outline-text-3" id="text-8-12">
+<p>
+See in the future.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd0937a8" class="outline-3">
+<h3 id="orgd0937a8"><span class="section-number-3">8.13</span> <span class="todo WAITING">WAITING</span> E03S03 : The first capture template(s)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="USEFUL">USEFUL</span></span></h3>
+<div class="outline-text-3" id="text-8-13">
+<p>
+Goal: Capturing tasks, ideas and whatever you want!
+</p>
+
+<p>
+Use <kbd> SPC C c </kbd> to open capture template.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc6aa8bf" class="outline-3">
+<h3 id="orgc6aa8bf"><span class="section-number-3">8.14</span> <span class="todo WAITING">WAITING</span> E03S04 : The  -PROPERTIES - drawer&#xa0;&#xa0;&#xa0;<span class="tag"><span class="FUTURE">FUTURE</span></span></h3>
+</div>
+<div id="outline-container-orga4ed41e" class="outline-3">
+<h3 id="orga4ed41e"><span class="section-number-3">8.15</span> <span class="todo WAITING">WAITING</span> E03S05 : Archiving to different files&#xa0;&#xa0;&#xa0;<span class="tag"><span class="FUTURE">FUTURE</span></span></h3>
+</div>
+<div id="outline-container-org95b6c76" class="outline-3">
+<h3 id="org95b6c76"><span class="section-number-3">8.16</span> <span class="todo WAITING">WAITING</span> E04S01 : Ordered tasks&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ADVANCED">ADVANCED</span>&#xa0;<span class="FUTURE">FUTURE</span></span></h3>
+</div>
+<div id="outline-container-org611bdcb" class="outline-3">
+<h3 id="org611bdcb"><span class="section-number-3">8.17</span> <span class="todo DONE">DONE</span> E04S02 : Timers&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BASIC">BASIC</span></span></h3>
+<div class="outline-text-3" id="text-8-17">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1267,13 +1636,13 @@ SCHEDULED 经常会被误解。 例如，与某人约会是 appointment，使用
 </div>
 </div>
 
-<div id="outline-container-org0ce550b" class="outline-3">
-<h3 id="org0ce550b"><span class="section-number-3">7.2</span> Relative timer example</h3>
-<div class="outline-text-3" id="text-7-2">
-<p>
-<b>Football notes</b>
-</p>
-
+<div id="outline-container-org47c9f32" class="outline-3">
+<h3 id="org47c9f32"><span class="section-number-3">8.18</span> <span class="todo DONE">DONE</span> E04S03 : Clocking (aka time tracking)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BASIC">BASIC</span></span></h3>
+<div class="outline-text-3" id="text-8-18">
+</div>
+<div id="outline-container-org6b8a13e" class="outline-4">
+<h4 id="org6b8a13e"><span class="section-number-4">8.18.1</span> Football notes</h4>
+<div class="outline-text-4" id="text-8-18-1">
 <p>
 You'll start relative timer by <kbd> C-c C-x 0 </kbd>
 . The timer will be tick from 00:00:01, 00:00:02, &#x2026; , 00:01:08, &#x2026;.
@@ -1301,13 +1670,13 @@ a goal 1:1.</dd>
 </div>
 </div>
 
-<div id="outline-container-orgd76e949" class="outline-3">
-<h3 id="orgd76e949"><span class="section-number-3">7.3</span> Clock Tracking example</h3>
-<div class="outline-text-3" id="text-7-3">
+<div id="outline-container-orgabc734a" class="outline-4">
+<h4 id="orgabc734a"><span class="section-number-4">8.18.2</span> Clock Tracking example</h4>
+<div class="outline-text-4" id="text-8-18-2">
 </div>
-<div id="outline-container-orge66c32a" class="outline-4">
-<h4 id="orge66c32a"><span class="section-number-4">7.3.1</span> Task A</h4>
-<div class="outline-text-4" id="text-7-3-1">
+<ol class="org-ol">
+<li><a id="org3ee2d60"></a>Task A<br />
+<div class="outline-text-5" id="text-8-18-2-1">
 <ul class="org-ul">
 <li>Some task that we need to know how much time it take.</li>
 </ul>
@@ -1319,11 +1688,10 @@ timestamp，Use <kbd> C-c C-x C-o </kbd> to close
 timestamp.
 </p>
 </div>
-</div>
+</li>
 
-<div id="outline-container-orgace9ae0" class="outline-4">
-<h4 id="orgace9ae0"><span class="section-number-4">7.3.2</span> Task B</h4>
-<div class="outline-text-4" id="text-7-3-2">
+<li><a id="orgee6cd0d"></a>Task B<br />
+<div class="outline-text-5" id="text-8-18-2-2">
 <ul class="org-ul">
 <li>Some other task to clock.</li>
 </ul>
@@ -1334,12 +1702,14 @@ Use <kbd> C-c C-x C-d </kbd> to calculate spended time.
 Use <kbd> C-c C-c </kbd> to cancel display total spended time.
 </p>
 </div>
+</li>
+</ol>
 </div>
 </div>
 
-<div id="outline-container-org958adc2" class="outline-3">
-<h3 id="org958adc2"><span class="section-number-3">7.4</span> Clock column view example</h3>
-<div class="outline-text-3" id="text-7-4">
+<div id="outline-container-orgd1ff503" class="outline-3">
+<h3 id="orgd1ff503"><span class="section-number-3">8.19</span> <span class="todo DONE">DONE</span> E04S04 : Column view&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BASIC">BASIC</span></span></h3>
+<div class="outline-text-3" id="text-8-19">
 <div class="org-src-container">
 <pre class="src src-lisp">#+COLUMNS: %7TODO<span style="color: #AE81FF;">(</span>To Do<span style="color: #AE81FF;">)</span> %40ITEM<span style="color: #AE81FF;">(</span>TASK<span style="color: #AE81FF;">)</span> %TAGS<span style="color: #AE81FF;">(</span>Tags<span style="color: #AE81FF;">)</span> %6CLOCKSUM<span style="color: #AE81FF;">(</span>Clock<span style="color: #AE81FF;">)</span>
 </pre>
@@ -1367,10 +1737,9 @@ Use <kbd> C-c C-c </kbd> to cancel display total spended time.
 </table>
 </div>
 </div>
-
-<div id="outline-container-orgcf92713" class="outline-3">
-<h3 id="orgcf92713"><span class="section-number-3">7.5</span> Effort estimate example</h3>
-<div class="outline-text-3" id="text-7-5">
+<div id="outline-container-org05f54bc" class="outline-3">
+<h3 id="org05f54bc"><span class="section-number-3">8.20</span> <span class="todo DONE">DONE</span> E04S05 : Effort estimates&#xa0;&#xa0;&#xa0;<span class="tag"><span class="BASIC">BASIC</span></span></h3>
+<div class="outline-text-3" id="text-8-20">
 <p>
 Goal: Estimate the effort that your task will take.
 </p>
@@ -1416,218 +1785,39 @@ Add <code>#+COLUMNS: %8Effort(Effort){:}</code> in column view. {:} means sum up
 </table>
 </div>
 </div>
+
+<div id="outline-container-org675c526" class="outline-3">
+<h3 id="org675c526"><span class="section-number-3">8.21</span> <span class="todo NEXT">NEXT</span> E05S01 : Linking (internal)</h3>
 </div>
-
-<div id="outline-container-org9024e98" class="outline-2">
-<h2 id="org9024e98"><span class="section-number-2">8</span> Orgmode (Studing)</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-orge129057" class="outline-3">
+<h3 id="orge129057"><span class="section-number-3">8.22</span> <span class="todo NEXT">NEXT</span> E05S02 : Linking (external)</h3>
 </div>
-<div id="outline-container-orgacfbfc0" class="outline-3">
-<h3 id="orgacfbfc0"><span class="section-number-3">8.1</span> <span class="todo DONE">DONE</span> E01S01 : Headlines &amp; outline mode</h3>
-<div class="outline-text-3" id="text-8-1">
-<p><span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED:</span> <span class="timestamp">[2020-02-10 Mon 21:25]</span></span></p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">Local expand/collapse cycle</td>
-<td class="org-left"><kbd> &lt;tab&gt; </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Global expand/collapse cycle</td>
-<td class="org-left"><kbd> &lt;backtab&gt; </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Increase level</td>
-<td class="org-left"><kbd> &lt;alt-right&gt; </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Decrease level</td>
-<td class="org-left"><kbd> &lt;alt-left&gt; </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Move up</td>
-<td class="org-left"><kbd> &lt;M-up&gt; </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Move down</td>
-<td class="org-left"><kbd> &lt;M-down&gt; </kbd></td>
-</tr>
-</tbody>
-</table>
+<div id="outline-container-org3b8df26" class="outline-3">
+<h3 id="org3b8df26"><span class="section-number-3">8.23</span> <span class="todo NEXT">NEXT</span> E05S03 : Attachments</h3>
 </div>
+<div id="outline-container-orgdd124e8" class="outline-3">
+<h3 id="orgdd124e8"><span class="section-number-3">8.24</span> <span class="todo NEXT">NEXT</span> E05S04 : Priorities</h3>
 </div>
-
-<div id="outline-container-org98fbddc" class="outline-3">
-<h3 id="org98fbddc"><span class="section-number-3">8.2</span> <span class="todo DONE">DONE</span> E01S02 : ToDo Keywords</h3>
-<div class="outline-text-3" id="text-8-2">
-<p>
-More keywords by define <code>#+SEQ_TODO:</code> . 
-Item of left | are TODO items (red).
-Item of right | are DONE items (green).
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">Cycle through them</td>
-<td class="org-left"><kbd> &lt;S-right&gt; </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Active local setup line with</td>
-<td class="org-left"><kbd> C-c C-c </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Get a menu of all keywords</td>
-<td class="org-left"><kbd> C-c C-t </kbd></td>
-</tr>
-</tbody>
-</table>
+<div id="outline-container-orgb34f392" class="outline-3">
+<h3 id="orgb34f392"><span class="section-number-3">8.25</span> <span class="todo NEXT">NEXT</span> E05S05 : Tables</h3>
 </div>
-</div>
-
-<div id="outline-container-org3b38a5a" class="outline-3">
-<h3 id="org3b38a5a"><span class="section-number-3">8.3</span> <span class="todo DONE">DONE</span> E01S03 : Schedule, Deadlines &amp; Agenda views</h3>
-<div class="outline-text-3" id="text-8-3">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">Schedule done</td>
-<td class="org-left"><kbd> C-c C-s </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Deadlines defined</td>
-<td class="org-left"><kbd> C-c C-d </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Agenda switch</td>
-<td class="org-left"><kbd> C-a a </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Follow mode</td>
-<td class="org-left"><kbd> S-f </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Move forward</td>
-<td class="org-left"><kbd> f </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Move backward</td>
-<td class="org-left"><kbd> b </kbd></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="outline-container-org0d230e6" class="outline-3">
-<h3 id="org0d230e6"><span class="section-number-3">8.4</span> <span class="todo DONE">DONE</span> E01S04 : Repeating tasks</h3>
-<div class="outline-text-3" id="text-8-4">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">regular every week (d=day w=weak m=month y=year)</td>
-<td class="org-left">+1w</td>
-</tr>
-
-<tr>
-<td class="org-left">repeat every week, definitely in the future</td>
-<td class="org-left">++1w</td>
-</tr>
-
-<tr>
-<td class="org-left">Next 4 week after the task is DONE</td>
-<td class="org-left">.+4w</td>
-</tr>
-</tbody>
-</table>
-
-<p>
-If repeated event was setting by SCHEDULED <kbd> C-c C-t
-</kbd> , you could press <kbd> C-c C-t </kbd>
-again to change current SCHEDULED event to state DONE and restart a new
-SCHEDULED event.
-</p>
-</div>
-
-<div id="outline-container-orgab9905f" class="outline-4">
-<h4 id="orgab9905f"><span class="section-number-4">8.4.1</span> 规律重复出现的时间戳</h4>
-<div class="outline-text-4" id="text-8-4-1">
-<p>
-如每天下午 5 点跑步，每周六去公园玩，每年的生日等。
-<b>d</b> 表示 day， <b>w</b> 表示 week ， <b>m</b> 表示 month。
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-org47e5e95" class="outline-3">
-<h3 id="org47e5e95"><span class="section-number-3">8.5</span> <span class="todo DONE">DONE</span> E01S05 : Checklists <code>[2/4]</code></h3>
-<div class="outline-text-3" id="text-8-5">
+<div id="outline-container-org6b63199" class="outline-3">
+<h3 id="org6b63199"><span class="section-number-3">8.26</span> <span class="todo NEXT">NEXT</span> E06S01 : Exporting&#xa0;&#xa0;&#xa0;<span class="tag"><span class="USEFUL">USEFUL</span>&#xa0;<span class="BASIC">BASIC</span></span></h3>
+<div class="outline-text-3" id="text-8-26">
 <ul class="org-ul">
-<li class="off"><code>[&#xa0;]</code> This is checklist</li>
-<li class="off"><code>[&#xa0;]</code> New checklist by <kbd> &lt;M-S-return&gt; </kbd></li>
-<li class="on"><code>[X]</code> You can see the completion of the checklist with <code>[0/0]</code> or <code>[0%]</code> on headlines.</li>
-<li class="on"><code>[X]</code> Checkbox toggled with <kbd> C-c C-c </kbd></li>
+<li>Goal:export files into HTML and PDF</li>
+<li>Key :<kbd> C-c C-e </kbd></li>
+<li>Customization: Setting <code>org-file-apps</code> determines the application to open files.</li>
 </ul>
-</div>
-</div>
-<div id="outline-container-org178a5d6" class="outline-3">
-<h3 id="org178a5d6"><span class="section-number-3">8.6</span> <span class="todo DONE">DONE</span> E02S01 : Tags&#xa0;&#xa0;&#xa0;<span class="tag"><span class="TAGS">TAGS</span>&#xa0;<span class="ORGMODE">ORGMODE</span></span></h3>
-<div class="outline-text-3" id="text-8-6">
+
 <p>
-Tags can be added to headlines and are often used as a way to mark GTD contexts.
+[*IMPORTANT*] I have been set how to open html files with qutebrowser and how
+to open pdf files with zathura.
 </p>
 
 <p>
-Tags can be predefined with a line <code>#+TAGS:PHONE(o) ...</code> at the beginning of
-the file. Use <kbd> C-c C-q </kbd> to assign a tags for a
-headline. Use <kbd> &lt;tab&gt; </kbd> to enter new tags instead
-of predefined tags. Clear tags by <kbd> SPC </kbd> .
+Add a line with <code>#+OPTIONS:</code> to fine tune the output, <code>t</code> is true.
 </p>
-</div>
-</div>
-
-<div id="outline-container-org2058606" class="outline-3">
-<h3 id="org2058606"><span class="section-number-3">8.7</span> <span class="todo DONE">DONE</span> E02S02 : Agenda view (advanced)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ORGMODE">ORGMODE</span></span></h3>
-<div class="outline-text-3" id="text-8-7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1638,172 +1828,63 @@ of predefined tags. Clear tags by <kbd> SPC </kbd> .
 </colgroup>
 <tbody>
 <tr>
-<td class="org-left">Timeline for current buffer</td>
-<td class="org-left"><kbd> L </kbd></td>
+<td class="org-left">Show the contents of drawer</td>
+<td class="org-left"><code>d:t</code></td>
 </tr>
 
 <tr>
-<td class="org-left">List all TODO entries</td>
-<td class="org-left"><kbd> t </kbd></td>
+<td class="org-left">Preserve line breaks</td>
+<td class="org-left"><code>\n:t</code></td>
 </tr>
 
 <tr>
-<td class="org-left">Entries with a special TODO Keywords</td>
-<td class="org-left"><kbd> T </kbd></td>
+<td class="org-left">Export planing information</td>
+<td class="org-left"><code>p:t</code></td>
 </tr>
 
 <tr>
-<td class="org-left">Match tags/propoerties/TODO keywords</td>
-<td class="org-left"><kbd> M </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Like before, but only TODO keywords</td>
-<td class="org-left"><kbd> M </kbd></td>
-</tr>
-
-<tr>
-<td class="org-left">Search for keywords</td>
-<td class="org-left"><kbd> s </kbd></td>
+<td class="org-left">Include TODO keywords into exported text</td>
+<td class="org-left"><code>todo:t</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-org80a724e" class="outline-3">
-<h3 id="org80a724e"><span class="section-number-3">8.8</span> <span class="todo DONE">DONE</span> E02S03 : Customized Agenda view&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ORGMODE">ORGMODE</span>&#xa0;<span class="Advanced">Advanced</span></span></h3>
-<div class="outline-text-3" id="text-8-8">
-<p>
-for customizing agenda command 
-</p>
+<div id="outline-container-org230f948" class="outline-3">
+<h3 id="org230f948"><span class="section-number-3">8.27</span> <span class="todo NEXT">NEXT</span> E06S02 : Advanced exporting</h3>
+</div>
+<div id="outline-container-org75a85a7" class="outline-3">
+<h3 id="org75a85a7"><span class="section-number-3">8.28</span> <span class="todo NEXT">NEXT</span> E06S03 : Publishing</h3>
+</div>
+<div id="outline-container-org41590e6" class="outline-3">
+<h3 id="org41590e6"><span class="section-number-3">8.29</span> <span class="todo NEXT">NEXT</span> E06S04 : Dynamic blocks</h3>
+</div>
+<div id="outline-container-org541a108" class="outline-3">
+<h3 id="org541a108"><span class="section-number-3">8.30</span> <span class="todo NEXT">NEXT</span> E06S05 : Tracking habits</h3>
+</div>
+<div id="outline-container-orga175296" class="outline-3">
+<h3 id="orga175296"><span class="section-number-3">8.31</span> <span class="todo NEXT">NEXT</span> E07S01 : Bulk agenda actions</h3>
+</div>
+<div id="outline-container-org4a03b1d" class="outline-3">
+<h3 id="org4a03b1d"><span class="section-number-3">8.32</span> <span class="todo NEXT">NEXT</span> E07S02 : Presenting my system</h3>
+</div>
+<div id="outline-container-org1e51a8d" class="outline-3">
+<h3 id="org1e51a8d"><span class="section-number-3">8.33</span> <span class="todo NEXT">NEXT</span> E07S03 : Google Calendar integration</h3>
+</div>
+<div id="outline-container-orge5d8528" class="outline-3">
+<h3 id="orge5d8528"><span class="section-number-3">8.34</span> <span class="todo NEXT">NEXT</span> E07S04 : Source code in OrgMode</h3>
+</div>
+<div id="outline-container-org263e0b9" class="outline-3">
+<h3 id="org263e0b9"><span class="section-number-3">8.35</span> <span class="todo NEXT">NEXT</span> E07S05 :</h3>
 </div>
 </div>
-<div id="outline-container-org6dace04" class="outline-3">
-<h3 id="org6dace04"><span class="section-number-3">8.9</span> <span class="todo NEXT">NEXT</span> E02S04 : Drawers,Logging &amp; quick notes&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ORGMODE">ORGMODE</span></span></h3>
-<div class="outline-text-3" id="text-8-9">
-<ul class="org-ul">
-<li>Note taken on <span class="timestamp-wrapper"><span class="timestamp">[2020-02-12 Wed 10:14] </span></span> <br />
-test quick notes</li>
-</ul>
-<p>
-I want to add quick notes. If you want <code>:LOGBOOK:</code> appeared in the body, you
-must customize <code>org-log-into-drawer</code>.
-</p>
-
-<p>
-We could create <b>DRAWER</b> by <kbd> C-c C-x d </kbd> .
-</p>
-
-<ul class="org-ul">
-<li>This is the usually <b>hidden</b> content of drawer</li>
-<li>The drawer ends with the line that says :END:</li>
-<li>Reserved drawer names are e.g. :LOGBOOK: or :PROPERTIES:</li>
-</ul>
-<p>
-<code>:LOGBOOK:</code> don't display in the ouput html files!? 
-</p>
-
-<p>
-This is the source orgfiles
-</p>
-<div class="org-src-container">
-<pre class="src src-orgmode">:LOGBOOK:
-- Note taken on [2020-02-12 Wed 10:25] \\
-  After customize ~org-log-into-drawer~, I could get quick notes into body.
-- Note taken on [2020-02-12 Wed 10:09] \\
-  This is a quick notes using @@html:&lt;kbd&gt;@@ C-c C-z @@html:&lt;/kbd&gt;@@ . That's good!
-:END:
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org3273e5b" class="outline-3">
-<h3 id="org3273e5b"><span class="section-number-3">8.10</span> <span class="todo NEXT">NEXT</span> E02S05 : Archiving.mp4</h3>
-</div>
-<div id="outline-container-org381e376" class="outline-3">
-<h3 id="org381e376"><span class="section-number-3">8.11</span> <span class="todo NEXT">NEXT</span> E03S01 : Automatic logging of status changes</h3>
-</div>
-<div id="outline-container-orge8f5630" class="outline-3">
-<h3 id="orge8f5630"><span class="section-number-3">8.12</span> <span class="todo NEXT">NEXT</span> E03S02 : Splitting your system up to several files</h3>
-</div>
-<div id="outline-container-org9c2b06e" class="outline-3">
-<h3 id="org9c2b06e"><span class="section-number-3">8.13</span> <span class="todo NEXT">NEXT</span> E03S03 : The first capture template(s)</h3>
-</div>
-<div id="outline-container-orga2b8770" class="outline-3">
-<h3 id="orga2b8770"><span class="section-number-3">8.14</span> <span class="todo NEXT">NEXT</span> E03S04 : The  -PROPERTIES - drawer</h3>
-</div>
-<div id="outline-container-org9d402e7" class="outline-3">
-<h3 id="org9d402e7"><span class="section-number-3">8.15</span> <span class="todo NEXT">NEXT</span> E03S05 : Archiving to different files</h3>
-</div>
-<div id="outline-container-org5f17df7" class="outline-3">
-<h3 id="org5f17df7"><span class="section-number-3">8.16</span> <span class="todo NEXT">NEXT</span> E04S01 : Ordered tasks</h3>
-</div>
-<div id="outline-container-org648cb7e" class="outline-3">
-<h3 id="org648cb7e"><span class="section-number-3">8.17</span> <span class="todo NEXT">NEXT</span> E04S02 : Timers</h3>
-</div>
-<div id="outline-container-org71e4aee" class="outline-3">
-<h3 id="org71e4aee"><span class="section-number-3">8.18</span> <span class="todo NEXT">NEXT</span> E04S03 : Clocking (aka time tracking)</h3>
-</div>
-<div id="outline-container-org43090be" class="outline-3">
-<h3 id="org43090be"><span class="section-number-3">8.19</span> <span class="todo NEXT">NEXT</span> E04S04 : Column view</h3>
-</div>
-<div id="outline-container-orgcb63366" class="outline-3">
-<h3 id="orgcb63366"><span class="section-number-3">8.20</span> <span class="todo NEXT">NEXT</span> E04S05 : Effort estimates</h3>
-</div>
-<div id="outline-container-org0f6984c" class="outline-3">
-<h3 id="org0f6984c"><span class="section-number-3">8.21</span> <span class="todo NEXT">NEXT</span> E05S01 : Linking (internal)</h3>
-</div>
-<div id="outline-container-org3c17343" class="outline-3">
-<h3 id="org3c17343"><span class="section-number-3">8.22</span> <span class="todo NEXT">NEXT</span> E05S02 : Linking (external)</h3>
-</div>
-<div id="outline-container-org8c02c51" class="outline-3">
-<h3 id="org8c02c51"><span class="section-number-3">8.23</span> <span class="todo NEXT">NEXT</span> E05S03 : Attachments</h3>
-</div>
-<div id="outline-container-orge5cbee7" class="outline-3">
-<h3 id="orge5cbee7"><span class="section-number-3">8.24</span> <span class="todo NEXT">NEXT</span> E05S04 : Priorities</h3>
-</div>
-<div id="outline-container-org9b14352" class="outline-3">
-<h3 id="org9b14352"><span class="section-number-3">8.25</span> <span class="todo NEXT">NEXT</span> E05S05 : Tables</h3>
-</div>
-<div id="outline-container-orgc6c8f09" class="outline-3">
-<h3 id="orgc6c8f09"><span class="section-number-3">8.26</span> <span class="todo NEXT">NEXT</span> E06S01 : Exporting</h3>
-</div>
-<div id="outline-container-org65b2a7b" class="outline-3">
-<h3 id="org65b2a7b"><span class="section-number-3">8.27</span> <span class="todo NEXT">NEXT</span> E06S02 : Advanced exporting</h3>
-</div>
-<div id="outline-container-org3e20361" class="outline-3">
-<h3 id="org3e20361"><span class="section-number-3">8.28</span> <span class="todo NEXT">NEXT</span> E06S03 : Publishing</h3>
-</div>
-<div id="outline-container-orgbd6469e" class="outline-3">
-<h3 id="orgbd6469e"><span class="section-number-3">8.29</span> <span class="todo NEXT">NEXT</span> E06S04 : Dynamic blocks</h3>
-</div>
-<div id="outline-container-orgaad3f0f" class="outline-3">
-<h3 id="orgaad3f0f"><span class="section-number-3">8.30</span> <span class="todo NEXT">NEXT</span> E06S05 : Tracking habits</h3>
-</div>
-<div id="outline-container-orgaffe67e" class="outline-3">
-<h3 id="orgaffe67e"><span class="section-number-3">8.31</span> <span class="todo NEXT">NEXT</span> E07S01 : Bulk agenda actions</h3>
-</div>
-<div id="outline-container-orgc357426" class="outline-3">
-<h3 id="orgc357426"><span class="section-number-3">8.32</span> <span class="todo NEXT">NEXT</span> E07S02 : Presenting my system</h3>
-</div>
-<div id="outline-container-orgd84ce6e" class="outline-3">
-<h3 id="orgd84ce6e"><span class="section-number-3">8.33</span> <span class="todo NEXT">NEXT</span> E07S03 : Google Calendar integration</h3>
-</div>
-<div id="outline-container-orgf20073e" class="outline-3">
-<h3 id="orgf20073e"><span class="section-number-3">8.34</span> <span class="todo NEXT">NEXT</span> E07S04 : Source code in OrgMode</h3>
-</div>
-<div id="outline-container-org7905751" class="outline-3">
-<h3 id="org7905751"><span class="section-number-3">8.35</span> <span class="todo NEXT">NEXT</span> E07S05 :</h3>
-</div>
-</div>
-<div id="outline-container-org4d89a25" class="outline-2">
-<h2 id="org4d89a25"><span class="section-number-2">9</span> Use Emacs</h2>
+<div id="outline-container-org21936cd" class="outline-2">
+<h2 id="org21936cd"><span class="section-number-2">9</span> Use Emacs</h2>
 <div class="outline-text-2" id="text-9">
 </div>
-<div id="outline-container-org20b2ee2" class="outline-3">
-<h3 id="org20b2ee2"><span class="section-number-3">9.1</span> <span class="todo TODO">TODO</span> 62 : Magit</h3>
+<div id="outline-container-orgc942c4b" class="outline-3">
+<h3 id="orgc942c4b"><span class="section-number-3">9.1</span> <span class="todo TODO">TODO</span> 62 : Magit</h3>
 <div class="outline-text-3" id="text-9-1">
 <p>
 I must learn git before using Magit.
@@ -1812,16 +1893,16 @@ I must learn git before using Magit.
 </div>
 </div>
 
-<div id="outline-container-org223922c" class="outline-2">
-<h2 id="org223922c"><span class="section-number-2">10</span> Git</h2>
+<div id="outline-container-orgff43c20" class="outline-2">
+<h2 id="orgff43c20"><span class="section-number-2">10</span> Git</h2>
 <div class="outline-text-2" id="text-10">
 </div>
-<div id="outline-container-org902c3a0" class="outline-3">
-<h3 id="org902c3a0"><span class="section-number-3">10.1</span> Git Basic</h3>
+<div id="outline-container-orgf41f994" class="outline-3">
+<h3 id="orgf41f994"><span class="section-number-3">10.1</span> Git Basic</h3>
 <div class="outline-text-3" id="text-10-1">
 </div>
-<div id="outline-container-org720d7eb" class="outline-4">
-<h4 id="org720d7eb"><span class="section-number-4">10.1.1</span> in master</h4>
+<div id="outline-container-orged8eaa3" class="outline-4">
+<h4 id="orged8eaa3"><span class="section-number-4">10.1.1</span> in master</h4>
 <div class="outline-text-4" id="text-10-1-1">
 <ol class="org-ol">
 <li><code>git init</code></li>
@@ -1836,8 +1917,8 @@ I must learn git before using Magit.
 </ol>
 </div>
 </div>
-<div id="outline-container-orgb2ef46f" class="outline-4">
-<h4 id="orgb2ef46f"><span class="section-number-4">10.1.2</span> switch to branch</h4>
+<div id="outline-container-org8edbb78" class="outline-4">
+<h4 id="org8edbb78"><span class="section-number-4">10.1.2</span> switch to branch</h4>
 <div class="outline-text-4" id="text-10-1-2">
 <ol class="org-ol">
 <li><code>git branch mybranch</code></li>
@@ -1848,8 +1929,8 @@ I must learn git before using Magit.
 </ol>
 </div>
 </div>
-<div id="outline-container-org71da418" class="outline-4">
-<h4 id="org71da418"><span class="section-number-4">10.1.3</span> switch back to master and merge</h4>
+<div id="outline-container-org37e92a0" class="outline-4">
+<h4 id="org37e92a0"><span class="section-number-4">10.1.3</span> switch back to master and merge</h4>
 <div class="outline-text-4" id="text-10-1-3">
 <ol class="org-ol">
 <li><code>git chechout master</code></li>
@@ -1857,8 +1938,8 @@ I must learn git before using Magit.
 </ol>
 </div>
 </div>
-<div id="outline-container-orgae3f6e3" class="outline-4">
-<h4 id="orgae3f6e3"><span class="section-number-4">10.1.4</span> git to remote</h4>
+<div id="outline-container-org6215b71" class="outline-4">
+<h4 id="org6215b71"><span class="section-number-4">10.1.4</span> git to remote</h4>
 <div class="outline-text-4" id="text-10-1-4">
 <ol class="org-ol">
 <li><code>git remote add origin https://github.com/AiPick/notes.git</code></li>
@@ -1873,8 +1954,8 @@ input username &amp; password</li>
 </ol>
 </div>
 </div>
-<div id="outline-container-org7911d86" class="outline-4">
-<h4 id="org7911d86"><span class="section-number-4">10.1.5</span> get newest repo</h4>
+<div id="outline-container-orge8c749b" class="outline-4">
+<h4 id="orge8c749b"><span class="section-number-4">10.1.5</span> get newest repo</h4>
 <div class="outline-text-4" id="text-10-1-5">
 <ol class="org-ol">
 <li><code>git pull</code></li>
@@ -1883,8 +1964,8 @@ input username &amp; password</li>
 </div>
 </div>
 
-<div id="outline-container-org44e0f71" class="outline-3">
-<h3 id="org44e0f71"><span class="section-number-3">10.2</span> magit</h3>
+<div id="outline-container-org964ae7f" class="outline-3">
+<h3 id="org964ae7f"><span class="section-number-3">10.2</span> magit</h3>
 <div class="outline-text-3" id="text-10-2">
 <ol class="org-ol">
 <li><kbd> SPC g s </kbd> magit status</li>
@@ -1907,7 +1988,7 @@ author comment and revised code on the timeline. You could press
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: hxz</p>
-<p class="date">Created: 2020-02-12 Wed 10:30</p>
+<p class="date">Created: 2020-02-12 Wed 15:38</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
