@@ -20,6 +20,7 @@
 #+TAGS: REVIEW(r) SHORTCUT(s) ADVANCED(a) USEFUL(u) NORMAL(n) BASIC(b) FUTURE(f)
 #+ARCHIVE: myarchive.org::
 #+OPTIONS: d:t p:t todo:nil tags:nil
+#+STARTUP: align
 
 #+AUTHOR:hexinzheng
 #+TITLE: EMACS NOTES
@@ -104,16 +105,16 @@ emacs --no-initial-file --load-file=~/youemacs.el
 *** Mode Line
     窗口底部是 Mode Line，显示当前 buffer 状态。Mode Line 文本格式如下
 
-    |cs | ch-fr | buf |   pos|line| (major | minor)|
+    | cs | ch-fr | buf | pos | line | (major | minor) |
 
     以下是详细解释
 
     | cs             | Coding System 的缩写。C-h C unix 给出 unix coding 的具体信息。 C-h C uft-8 给出 utf-8 coding 的具体信息。               |
     | ch             | 表示文件是否保存。 * 表示文件未保存， - 表示文件已保存，% 表示为只读文件。                                              |
-    | fr             | Frame 缩写。 F1 为第 1 个 Frame，F2 为第 2 个 Frame。                                                                       |
+    | fr             | Frame 缩写。 F1 为第 1 个 Frame，F2 为第 2 个 Frame。                                                                   |
     | buf            | Buffer name，即当前 Buffer 中文件名。                                                                                   |
     | pos            | 当前 Buffer 中显示的文件位置。 Top 靠近文件首部， Bot 靠近文件尾部， All 显示了全部文件，nn% 以百分比形式指出显示位置。 |
-    | line           | 18:10 表示 第 18 行第 10 个字符位置。                                                                                       |
+    | line           | 18:10 表示 第 18 行第 10 个字符位置。                                                                                   |
     | major          | 主编辑模式，如 Text mode，Lisp mode，Latex mode 等。                                                                    |
     | minor          | 次编辑模式，可附加到主编辑模式之后。                                                                                    |
     | recursive edit | [...] 表示处于循环编辑模式。                                                                                            |
@@ -632,10 +633,60 @@ emacs --no-initial-file --load-file=~/youemacs.el
    - This is a ~#+NAME:timerlink~ link to ~[[timerlink][NAME Link to E04S02 Timers]]~.
    - This is a ~:CUSTOM_ID:~ link to [[#tagsid][CUSTOM_ID LINK]].
    - Use ~<<<target>>>~ to create links on the fly. 
-** NEXT E05S02 : Linking (external)
+** DONE E05S02 : Linking (external)                                  :BASIC:
+   :PROPERTIES:
+   :Effort:   0:30
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-13 Thu 14:07]--[2020-02-13 Thu 14:21] =>  0:14
+   :END:
+   - Target: ~protocol:location~
+   - Key: [[https://github.com/jkitchin/org-ref][Org-ref]] @@html:<kbd>@@ SPC m i l @@html:</kbd>@@
+   - ~org-id-location-file~ store all ID for OrgMode.
 ** NEXT E05S03 : Attachments
 ** NEXT E05S04 : Priorities
-** NEXT E05S05 : Tables
+** DONE E05S05 : Tables                                             :USEFUL:
+   :PROPERTIES:
+   :Effort:   0:30
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-13 Thu 16:02]--[2020-02-13 Thu 17:19] =>  1:17
+   :END:
+   
+   |------------------------+--------------------------------------------+-----------------------------------------|
+   | Name                   | Key                                        | Others                                  |
+   |------------------------+--------------------------------------------+-----------------------------------------|
+   | horizontal line        | $\vert-$ Tab                               | start from second line                  |
+   | move column            | @@html:<kbd>@@ <M-right> @@html:</kbd>@@   | @@html:<kbd>@@ <M-left> @@html:</kbd>@@ |
+   | delete column          | @@html:<kbd>@@ <M-S-left> @@html:</kbd>@@  |                                         |
+   | insert column          | @@html:<kbd>@@ <M-S-right> @@html:</kbd>@@ |                                         |
+   | delete row             | @@html:<kbd>@@ <M-S-up> @@html:</kbd>@@    |                                         |
+   | insert row             | @@html:<kbd>@@ <M-S-down> @@html:</kbd>@@  |                                         |
+   | insert horizontal line | @@html:<kbd>@@ C-c - @@html:</kbd>@@       |                                         |
+   |------------------------+--------------------------------------------+-----------------------------------------|
+
+   $TBLFM$ = table formula. You could use table to calculate simple formula.
+   This is link to Table[[ref:tab-1][ tableRef]] .
+   
+   Should use org-ref defined *label:* and *ref:* to produce $\LaTeX$ reference.
+   If use orgmode's *#+NAME:* will be error.
+
+   #+CONSTANT: skbios=string("1.16.0")
+   |       |        |          | current |    new |        |
+   | Board | System | CPU      |    BIOS |   BIOS | action |
+   |-------+--------+----------+---------+--------+--------|
+   | D3427 | J550   | E3 v5    |  1.15.0 | 1.15.0 |        |
+   | D3322 | M330   | Intel i5 |  1.14.0 | 1.14.0 |        |
+   | D2322 | W430   | AMD i7   |  1.14.0 | 1.16.0 |        |
+   #+TBLFM: $5=$skbios; ::$6=if("$5" == "$4", string(""), update);
+
+   #+CAPTION: This is caption for table. label:tab-1
+   | <r1> | <l2> | <c3> | <r4> |
+   |    1 | 2    |  3   |    4 |
+   |------+------+------+------|
+   |    1 | 2    |  3   |    4 |
+   |   11 | 22   |  33  |   44 |
+
 ** DONE E06S01 : Exporting                                    :USEFUL:BASIC:
    :PROPERTIES:
    :Effort:   0:20
@@ -688,6 +739,70 @@ emacs --no-initial-file --load-file=~/youemacs.el
 ** NEXT E07S04 : Source code in OrgMode
 ** NEXT E07S05 :
 * Use Emacs
+** 01 - setting up the package manager
+** 02 - org
+** 03 - Elisp
+** 04 - Buffers
+** 05 - Windows
+** 06 - Search (Swiper)
+** 07 - Navigating with Avy
+** 08 - Auto-complete
+** 09 - Themes
+** 10 - org init file
+** 11 - reveal.js and org-mode
+** 12 - flycheck and Jedi for Python
+** 13 - yasnippet
+** 14 - Thoughts on Using Emacs
+** 15 - macros
+** 16 - undo tree
+** 17 - Misc features
+** 18 - iedit, narrowing, and widening
+** 19 - moving to a live config
+** 20 - yanking
+** 21 - Web Mode
+** 22 - emacsclient
+** 24 - links
+** 25 - tramp
+** 26 - Google Calendar and Org Agenda (good version)
+** 26 - Google Calendar sync and Org Agenda
+** 27 - shell and eshell
+** 28 - rectangles
+** 29 - elfeed part 1
+** 30 - emacs c++
+** 31 - elfeed and macros
+** 33 - projectile and dumb-jump
+** 34 - IBuffer and Emmet mode
+** 35 - blogging
+** 36 - A touch of elisp
+** 37 - Treemacs file view
+** 38 - Dired
+** 39 - mu4e
+** 40 - atomic-chrome
+** 41 - pandoc
+** 42 - Git Gutter and Timemachine
+** 43 - Music
+** 44 - An Org mode and PDF-tools workflow
+** 45 - Company or Autocomplete
+** 46 - auto yasnippets
+** 47 - Magit
+** 48 - silversearcher
+** 49 - mu4e-conversation
+** 50 - presentations
+** 51 - day to day with org-mode
+** 52 - eyebrowse
+** CANCELLED 53 - emailing org-agenda                      :ADVANCED:FUTURE:
+   CLOSED: [2020-02-13 Thu 18:07]
+   :PROPERTIES:
+   :Effort:   0:30
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-13 Thu 18:00]--[2020-02-13 Thu 18:07] =>  0:07
+   :END:
+** 54 - Org Tables
+** 55 - C++ Irony Completions
+** 56 - dictionaries
+** 57 - dired-narrow
+** 59 - Markdown
 ** TODO 62 : Magit
    :CLOCKLOG:
    CLOCK: [2020-02-11 Tue 18:28]--[2020-02-11 Tue 18:48] =>  0:20
@@ -695,6 +810,7 @@ emacs --no-initial-file --load-file=~/youemacs.el
    
    I must learn git before using Magit.
 
+** 63 - ClojureScript
 * Git
 ** Git Basic 
    :CLOCKLOG:
@@ -750,7 +866,8 @@ emacs --no-initial-file --load-file=~/youemacs.el
       author comment and revised code on the timeline. You could press
       @@html:<kbd>@@ b @@html:</kbd>@@ to backtrace in the history.
    9. use @@html:<kbd>@@ f @@html:</kbd>@@ to fetch repo files cite:remy2000using .
-   10.cite:kosba2016hawk 
+    10.cite:kosba2016hawk 
 
 
 \printbibliography[title=参考文献]
+
