@@ -1,0 +1,25 @@
+
+Archived entries from file /home/hxz/gitdown/MyThrougth/org_emacs/emacs_notes.org
+
+
+* DONE E01S02 : ToDo Keywords
+  :PROPERTIES:
+  :ARCHIVE_TIME: 2020-02-13 Thu 08:55
+  :ARCHIVE_FILE: ~/gitdown/MyThrougth/org_emacs/emacs_notes.org
+  :ARCHIVE_OLPATH: Orgmode (Studing)
+  :ARCHIVE_CATEGORY: emacs_notes
+  :ARCHIVE_TODO: DONE
+  :END:
+  :CLOCKLOG:
+  CLOCK: [2020-02-11 Tue 11:46]--[2020-02-11 Tue 12:03] =>  0:17
+  CLOCK: [2020-02-10 Mon 21:26]--[2020-02-10 Mon 21:50] =>  0:24
+  :END:
+   
+  More keywords by define ~#+SEQ_TODO:~ . 
+  Item of left | are TODO items (red).
+  Item of right | are DONE items (green).
+   
+  | Cycle through them           | @@html:<kbd>@@ <S-right> @@html:</kbd>@@ |
+  | Active local setup line with | @@html:<kbd>@@ C-c C-c @@html:</kbd>@@   |
+  | Get a menu of all keywords   | @@html:<kbd>@@ C-c C-t @@html:</kbd>@@   |
+

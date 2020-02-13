@@ -1,0 +1,111 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.9 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{remy2000using}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=3132dd77ec3b456ac99ecf26eb323404}{%
+           family={R{é}my},
+           familyi={R\bibinitperiod},
+           given={Didier},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{3132dd77ec3b456ac99ecf26eb323404}
+      \strng{fullhash}{3132dd77ec3b456ac99ecf26eb323404}
+      \strng{bibnamehash}{3132dd77ec3b456ac99ecf26eb323404}
+      \strng{authorbibnamehash}{3132dd77ec3b456ac99ecf26eb323404}
+      \strng{authornamehash}{3132dd77ec3b456ac99ecf26eb323404}
+      \strng{authorfullhash}{3132dd77ec3b456ac99ecf26eb323404}
+      \field{sortinit}{1}
+      \field{sortinithash}{2174f786c6195e7fe2ee1c229b416e29}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Summer School on Applied Semantics}
+      \field{title}{Using, understanding, and unraveling the OCaml language from practice to theory and vice versa}
+      \field{usera}{C}
+      \field{userd}{U}
+      \field{usere}{R{é}my, Didier}
+      \field{userf}{R{é}my, Didier}
+      \field{year}{2000}
+      \field{dateera}{ce}
+      \field{pages}{413\bibrangedash 536}
+      \range{pages}{124}
+      \keyw{remy2000using}
+    \endentry
+    \entry{kosba2016hawk}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=891826ce375183822ff8ec8a81b87565}{%
+           family={Kosba},
+           familyi={K\bibinitperiod},
+           given={Ahmed},
+           giveni={A\bibinitperiod}}}%
+        {{hash=403caa7edb7a2770a6a678a46079869e}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Andrew},
+           giveni={A\bibinitperiod}}}%
+        {{hash=edb728c71cdde40b9afd81bb8c9e733c}{%
+           family={Shi},
+           familyi={S\bibinitperiod},
+           given={Elaine},
+           giveni={E\bibinitperiod}}}%
+        {{hash=001c66b3ebcd3e7bafb20684d149f674}{%
+           family={Wen},
+           familyi={W\bibinitperiod},
+           given={Zikai},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=5431c56f2cf763edae635e05168625f2}{%
+           family={Papamanthou},
+           familyi={P\bibinitperiod},
+           given={Charalampos},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{80b756a2df93963c25305a2b6b872675}
+      \strng{fullhash}{29f298e674ea641fc269c50d4454f9dc}
+      \strng{bibnamehash}{80b756a2df93963c25305a2b6b872675}
+      \strng{authorbibnamehash}{80b756a2df93963c25305a2b6b872675}
+      \strng{authornamehash}{80b756a2df93963c25305a2b6b872675}
+      \strng{authorfullhash}{29f298e674ea641fc269c50d4454f9dc}
+      \field{sortinit}{2}
+      \field{sortinithash}{cbff857e587bcb4635511624d773949e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2016 IEEE symposium on security and privacy (SP)}
+      \field{title}{Hawk: The blockchain model of cryptography and privacy-preserving smart contracts}
+      \field{usera}{C}
+      \field{userd}{H}
+      \field{usere}{Kosba, Ahmed and Miller, Andrew and Shi, Elaine and Wen, Zikai and Papamanthou, Charalampos}
+      \field{userf}{Kosba, Ahmed and Miller, Andrew and Shi, Elaine and Wen, Zikai and Papamanthou, Charalampos}
+      \field{year}{2016}
+      \field{dateera}{ce}
+      \field{pages}{839\bibrangedash 858}
+      \range{pages}{20}
+      \keyw{kosba2016hawk}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

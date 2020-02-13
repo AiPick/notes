@@ -1,3 +1,4 @@
+:HIDE:
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
 # #+SETUPFILE: /home/hxz/gitdown/org-html-themes/setup/theme-readtheorg-local.setup
 #+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
@@ -18,8 +19,58 @@
 #+SEQ_TODO: NEXT(n) TODO(t) WAITING(w) SOMEDAY(s) PROJ(p)| DONE(d) CANCELLED(c)
 #+TAGS: REVIEW(r) SHORTCUT(s) ADVANCED(a) USEFUL(u) NORMAL(n) BASIC(b) FUTURE(f)
 #+ARCHIVE: myarchive.org::
-#+OPTIONS: d:t p:t todo:t
-                         
+#+OPTIONS: d:t p:t todo:nil tags:nil
+
+#+AUTHOR:hexinzheng
+#+TITLE: EMACS NOTES
+
+#+LATEX_COMPILER: xelatex
+#+LATEX_CLASSOPTIONS: [a4paper]
+#+LATEX_HEADER: \usepackage{fontspec}
+#+LATEX_HEADER: \usepackage{CJK}
+#+LATEX_HEADER: \usepackage{ctex}
+#+LATEX_HEADER: \usepackage{geometry}
+#+LATEX_HEADER: \usepackage{xcolor}
+#+LATEX_HEADER: \usepackage[hidelinks]{hyperref}
+#+LATEX_HEADER: \usepackage[bibstyle=gb7714-2015,
+#+LATEX_HEADER:     citestyle=gb7714-2015,
+#+LATEX_HEADER:     backend=biber,
+#+LATEX_HEADER:     backref=true,
+#+LATEX_HEADER:     seconds=true,
+#+LATEX_HEADER:     sorting=none]{biblatex}
+#+LATEX_HEADER: \addbibresource{../main.bib}
+
+# 配置仿宋字体
+#+LATEX_HEADER: \newCJKfontfamily[fsong]\myfsong{FangSong}
+#+LATEX_HEADER: \newCJKfontfamily[fhei]\myheiti{SimHei}
+#+LATEX_HEADER: \newCJKfontfamily[fzxiaobiao]\myfzxiaobiao{方正小标宋_GBK}
+#+LATEX_HEADER: \newCJKfontfamily[ftimes]\mytimes{Times New Roman}
+
+# 主要字体族
+#+LATEX_HEADER: \setCJKmainfont[AutoFakeBold]{SimSun}
+#+LATEX_HEADER: \setCJKsansfont[AutoFakeBold]{SimHei}
+#+LATEX_HEADER: \setmainfont{Times New Roman}
+#+LATEX_HEADER: \setsansfont{Arial}
+
+# 页面配置
+#+LATEX_HEADER: \geometry{
+#+LATEX_HEADER:   paper      = a4paper,
+#+LATEX_HEADER:   vmargin    = 2.54cm,
+#+LATEX_HEADER:   left       = 2.5cm,
+#+LATEX_HEADER:   right      = 2cm,
+#+LATEX_HEADER:   headheight = 0.75cm,
+#+LATEX_HEADER:   headsep    = 0.29cm,
+#+LATEX_HEADER:   footskip   = 0.79cm,
+#+LATEX_HEADER: }
+
+#+LATEX_HEADER: \hypersetup{
+#+LATEX_HEADER:     colorlinks=true,
+#+LATEX_HEADER:     pdfstartview=FitH,
+#+LATEX_HEADER:     linkcolor={blue!50!black},
+#+LATEX_HEADER:     anchorcolor=violet,
+#+LATEX_HEADER:     citecolor=magenta}
+:END:
+
 * 问题
 - [-] org 转换为标准 latex 文件
 - [-] org 输出为 html 文件
@@ -259,7 +310,6 @@ emacs --no-initial-file --load-file=~/youemacs.el
 
 * Timer Example 
 
-    
 ** Clock column view example
 
 ** Effort estimate example
@@ -283,20 +333,6 @@ emacs --no-initial-file --load-file=~/youemacs.el
    | Decrease level               | @@html:<kbd>@@ <alt-left> @@html:</kbd>@@  |
    | Move up                      | @@html:<kbd>@@ <M-up> @@html:</kbd>@@      |
    | Move down                    | @@html:<kbd>@@ <M-down> @@html:</kbd>@@    |
-
-** DONE E01S02 : ToDo Keywords
-   :CLOCKLOG:
-   CLOCK: [2020-02-11 Tue 11:46]--[2020-02-11 Tue 12:03] =>  0:17
-   CLOCK: [2020-02-10 Mon 21:26]--[2020-02-10 Mon 21:50] =>  0:24
-   :END:
-   
-   More keywords by define ~#+SEQ_TODO:~ . 
-   Item of left | are TODO items (red).
-   Item of right | are DONE items (green).
-   
-   | Cycle through them           | @@html:<kbd>@@ <S-right> @@html:</kbd>@@ |
-   | Active local setup line with | @@html:<kbd>@@ C-c C-c @@html:</kbd>@@   |
-   | Get a menu of all keywords   | @@html:<kbd>@@ C-c C-t @@html:</kbd>@@   |
 
 ** DONE E01S03 : Schedule, Deadlines & Agenda views
    :CLOCKLOG:
@@ -342,6 +378,7 @@ emacs --no-initial-file --load-file=~/youemacs.el
 ** DONE E02S01 : Tags                                                :BASIC:
    :PROPERTIES:
    :Effort:   0:10
+   :CUSTOM_ID: tagsid
    :END:
    :CLOCKLOG:
    CLOCK: [2020-02-12 Wed 08:41]--[2020-02-12 Wed 08:59] =>  0:18
@@ -479,6 +516,8 @@ emacs --no-initial-file --load-file=~/youemacs.el
      :LOGBOOK:
      :END:
 
+#+NAME: timerlink
+
      |-----------------------------+--------------------------------------------|
      | Clocking in                 | @@html:<kbd>@@ C-c C-x C-i @@html:</kbd>@@ |
      | Clocking out                | @@html:<kbd>@@ C-c C-x C-o @@html:</kbd>@@ |
@@ -572,21 +611,46 @@ emacs --no-initial-file --load-file=~/youemacs.el
 | decrease effort   | @@html:<kbd>@@ <S-left> @@html:</kbd>@@    |
 | Leave column view | @@html:<kbd>@@ Q @@html:</kbd>@@           |
    
-** NEXT E05S01 : Linking (internal)
+** DONE E05S01 : Linking (internal)                                  :BASIC:
+   :PROPERTIES:
+   :Effort:   0:30
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-13 Thu 08:35]--[2020-02-13 Thu 09:16] =>  0:41
+   :END:
+   Links is ~[[target][description]]~. 
+   
+   | Edit link               | @@html:<kbd>@@ C-c C-l @@html:</kbd>@@ |
+   | Follow the link         | @@html:<kbd>@@ C-c C-o @@html:</kbd>@@ |
+   | Return to previous link | @@html:<kbd>@@ C-c & @@html:</kbd>@@   |
+   
+   - This is a headline link to [[org-mode][HEADLINE link]] . Use @@html:<kbd>@@ C-c
+     C-l @@html:</kbd>@@ to edit internal link. 
+#+begin_src orgmode
+ [[E01S02 : ToDo Keywords]]
+#+end_src
+   - This is a ~#+NAME:timerlink~ link to ~[[timerlink][NAME Link to E04S02 Timers]]~.
+   - This is a ~:CUSTOM_ID:~ link to [[#tagsid][CUSTOM_ID LINK]].
+   - Use ~<<<target>>>~ to create links on the fly. 
 ** NEXT E05S02 : Linking (external)
 ** NEXT E05S03 : Attachments
 ** NEXT E05S04 : Priorities
 ** NEXT E05S05 : Tables
-** NEXT E06S01 : Exporting                                    :USEFUL:BASIC:
+** DONE E06S01 : Exporting                                    :USEFUL:BASIC:
    :PROPERTIES:
    :Effort:   0:20
    :END:
    :CLOCKLOG:
-   CLOCK: [2020-02-12 Wed 15:13]
+   CLOCK: [2020-02-12 Wed 15:13]--[2020-02-12 Wed 16:01] =>  0:48
    :END:
    - Goal:export files into HTML and PDF
    - Key :@@html:<kbd>@@ C-c C-e @@html:</kbd>@@ 
-   - Customization: Setting ~org-file-apps~ determines the application to open files. 
+   - Customization: Setting ~org-file-apps~ determines the application to open files.
+   
+*** TODO export chinese pdf ?
+    :CLOCKLOG:
+    CLOCK: [2020-02-12 Wed 22:28]--[2020-02-12 Wed 23:49] =>  1:21
+    :END:
 
    [*IMPORTANT*] I have been set how to open html files with qutebrowser and how
    to open pdf files with zathura.
@@ -597,7 +661,24 @@ emacs --no-initial-file --load-file=~/youemacs.el
    | Export planing information               | ~p:t~    |
    | Include TODO keywords into exported text | ~todo:t~ |
 
-** NEXT E06S02 : Advanced exporting
+** DONE E06S02 : Advanced exporting                                 :USEFUL:
+   :PROPERTIES:
+   :Effort:   0:30
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-12 Wed 16:13]--[2020-02-12 Wed 16:40] =>  0:27
+   :END:
+   - ~M-x customize-group~ then input  ~org-export~
+   - add ~+AUTHOR~ and ~+TITLE~
+   - There has many choices to export pdf!
+
+#+begin_src orgmode
+# for beamer
+#+SUBTITLE: ORGMODE EXPLAINED
+#+BEAMER_THEME: Berlin
+#+BEAMER_FONT_THEME: professionalfonts
+#+end_src
+
 ** NEXT E06S03 : Publishing
 ** NEXT E06S04 : Dynamic blocks
 ** NEXT E06S05 : Tracking habits
@@ -653,6 +734,7 @@ emacs --no-initial-file --load-file=~/youemacs.el
 
 ** magit
    :CLOCKLOG:
+   CLOCK: [2020-02-13 Thu 10:44]--[2020-02-13 Thu 11:52] =>  1:08
    CLOCK: [2020-02-11 Tue 22:20]--[2020-02-11 Tue 23:20] =>  1:00
    :END:
    1. @@html:<kbd>@@ SPC g s @@html:</kbd>@@ magit status
@@ -667,4 +749,8 @@ emacs --no-initial-file --load-file=~/youemacs.el
    8. @@html:<kbd>@@ SPC g b @@html:</kbd>@@ is blame state to show different
       author comment and revised code on the timeline. You could press
       @@html:<kbd>@@ b @@html:</kbd>@@ to backtrace in the history.
-   9. use @@html:<kbd>@@ f @@html:</kbd>@@ to fetch repo files.
+   9. use @@html:<kbd>@@ f @@html:</kbd>@@ to fetch repo files cite:remy2000using .
+   10.cite:kosba2016hawk 
+
+
+\printbibliography[title=参考文献]
