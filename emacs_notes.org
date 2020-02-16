@@ -16,7 +16,7 @@
 #+COLUMNS: %7TODO(To Do) %40ITEM(TASK) %TAGS(Tags) %6CLOCKSUM(Clock) %8Effort(Effort){:}
 #+PROPERTIES: Effort_ALL 0:15 0:30 0:45 1:00 1:30 2:00
 #+PROPERTIES: Rating_ALL + ++ +++ ++++ +++++
-#+SEQ_TODO: NEXT(n) TODO(t) WAITING(w) SOMEDAY(s) PROJ(p)| DONE(d) CANCELLED(c)
+#+SEQ_TODO: NEXT(n/!) TODO(t@/!) WAITING(w) FAILED(f) SCRATCH(s@/!) Q:(q) | DONE(d@) CANCELLED(c@) MORE(m) 
 #+TAGS: REVIEW(r) SHORTCUT(s) ADVANCED(a) USEFUL(u) NORMAL(n) BASIC(b) FUTURE(f)
 #+ARCHIVE: myarchive.org::
 #+OPTIONS: d:t p:t todo:nil tags:nil
@@ -73,13 +73,13 @@
 :END:
 
 * 问题
-- [-] org 转换为标准 latex 文件
-- [-] org 输出为 html 文件
-- [-] 使用 github 样式显示文件
-- [X] 在 github 上建立自己的站点
+- [X] org 转换为标准 latex 文件
+- [X] org 输出为 html 文件
+- [ ] 使用 github 样式显示文件
+- [ ] 在 github 上建立自己的站点
 - [X] 默认浏览器改为 qutebrowser
-- [-] 安装 emacs 26.1 。主要是 emacs-26-non-common-dfsg.
-- [-] Open org-mode html in EWW.
+- [X] 安装 emacs 26.1 。主要是 emacs-26-non-common-dfsg.
+- [ ] Open org-mode html in EWW.
 
 * 调试脚本
 - 单独加载另外一个 emacs 的初始化文件
@@ -309,15 +309,127 @@ emacs --no-initial-file --load-file=~/youemacs.el
       SCHEDULED:<2019-11-24 Sun --2d> 
 #+end_src
 
-* Timer Example 
+* [[https://www.youtube.com/watch?v=d6iY_1aMzeg&list=PLX2044Ew-UVVv31a0-Qn3dA6Sd_-NyA1n][Uncle Dave Emacs]]
+** DONE Package and which key                                        :BASIC:
+   CLOSED: [2020-02-15 Sat 22:20]
+   :PROPERTIES:
+   :Attachments: Emacs%20Tutorial%203%20-%20Packages%20and%20which-key..mp4
+   :ID:       6e227b02-94de-4517-aa46-484789e41e39
+   :Effort:   0:20
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-15 Sat 09:28]--[2020-02-15 Sat 10:11] =>  0:43
+   :END:
 
-** Clock column view example
+   Reload init.el file by following methods
+   - ~M-x eval-buffer~
+   - ~M-x load-file~ 
 
-** Effort estimate example
+#+caption: This is the most simple init.el sample.
+#+begin_src emacs-lisp
+;; Reload init.el files by following methods
+;; 1. M-x eval-buffer
+;; 2. M-x load-file
+
+(require 'package)
+(setq  package-enable-at-startup nil)
+
+;; After this setup, we will use M-x list-packages to list remote repo packages.
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+
+(package-initialize)
+
+;; This is all we needed to install a single package!
+;; After [:init ...] is some customized actions after loaded package [which-key]  
+(use-package which-key
+  :ensure t
+  :init
+  (which-key-mode))
+
+;; if this package [use-package] is not installed , then I will [refresh package content]
+;; and next to [install use-package].
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+#+end_src
+** DONE Change the font and theme                                    :BASIC:
+   CLOSED: [2020-02-15 Sat 22:20]
+   :PROPERTIES:
+   :Effort:   0:30
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-15 Sat 10:55]--[2020-02-15 Sat 12:08] =>  1:13
+   :END:
+*** Q: Why haven't ~custom-set-variables~ after change default UI face ?
+   - ~M-x customize~ to change UI face.
+   - ~M-x customize-themes~ to change themes.
+   - install *monokai-theme* .
+   - Execise: install evil.
+   - Execise: change melpa to cn
+#+begin_src emacs-lisp
+(add-to-list 'package-archives
+             '(("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+               ("org-cn"   . "http://elpa.zilongshanren.com/org/")
+               ("melpa-cn" . "http://elpa.zilongshanren.com/melpa/")
+               ("melpa" . "https://melpa.org/packages/")))
+#+end_src
+** DONE A lot of change                                              :BASIC:
+   CLOSED: [2020-02-15 Sat 22:20]
+   :PROPERTIES:
+   :Effort:   0:30
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-15 Sat 16:20]--[2020-02-15 Sat 19:20] =>  3:00
+   :END:
+   - terminal 
+     + ~M-x term~: /\usr/bin/zsh/
+     + ~M-x anti-term~: /\/bin/bash/ 
+#+begin_src emacs-lisp
+(defvar my-term-shell "/bin/bash")
+(defadvice ansi-term (before force-bash)
+  (interactive (list my-term-shell)))
+(ad-activate 'ansi-term)
+#+end_src
+    + defalias
+    + define key map use global-set-key.
+** DONE Use orgmode to orgnize my configuration                      :BASIC:
+   CLOSED: [2020-02-15 Sat 22:20]
+   :PROPERTIES:
+   :Effort:   0:30
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-15 Sat 20:21]--[2020-02-15 Sat 20:45] =>  0:24
+   :END:
+   - add-hook [[http://ergoemacs.org/emacs/emacs_whats_hook.html][What's hook?]]
+   -[[http://ergoemacs.org/emacs/emacs_avoid_lambda_in_hook.html][ Emacs: Avoid Lambda in Hook]] 
+   - configuration org 
+** DONE ido mode                                                     :BASIC:
+   CLOSED: [2020-02-15 Sat 22:20]
+   :PROPERTIES:
+   :Effort:   0:30
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-15 Sat 20:45]--[2020-02-15 Sat 22:15] =>  1:30
+   :END:
+   - move massive configuration to config.org file.
+** AVY                                                               :BASIC:
+   :PROPERTIES:
+   :Effort:   0:20
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-16 Sun 23:08]--[2020-02-16 Sun 23:08] =>  0:00
+   :END:
 
 * Orgmode (Studing)
   :PROPERTIES:
   :ORDERED:  t
+  :ID:       c12cede9-7932-4a64-a08c-6b17967390af
   :END:
   :CLOCKLOG:
   CLOCK: [2020-02-10 Mon 17:18]--[2020-02-10 Mon 17:55] =>  0:37
@@ -467,29 +579,64 @@ emacs --no-initial-file --load-file=~/youemacs.el
    CLOCK: [2020-02-12 Wed 10:45]--[2020-02-12 Wed 10:57] =>  0:12
    :END:
    Finished tasks collected up your org file. Define a global archives file with
-   ~#+ARCHIVE: myarchive.org::~. Archive an entry with @@html:<kbd>@@ C-c C-x
-   C-a @@html:</kbd>@@ . Archive a subtree with @@html:<kbd>@@ C-c C-x C-s @@html:</kbd>@@ .
+   ~#+ARCHIVE: myarchive.org::~.
+   - Archive an entry with @@html:<kbd>@@ C-c C-x C-a @@html:</kbd>@@ .
+   - Archive a subtree with @@html:<kbd>@@ C-c C-x C-s @@html:</kbd>@@ .
 
    When you complete you task, you can move out of your DONE tasks to archives files.
 
 ** DONE E03S01 : Automatic logging of status changes                :FUTURE:
+   CLOSED: [2020-02-16 Sun 23:18]
    :PROPERTIES:
    :Effort:   0:20
    :END:
+   :LOGBOOK:
+   - State "DONE"       from "WAITING"    [2020-02-16 Sun 23:18] \\
+     I had done the lesson after 3 days.
+   - State "WAITING"    from "TODO"       [2020-02-16 Sun 23:17]
+   - State "TODO"       from "DONE"       [2020-02-16 Sun 23:15] \\
+     Test log something when I start to do sth.
+   :END:
    :CLOCKLOG:
-   CLOCK: [2020-02-12 Wed 10:58]--[2020-02-12 Wed 11:07] =>  0:09
+   CLOCK: [2020-02-16 Sun 23:08]--[2020-02-16 Sun 23:14] =>  0:06
+   CLOCK: [2020-02-12 Wed 10:58]--[2020-02-16 Sun 23:08] => 108:10
    :END:
    automatic logging of status changes for complicated tasks. I think I will
    never use this feature.
-** WAITING E03S02 : Splitting your system up to several files       :FUTURE:
+   - Customized ~org-log-done~ .
+   - ~org-log-reschedule~ when reschedule log a note and a timestamp.
+** DONE E03S02 : Splitting your system up to several files          :FUTURE:
+   CLOSED: [2020-02-17 Mon 00:03]
    :PROPERTIES:
    :Effort:   0:20
    :END:
+   :LOGBOOK:
+   - State "DONE"       from "TODO"       [2020-02-17 Mon 00:03] \\
+     You can use org-refile to orgnize plan. 
+     That's great !
+   - State "TODO"       from "WAITING"    [2020-02-16 Sun 23:36] \\
+     Begin to study this topic after frustated by complicated configuration of raw emacs.
+     
+     I realize that this is a long way to be a good emacser.
+   :END:
    :CLOCKLOG:
+   CLOCK: [2020-02-16 Sun 23:38]--[2020-02-17 Mon 00:03] =>  0:25
    CLOCK: [2020-02-12 Wed 11:08]--[2020-02-12 Wed 11:18] =>  0:10
    :END:
    
-   See in the future.
+   - Goal: Instead of one file for all we want to have one for the private things
+   and one for work.
+   - Procedure:
+     + Customize ~org-agenda-files~
+     + Customize ~org-refile-targets~ 
+     + Customize ~org-refile-use-outline-path~ 
+     + Customize ~org-refile-allow-creating-parent-nodes~
+   
+  | Command      | Key                                    |
+  |--------------+----------------------------------------|
+  | Move entries | @@html:<kbd>@@ C-c C-w @@html:</kbd>@@ |
+  | Copy entries | @@html:<kbd>@@ C-c M-w @@html:</kbd>@@ |
+
 ** WAITING E03S03 : The first capture template(s)                   :USEFUL:
    :PROPERTIES:
    :Effort:   0:20
@@ -615,6 +762,7 @@ emacs --no-initial-file --load-file=~/youemacs.el
 ** DONE E05S01 : Linking (internal)                                  :BASIC:
    :PROPERTIES:
    :Effort:   0:30
+   :ID:       c03ec7fa-68c3-4259-babb-7b91739d23ac
    :END:
    :CLOCKLOG:
    CLOCK: [2020-02-13 Thu 08:35]--[2020-02-13 Thu 09:16] =>  0:41
@@ -643,7 +791,26 @@ emacs --no-initial-file --load-file=~/youemacs.el
    - Target: ~protocol:location~
    - Key: [[https://github.com/jkitchin/org-ref][Org-ref]] @@html:<kbd>@@ SPC m i l @@html:</kbd>@@
    - ~org-id-location-file~ store all ID for OrgMode.
-** NEXT E05S03 : Attachments
+** FAILED E05S03 : Attachments                                      :NORMAL:
+   :PROPERTIES:
+   :Effort:   0:20
+   :ID:       7090ed5d-7325-4df1-a062-ac5a14436dc9
+   :Attachments: coq-Program%20Logics%20for%20Certified%20Compilers.pdf
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-14 Fri 14:56]--[2020-02-14 Fri 15:41] =>  0:45
+   :END:
+
+   #+caption[attachments]: Attachments summarizes. The attachments are usually stored under ~./data/~ and then a structure based on the ID properties. 
+   | Command     | Key                                    | Others |
+   |-------------+----------------------------------------+--------|
+   | attachments | @@html:<kbd>@@ C-c C-a @@html:</kbd>@@ |        |
+   |             |                                        |        |
+
+   Test! Attach a ~pdf~ file in this section.
+   - @@html:<kbd>@@ C-c C-a @@html:</kbd>@@ 
+   - Choice "Symbolic link" by press @@html:<kbd>@@ y @@html:</kbd>@@ .
+   
 ** NEXT E05S04 : Priorities
 ** DONE E05S05 : Tables                                             :USEFUL:
    :PROPERTIES:
@@ -731,12 +898,92 @@ emacs --no-initial-file --load-file=~/youemacs.el
 #+end_src
 
 ** NEXT E06S03 : Publishing
-** NEXT E06S04 : Dynamic blocks
+** DONE E06S04 : Dynamic blocks                                   :ADVANCED:
+   :PROPERTIES:
+   :Effort:   0:20
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-14 Fri 14:40]--[2020-02-14 Fri 14:56] =>  0:16
+   :END:
+   
+   Dynamic blocks create content dynamically, such as *clocktable* and
+   *columnview*. 
+
+   | command           | key                                         | others    |
+   |-------------------+---------------------------------------------+-----------|
+   | Create clocktable | @@html:<kbd>@@ C-c C-x C-r @@html:</kbd>@@  | headlines |
+   | Update the table  | @@html:<kbd>@@ C-c C-c @@html:</kbd>@@      |           |
+   | :maxlevel 2       | two level                                   | parameter |
+   | :block thismonth  | time for a month                            | parameter |
+   | :step week        | time for weekly                             | parameter |
+   | :tstart :tend     | :tstart "<2016-01-02>" :tend "<2018-05-03>" | parameter |
+
 ** NEXT E06S05 : Tracking habits
 ** NEXT E07S01 : Bulk agenda actions
 ** NEXT E07S02 : Presenting my system
 ** NEXT E07S03 : Google Calendar integration
-** NEXT E07S04 : Source code in OrgMode
+** MORE E07S04 : Source code in OrgMode                           :ADVANCED:
+   :PROPERTIES:
+   :Effort:   0:30
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-14 Fri 18:55]--[2020-02-14 Fri 19:36] =>  0:41
+   :END:
+   + See topic [[https://orgmode.org/manual/Literal-Examples.html][Literal Examples]] .
+   + The souce code language which you want to use in your writing must be
+     customized by ~org-babel-load-language~ .
+   + Use @@html:<kbd>@@ C-c C-, @@html:</kbd>@@ to insert source code sample
+     instead of @@html:<kbd>@@ < s tab @@html:</kbd>@@ after Emacs v26.
+   
+| Parameters       | Meaning         |
+|------------------+-----------------|
+| ~:results raw~   | raw             |
+| ~:results table~ | (default) table |
+| ~:results list~  | list            |
+| ~:results table~ | no results      |
+   
+#+begin_src shell :results raw
+  # press C-c C-c to evaluate shell command following by adding result. 
+  ls -l /tmp
+#+end_src
+
+#+begin_example
+总用量 72
+drwx------ 3 hxz  hxz  4096 Feb  9 19:26 2048-game-1DrVa1
+drwx------ 3 hxz  hxz  4096 Feb  9 19:29 2048-game-TdBl6G
+drwx------ 2 hxz  hxz  4096 Feb 14 19:24 babel-4PNIXT
+-rwx------ 1 root root    0 Feb  8 12:22 com.sangfor.dns_server_op_lock
+-rwx------ 1 root root    0 Feb  8 12:23 com.sangfor.lockcert
+-rwx------ 1 root root    0 Feb  8 12:22 com.sangfor.lockecagent
+-rw------- 1 hxz  hxz     0 Feb  8 12:23 config-err-FFkDpV
+-rw-rw-r-- 1 hxz  hxz   174 Feb 10 17:54 cookie.txt
+drwx------ 2 hxz  hxz  4096 Feb 14 15:46 emacs1000
+-rw------- 1 hxz  hxz     0 Feb 14 19:24 emacsIZkEfj
+#+end_example
+
+C++ Coding
+#+begin_src cpp
+  #include <iostream>
+
+  int main()
+  {
+    std::cout << "hello c++" <<std::endl;
+    return 0;
+  }
+#+end_src
+
+Coq coding
+#+begin_src coq
+Inductive day : Type :=
+  | monday
+  | tuesday
+  | wednesday
+  | thursday
+  | friday
+  | saturday
+  | sunday.
+#+end_src
+
 ** NEXT E07S05 :
 * Use Emacs
 ** 01 - setting up the package manager
@@ -746,7 +993,17 @@ emacs --no-initial-file --load-file=~/youemacs.el
 ** 05 - Windows
 ** 06 - Search (Swiper)
 ** 07 - Navigating with Avy
-** 08 - Auto-complete
+** DONE 08 - Auto-complete                                           :BASIC:
+   :CLOCKLOG:
+   CLOCK: [2020-02-14 Fri 09:40]--[2020-02-14 Fri 10:01] =>  0:21
+   :END:
+
+   1. Search auto-complete keys help. 
+      - @@html:<kbd>@@ C-h k @@html:</kbd>@@
+      - @@html:<kbd>@@ M-/ @@html:</kbd>@@
+   2. See the help , then I know use 
+      - @@html:<kbd>@@ M-/ @@html:</kbd>@@ 
+      - @@html:<kbd>@@ C-p @@html:</kbd>@@  
 ** 09 - Themes
 ** 10 - org init file
 ** 11 - reveal.js and org-mode
@@ -776,13 +1033,50 @@ emacs --no-initial-file --load-file=~/youemacs.el
 ** 36 - A touch of elisp
 ** 37 - Treemacs file view
 ** 38 - Dired
-** 39 - mu4e
+** DONE 39 - mu4e                                                 :ADVANCED:
+   :CLOCKLOG:
+   CLOCK: [2020-02-14 Fri 08:19]--[2020-02-14 Fri 09:29] =>  1:10
+   CLOCK: [2020-02-13 Thu 23:10]--[2020-02-14 Fri 01:05] =>  1:55
+   :END:
+   
+   + See the [[https://www.macs.hw.ac.uk/~rs46/posts/2014-01-13-mu4e-email-client.html][Drowning in Email; mu4e to the Rescue]] . Mbsync : get release
+     tarball from git. Following the next step to install
+#+caption: Install mbsync
+#+begin_src bash
+./autogen.sh
+./configure
+make
+sudo make install
+#+end_src
+   
+   + Create *~/.emacs.d/.mbsyncrc* file.
+   + *MUST* open QQmail IMAPAccount and use *NEW PASSWORD* to login.
+   + Test IMAP server with
+#+begin_src bash
+mbsync -c ~/.emacs.d/.mbsyncrc -a
+#+end_src
+
+   + See the [[https://www.djcbsoftware.nl/code/mu/mu4e/Installation.html][install mu4e in Ubuntu]] .
+   + See the [[https://pengpengxp.github.io/archive/before-2018-11-10/2018-10-14-deal_with_mail_by_mbsync_mu4e_emacs.html#orgf228b24][deal_with_mail_by_mbsync_mu4e_emacs]] to setup mu4e. You can use ~mu~
+     to search in your mailbox.
+#+caption: Use *mu* to search mailbox.
+#+begin_src bash
+$ mu find from:service
+Wed 15 Jan 2020 09:03:55 PM CST service@vip.ccb.com 
+#+end_src
+
 ** 40 - atomic-chrome
 ** 41 - pandoc
 ** 42 - Git Gutter and Timemachine
 ** 43 - Music
 ** 44 - An Org mode and PDF-tools workflow
-** 45 - Company or Autocomplete
+** SCRATCH 45 - Company or Autocomplete                              :BASIC:
+   :PROPERTIES:
+   :Effort:   0:30
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-14 Fri 19:55]--[2020-02-14 Fri 20:10] =>  0:15
+   :END:
 ** 46 - auto yasnippets
 ** 47 - Magit
 ** 48 - silversearcher
@@ -870,4 +1164,3 @@ emacs --no-initial-file --load-file=~/youemacs.el
 
 
 \printbibliography[title=参考文献]
-

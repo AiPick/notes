@@ -1,4 +1,4 @@
-% Created 2020-02-13 Thu 17:18
+% Created 2020-02-14 Fri 21:05
 % Intended LaTeX compiler: xelatex
 \documentclass[11pt]{article}
 \usepackage{graphicx}
@@ -65,19 +65,19 @@ citecolor=magenta}
 
 
 \section{问题}
-\label{sec:org08994bd}
+\label{sec:orgae16784}
 \begin{itemize}
-\item[{$\boxminus$}] org 转换为标准 latex 文件
-\item[{$\boxminus$}] org 输出为 html 文件
-\item[{$\boxminus$}] 使用 github 样式显示文件
-\item[{$\boxtimes$}] 在 github 上建立自己的站点
+\item[{$\boxtimes$}] org 转换为标准 latex 文件
+\item[{$\boxtimes$}] org 输出为 html 文件
+\item[{$\square$}] 使用 github 样式显示文件
+\item[{$\square$}] 在 github 上建立自己的站点
 \item[{$\boxtimes$}] 默认浏览器改为 qutebrowser
-\item[{$\boxminus$}] 安装 emacs 26.1 。主要是 emacs-26-non-common-dfsg.
-\item[{$\boxminus$}] Open org-mode html in EWW.
+\item[{$\boxtimes$}] 安装 emacs 26.1 。主要是 emacs-26-non-common-dfsg.
+\item[{$\square$}] Open org-mode html in EWW.
 \end{itemize}
 
 \section{调试脚本}
-\label{sec:org293d7f2}
+\label{sec:org47193b2}
 \begin{itemize}
 \item 单独加载另外一个 emacs 的初始化文件
 \end{itemize}
@@ -92,26 +92,26 @@ emacs --no-initial-file --load-file=~/youemacs.el
 \end{itemize}
 
 \section{澄清概念}
-\label{sec:orgca268f0}
+\label{sec:orgdb0f360}
 \begin{enumerate}
 \item 组合键的术语是 Command， 而不是 ShortCut
-\label{sec:org4c8b3e9}
+\label{sec:org6f5a819}
 例如，搜索插入文件变量的组合键，关键词应为 \uline{command file variable emacs}
 。如使用 \uline{shortcut \ldots{}} 则无法找到有用结果。
 \end{enumerate}
 \section{重要概念}
-\label{sec:orgc8d7eb7}
+\label{sec:org64f4523}
 \subsection{屏幕（Screen）}
-\label{sec:org10cb301}
+\label{sec:org78cb290}
 Emacs 的显示区域称为 Frame ， 在 Frame 中可包含多个 Windows。 Emacs 中 Frame 在 IDE 中称为 Windows， 而 Emacs 的 Windows 在 IDE 中称为 View。
 \subsubsection{Point}
-\label{sec:orged5c737}
+\label{sec:org8797b4b}
 称为输入提示符号。通过 Cursor 可以改变输入符号的显示。
 \subsubsection{Echo Area}
-\label{sec:org3ddf384}
+\label{sec:orgbfabe90}
 显示输入命令的区域。Display Custom 修改 Echo Area。Echo Area 用于显示 Minibuffer。退出 Minibuffer 命令是 C-g。
 \subsubsection{Mode Line}
-\label{sec:orgd383495}
+\label{sec:org914dd8b}
 窗口底部是 Mode Line，显示当前 buffer 状态。Mode Line 文本格式如下
 
 \begin{center}
@@ -137,32 +137,32 @@ recursive edit & [\ldots{}] 表示处于循环编辑模式。\\
 \end{center}
 
 \subsection{用户输入（User input）}
-\label{sec:org2d9df71}
+\label{sec:orge23290a}
 Emacs 主要设计目的是通过键盘与用户交互，当然 Emacs 也使用鼠标，但这不是设计的出发点。 因而要能熟练使用键盘快捷键操作和编辑文件。
 \subsection{输入键 （Keys）}
-\label{sec:orgb423bf0}
+\label{sec:orge8d24fd}
 Key 和其组合键会引发 key event。如果一组 Key 引发一条命令，称为 Complete Key。 如果无法触发命令，称为 Prefix key，如 C-x 和 M-x。
 \subsection{命令 （Command）}
-\label{sec:org1339067}
+\label{sec:orga53b376}
 每条命令是一个 Lisp 函数。 将命令与组合键绑定在一起称为 Keymaps。 C-n 之所以能跳到下一行，是因为绑定了函数 next-line。
 \subsection{进入 Emacs}
-\label{sec:orgb1fa037}
+\label{sec:org5912a7e}
 如果 inhibit-startup-screen 为 non-nil 将不会显示欢迎界面，而直接进入到 \textbf{scratch} 文件，在其中能运行一些待测试的 Lisp 程序。
 
 如果希望启动 Emacs 时，进入到某个目录或是打开特定文件，可配置 initial-buffer-choice 。
 \subsection{退出 Emacs}
-\label{sec:org69b860e}
+\label{sec:org3f222a2}
 C-x C-x 退出 Emacs (save-buffers-kill-terminal)
 C-z     Emacs 最小化 (suspend-frame)
 M-x kill-emacs 退出 Emacs，不需要任何提示
 
 Emacs 能在退出时保存当前会话 Session，下次启动后可先加载此会话。
 \section{基本编辑命令}
-\label{sec:org4ce4dca}
+\label{sec:orgb8fedbf}
 \subsection{基础}
-\label{sec:org78c10d1}
+\label{sec:org70317bc}
 \subsubsection{插入文本 (Insert Text)}
-\label{sec:org1a46690}
+\label{sec:org5e6c5b1}
 \texttt{C-j} [O] 插入新的空行，新行没有 auto-indent 。 在 Minor Mode 中， 可以改变插入方式。 例如， \texttt{Auto Fill Mode} 可自动截取超出长度的文本(参见 Filling)。
 
 如要插入非图形化字符，先输入 \texttt{C-q} (quoted-insert)
@@ -177,11 +177,11 @@ Unicode 字符还可以通过 \texttt{C-x 8} 命令插入， \texttt{C-x 8 C-h} 
 或者 \texttt{C-x 8 <RET>} 会列出所有 Unicode 可用字符。 例如，输入 lambda ，找到对应命令 \texttt{Greek Small Letter Lambda} 就能插入 λ 。
 
 \subsubsection{移动光标 (Move Point)}
-\label{sec:org9101324}
+\label{sec:org5548347}
 我使用 Evil-mode 所以不太用这些操作。
 
 \subsubsection{删除 (Erasing)}
-\label{sec:orgf6ceed7}
+\label{sec:org1afbda8}
 \begin{center}
 \begin{tabular}{lll}
 Emacs & Function & Evil\\
@@ -195,7 +195,7 @@ Emacs & Function & Evil\\
 \end{center}
 
 \subsubsection{基本撤销 (Basic Undo)}
-\label{sec:orgf419e0b}
+\label{sec:org0d50b48}
 
 \begin{center}
 \begin{tabular}{lll}
@@ -205,7 +205,7 @@ Emacs & Function & Evil\\
 \end{tabular}
 \end{center}
 \subsubsection{文件 (Files)}
-\label{sec:org0049ef8}
+\label{sec:org4a72e04}
 
 \begin{center}
 \begin{tabular}{lll}
@@ -216,11 +216,11 @@ Emacs & Function & Evil\\
 \end{center}
 
 \subsubsection{帮助 (Help)}
-\label{sec:org161d4a8}
+\label{sec:org187bc9a}
 简单，直接 \texttt{C-h} 即可。
 
 \subsubsection{空行 (Blank Lines)}
-\label{sec:org3f50bb3}
+\label{sec:org28cb5fc}
 
 \begin{center}
 \begin{tabular}{lll}
@@ -231,7 +231,7 @@ Emacs & Function & Evil\\
 \end{center}
 
 \subsubsection{连续行 (Continuation Lines)}
-\label{sec:orga819494}
+\label{sec:org1cf6119}
 
 :ID:       0500a5b8-4fdb-4b52-9beb-472db7ab2bda
 
@@ -242,31 +242,31 @@ Emacs & Function & Evil\\
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{./pic/trunc1.png}
-\caption{\label{fig:org3ef2972}
+\caption{\label{fig:org1b1066d}
 使用 SPC t l  启用 line truncation}
 \end{figure}
 
 \subsubsection{位置信息 (Position Info)}
-\label{sec:org17d0479}
+\label{sec:org8f9fd6d}
 \subsubsection{参数 (Arguments)}
-\label{sec:orga5288aa}
+\label{sec:org2a97186}
 \subsubsection{重复 (Repeating)}
-\label{sec:orgfe9150c}
+\label{sec:orgf7b4f7d}
 \subsection{Minibuffer}
-\label{sec:org99244bd}
+\label{sec:orga01ed9b}
 \subsection{M-x}
-\label{sec:org2aa48cf}
+\label{sec:org36444c5}
 \subsection{帮助(help)}
-\label{sec:orgd0e1bef}
+\label{sec:orga3d0054}
 \section{org-mode}
-\label{sec:org941acfc}
+\label{sec:org9acc633}
 \subsection{Agenda Views}
-\label{sec:orgcf4da56}
+\label{sec:orgbab0f81}
 Todo items 、 time-stamped items 和 tagged headlines 可能分布在不同的文件中。
 有时为了能将这些信息搜集、整理并按照要求提取信息，在特定 buffer 中显示，这种
 方式称为 Agenda。
 \subsubsection{Agenda Files}
-\label{sec:orge66a857}
+\label{sec:org8d163f0}
 \texttt{org-agenda-files} 存放 agenda 文件指定位置，通常是配置为目录，该目录下所
 有 .org 文件都是 agenda 文件。 如果只有一个 agenda 文件就必须明确给出文件名。
 \begin{verbatim}
@@ -280,9 +280,9 @@ Todo items 、 time-stamped items 和 tagged headlines 可能分布在不同的�
 移除当前 org 文件。 C-c ,  循环访问 agenda 文件。
 
 \subsection{Document Structure}
-\label{sec:org34a7cb1}
+\label{sec:org5e57000}
 \subsubsection{Headlines}
-\label{sec:orgd242402}
+\label{sec:org7e1fd3c}
 \begin{center}
 \begin{tabular}{ll}
 local visible cycling &  <tab> \\
@@ -291,51 +291,51 @@ move up/down &  <M-up>  / <M-down> \\
 \end{tabular}
 \end{center}
 \subsection{ToDo Items}
-\label{sec:org3e14dd5}
+\label{sec:orgedd9f03}
 \begin{enumerate}
 \item Basic
-\label{sec:orgbc23250}
+\label{sec:orgdcf7169}
 \end{enumerate}
 \subsection{Datetimes}
-\label{sec:orgfbbb835}
+\label{sec:orgbf82500}
 ToDo items 可以标记 date 和 time， 在 org 中称之为 timestamp。
 \subsubsection{Timestamps}
-\label{sec:orge1f50c4}
+\label{sec:org66d7629}
 时间戳分类
 \begin{enumerate}
 \item 普通时间戳；事件；约会
-\label{sec:org5dd70b4}
+\label{sec:org31a36b9}
 只分配 date/time 形式的时间戳，在显示 agenda 时，只显示 date。
 \begin{enumerate}
 \item 周六看电影\textit{<2019-11-30 Sat>}
-\label{sec:org758b120}
+\label{sec:org59fa98e}
 \item 周四吃晚餐\textit{<2019-11-28 Thu>}
-\label{sec:org838bb14}
+\label{sec:orgddf2900}
 \end{enumerate}
 \item 规律重复出现的时间戳
-\label{sec:org991dcc3}
+\label{sec:orgc744be3}
 如每天下午 5 点跑步，每周六去公园玩，每年的生日等。
 \textbf{d} 表示 day， \textbf{w} 表示 week ， \textbf{m} 表示 month。
 \item 用 sexp 表示复杂日期
-\label{sec:org33f1c24}
+\label{sec:org6abf09b}
 牵涉到 LISP 语言中的 S-exp 表达式，暂不考虑。可以用来安排课程表。 
 \item 指定 Time/Date 范围
-\label{sec:orgd15d1e1}
+\label{sec:org30ffe51}
 由 \texttt{-{}-} 连接的两个日期表示范围。
 \begin{enumerate}
 \item 论文答辩\textit{<2019-12-10 Tue>--<2019-12-13 Fri>}
-\label{sec:org96fae37}
+\label{sec:org2bd9047}
 \end{enumerate}
 \item 非激活日期
-\label{sec:orgc8b0932}
+\label{sec:orgf4ee9b9}
 由 \texttt{[ ]} 包含的日期，并不会出现在 agenda 中。
 \begin{enumerate}
 \item 和朋友聚餐 \textit{[2019-11-28 Thu]}
-\label{sec:org978eb85}
+\label{sec:orge24cfc8}
 \end{enumerate}
 \end{enumerate}
 \subsubsection{创建时间戳}
-\label{sec:org8e2f141}
+\label{sec:org577349e}
 \begin{center}
 \begin{tabular}{ll}
  C-c .  & 插入日期/连续日期\\
@@ -348,20 +348,20 @@ ToDo items 可以标记 date 和 time， 在 org 中称之为 timestamp。
 \end{tabular}
 \end{center}
 \subsubsection{Deadlines 和 Scheduling}
-\label{sec:orgbac4ab2}
+\label{sec:orgacfe025}
 时间戳可配置特殊关键字帮助进行计划，例如 Deadlines 和 Scheduling。
 
 使用 C-c /   会出现 sparse tree。
 
 \begin{enumerate}
 \item DEADLINE
-\label{sec:org282c824}
+\label{sec:org6ab85dc}
 所有 DEADLINE 日期之前计划的事件都会显示在 agenda 中，
 \texttt{org-deadline-warning-days} 指定 DEADLINE 日期之前几天发出警告，直到将事
 件标志为 DONE 才会停止提示警告。
 \begin{enumerate}
 \item 完成课程教案编写工作
-\label{sec:org29cbc98}
+\label{sec:orgf18d786}
 \begin{verbatim}
 DEADLINE:<2019-11-30 Sat>
 第一次编辑:[[bbdb:Ford Prefect]]
@@ -369,7 +369,7 @@ DEADLINE:<2019-11-30 Sat>
 
 使用 \texttt{-2d} 表示提前 2 天发出警告提示。
 \item 与张总见面约谈
-\label{sec:org1371691}
+\label{sec:org096e5ec}
 \begin{verbatim}
 DEADLINE:<2019-11-30 Sat -2d> 
 \end{verbatim}
@@ -379,7 +379,7 @@ DEADLINE:<2019-11-30 Sat -2d>
 标记本月任务已经完成，而且还能启用下月任务。 凡是标记为 DONE 的任务不再
 出现在 agenda 中。
 \item 交房租
-\label{sec:org0ce5b37}
+\label{sec:org2d88a32}
 \begin{verbatim}
 DEADLINE: <2019-08-15 Thu +1m -2d>
 :PROPERTIES:
@@ -388,7 +388,7 @@ DEADLINE: <2019-08-15 Thu +1m -2d>
 \end{verbatim}
 
 \item 与 Scott 老师视频通话
-\label{sec:org2bf4ee8}
+\label{sec:org6656bca}
 \begin{verbatim}
 SCHEDULED: <2019-10-25 Fri ++1w>
 :PROPERTIES:
@@ -397,7 +397,7 @@ SCHEDULED: <2019-10-25 Fri ++1w>
 \end{verbatim}
 \end{enumerate}
 \item SCHEDULED
-\label{sec:org0f5ec51}
+\label{sec:orga666510}
 计划何时开始某项新任务。如果延迟两天才开始该任务，则显示为 \texttt{2x} 。如果计
 划推迟 3 天，则在时间上使用 \texttt{-3d} 表示。
 
@@ -405,26 +405,17 @@ SCHEDULED 经常会被误解。 例如，与某人约会是 appointment，使用
 可。 一旦使用 SCHEDULED , 则表示在该任务在指定日期才会在时间线中出现。
 \begin{enumerate}
 \item 去新加坡旅行
-\label{sec:org31f1bd2}
+\label{sec:org412ef4d}
 \begin{verbatim}
 SCHEDULED:<2019-11-24 Sun --2d> 
 \end{verbatim}
 \end{enumerate}
 \end{enumerate}
 
-\section{Timer Example}
-\label{sec:orgaeb64cd}
-
-\subsection{Clock column view example}
-\label{sec:orgb9baf0d}
-
-\subsection{Effort estimate example}
-\label{sec:orga4c27ca}
-
 \section{Orgmode (Studing)}
-\label{sec:orge7ac046}
+\label{sec:orga80c043}
 \subsection{E01S01 : Headlines \& outline mode}
-\label{sec:org02435ca}
+\label{sec:orgdc068b4}
 \noindent\textbf{CLOSED:} \textit{[2020-02-10 Mon 21:25]}\\
 \begin{center}
 \begin{tabular}{ll}
@@ -438,7 +429,7 @@ Move down &  <M-down> \\
 \end{center}
 
 \subsection{E01S03 : Schedule, Deadlines \& Agenda views}
-\label{sec:org7f0411c}
+\label{sec:org2ca0d63}
 \begin{center}
 \begin{tabular}{ll}
 Schedule done &  C-c C-s \\
@@ -450,7 +441,7 @@ Move backward &  b \\
 \end{tabular}
 \end{center}
 \subsection{E01S04 : Repeating tasks}
-\label{sec:orgcc5daf8}
+\label{sec:org189e51d}
 \begin{center}
 \begin{tabular}{ll}
 regular every week (d=day w=weak m=month y=year) & +1w\\
@@ -465,11 +456,11 @@ again to change current SCHEDULED event to state DONE and restart a new
 SCHEDULED event.
 
 \subsubsection{规律重复出现的时间戳}
-\label{sec:orgf5bfde5}
+\label{sec:orgb6ea9e3}
 如每天下午 5 点跑步，每周六去公园玩，每年的生日等。
 \textbf{d} 表示 day， \textbf{w} 表示 week ， \textbf{m} 表示 month。
 \subsection{E01S05 : Checklists [2/4]}
-\label{sec:org0636fd6}
+\label{sec:orgd6db2a8}
 \begin{itemize}
 \item[{$\square$}] This is checklist
 \item[{$\square$}] New checklist by  <M-S-return>
@@ -477,7 +468,7 @@ SCHEDULED event.
 \item[{$\boxtimes$}] Checkbox toggled with  C-c C-c
 \end{itemize}
 \subsection{E02S01 : Tags}
-\label{sec:orgca57c70}
+\label{sec:orgfe5fbc8}
 Tags can be added to headlines and are often used as a way to mark GTD contexts.
 
 Tags can be predefined with a line \texttt{\#+TAGS:PHONE(o) ...} at the beginning of
@@ -486,7 +477,7 @@ headline. Use  <tab>  to enter new tags instead
 of predefined tags. Clear tags by  SPC  .
 
 \subsection{E02S02 : Agenda view (advanced)}
-\label{sec:orgb8fa89c}
+\label{sec:org261f11b}
 \begin{center}
 \begin{tabular}{ll}
 Timeline for current buffer &  L \\
@@ -499,10 +490,10 @@ Search for keywords &  s \\
 \end{center}
 
 \subsection{E02S03 : Customized Agenda view}
-\label{sec:org3c01f21}
+\label{sec:orga28f32a}
 for customizing agenda command 
 \subsection{E02S04 : Drawers,Logging \& quick notes}
-\label{sec:org7712197}
+\label{sec:org37a406b}
 \begin{itemize}
 \item Note taken on \textit{[2020-02-12 Wed 10:14] } \\
 test quick notes
@@ -539,7 +530,7 @@ This is a quick notes using  C-c C-z  . That's good!
 \end{itemize}
 
 \subsection{E02S05 : Archiving}
-\label{sec:orgeeb65ae}
+\label{sec:orge1169f5}
 Finished tasks collected up your org file. Define a global archives file with
 \texttt{\#+ARCHIVE: myarchive.org::}. Archive an entry with  C-c C-x
 C-a  . Archive a subtree with  C-c C-x C-s  .
@@ -547,25 +538,25 @@ C-a  . Archive a subtree with  C-c C-x C-s  .
 When you complete you task, you can move out of your DONE tasks to archives files.
 
 \subsection{E03S01 : Automatic logging of status changes}
-\label{sec:org7ba114e}
+\label{sec:orgc230ca6}
 automatic logging of status changes for complicated tasks. I think I will
 never use this feature.
 \subsection{E03S02 : Splitting your system up to several files}
-\label{sec:org1d3b9bb}
+\label{sec:org505acad}
 See in the future.
 \subsection{E03S03 : The first capture template(s)}
-\label{sec:orgdf3497e}
+\label{sec:org7db309d}
 Goal: Capturing tasks, ideas and whatever you want!
 
 Use  SPC C c  to open capture template.
 \subsection{E03S04 : The  -PROPERTIES - drawer}
-\label{sec:org1c8a933}
+\label{sec:org3534d07}
 \subsection{E03S05 : Archiving to different files}
-\label{sec:orgedb8936}
+\label{sec:org13a5f26}
 \subsection{E04S01 : Ordered tasks}
-\label{sec:org2520a2b}
+\label{sec:orgada7f90}
 \subsection{E04S02 : Timers}
-\label{sec:org72cf509}
+\label{sec:org6aa86a4}
 \begin{center}
 \begin{tabular}{ll}
 \hline
@@ -588,9 +579,9 @@ Leave column view &  Q \\
 \end{center}
 
 \subsection{E04S03 : Clocking (aka time tracking)}
-\label{sec:orge9b1135}
+\label{sec:org4f30f51}
 \subsubsection{Football notes}
-\label{sec:orgd87d05d}
+\label{sec:org5e88979}
 
 You'll start relative timer by  C-c C-x 0 
 . The timer will be tick from 00:00:01, 00:00:02, \ldots{} , 00:01:08, \ldots{}.
@@ -612,10 +603,10 @@ a goal 1:1.
 \end{itemize}
 
 \subsubsection{Clock Tracking example}
-\label{sec:org1da691a}
+\label{sec:org6818759}
 \begin{enumerate}
 \item Task A
-\label{sec:org0435c8b}
+\label{sec:orgb7a8e87}
 \begin{itemize}
 \item Some task that we need to know how much time it take.
 \end{itemize}
@@ -626,7 +617,7 @@ timestamp，Use  C-c C-x C-o  to close
 timestamp.
 
 \item Task B
-\label{sec:orge394ad5}
+\label{sec:org2bdd012}
 \begin{itemize}
 \item Some other task to clock.
 \end{itemize}
@@ -637,7 +628,7 @@ Use  C-c C-c  to cancel display total spended time.
 \end{enumerate}
 
 \subsection{E04S04 : Column view}
-\label{sec:orgd314b9a}
+\label{sec:orge5a6998}
 \begin{verbatim}
 #+COLUMNS: %7TODO(To Do) %40ITEM(TASK) %TAGS(Tags) %6CLOCKSUM(Clock)
 \end{verbatim}
@@ -649,7 +640,7 @@ Leave column view &  Q \\
 \end{tabular}
 \end{center}
 \subsection{E04S05 : Effort estimates}
-\label{sec:org0da0c23}
+\label{sec:org1e5651d}
 Goal: Estimate the effort that your task will take.
 
 Recipe: Effort are properties stored in \texttt{:Effort:} . Easy setup: Define
@@ -667,7 +658,7 @@ Leave column view &  Q \\
 \end{center}
 
 \subsection{E05S01 : Linking (internal)}
-\label{sec:orgb6c39a4}
+\label{sec:orgd547a85}
 Links is \texttt{[[target][description]]}. 
 
 \begin{center}
@@ -679,7 +670,7 @@ Return to previous link &  C-c \& \\
 \end{center}
 
 \begin{itemize}
-\item This is a headline link to \hyperref[sec:org941acfc]{HEADLINE link} . Use  C-c
+\item This is a headline link to \hyperref[sec:org9acc633]{HEADLINE link} . Use  C-c
 C-l  to edit internal link.
 \end{itemize}
 \begin{verbatim}
@@ -687,22 +678,39 @@ C-l  to edit internal link.
 \end{verbatim}
 \begin{itemize}
 \item This is a \texttt{\#+NAME:timerlink} link to \texttt{[[timerlink][NAME Link to E04S02 Timers]]}.
-\item This is a \texttt{:CUSTOM\_ID:} link to \hyperref[sec:orgca57c70]{CUSTOM\textsubscript{ID} LINK}.
+\item This is a \texttt{:CUSTOM\_ID:} link to \hyperref[sec:orgfe5fbc8]{CUSTOM\textsubscript{ID} LINK}.
 \item Use \texttt{<<<target>>>} to create links on the fly.
 \end{itemize}
 \subsection{E05S02 : Linking (external)}
-\label{sec:org0724007}
+\label{sec:org16bd248}
 \begin{itemize}
 \item Target: \texttt{protocol:location}
 \item Key: \href{https://github.com/jkitchin/org-ref}{Org-ref}  SPC m i l
 \item \texttt{org-id-location-file} store all ID for OrgMode.
 \end{itemize}
 \subsection{E05S03 : Attachments}
-\label{sec:org17489f1}
+\label{sec:org901a1d7}
+\begin{table}[htbp]
+\caption[attachments]{Attachments summarizes. The attachments are usually stored under \texttt{./data/} and then a structure based on the ID properties.}
+\centering
+\begin{tabular}{lll}
+Command & Key & Others\\
+\hline
+attachments &  C-c C-a  & \\
+ &  & \\
+\end{tabular}
+\end{table}
+
+Test! Attach a \texttt{pdf} file in this section.
+\begin{itemize}
+\item C-c C-a
+\item Choice "Symbolic link" by press  y  .
+\end{itemize}
+
 \subsection{E05S04 : Priorities}
-\label{sec:orgd489fde}
+\label{sec:orgafe9b20}
 \subsection{E05S05 : Tables}
-\label{sec:orgee4b42a}
+\label{sec:org404f7a4}
 \begin{center}
 \begin{tabular}{lll}
 \hline
@@ -748,7 +756,7 @@ D2322 & W430 & AMD i7 & 1.14.0 & 1.16.0 & \\
 \end{table}
 
 \subsection{E06S01 : Exporting}
-\label{sec:org986bd77}
+\label{sec:org55dbe1b}
 \begin{itemize}
 \item Goal:export files into HTML and PDF
 \item Key : C-c C-e
@@ -756,7 +764,7 @@ D2322 & W430 & AMD i7 & 1.14.0 & 1.16.0 & \\
 \end{itemize}
 
 \subsubsection{export chinese pdf ?}
-\label{sec:org00a3ef3}
+\label{sec:orgf9312f3}
 [*IMPORTANT*] I have been set how to open html files with qutebrowser and how
 to open pdf files with zathura.
 
@@ -771,7 +779,7 @@ Include TODO keywords into exported text & \texttt{todo:t}\\
 \end{center}
 
 \subsection{E06S02 : Advanced exporting}
-\label{sec:orgd157e19}
+\label{sec:org22bbc22}
 \begin{itemize}
 \item \texttt{M-x customize-group} then input  \texttt{org-export}
 \item add \texttt{+AUTHOR} and \texttt{+TITLE}
@@ -786,33 +794,248 @@ Include TODO keywords into exported text & \texttt{todo:t}\\
 \end{verbatim}
 
 \subsection{E06S03 : Publishing}
-\label{sec:org2723f73}
+\label{sec:org9a40c6a}
 \subsection{E06S04 : Dynamic blocks}
-\label{sec:org28756fb}
+\label{sec:org93f8baa}
+Dynamic blocks create content dynamically, such as \textbf{clocktable} and
+\textbf{columnview}. 
+
+\begin{center}
+\begin{tabular}{lll}
+command & key & others\\
+\hline
+Create clocktable &  C-c C-x C-r  & headlines\\
+Update the table &  C-c C-c  & \\
+:maxlevel 2 & two level & parameter\\
+:block thismonth & time for a month & parameter\\
+:step week & time for weekly & parameter\\
+:tstart :tend & :tstart "\textit{<2016-01-02 Sat>}" :tend "\textit{<2018-05-03 Thu>}" & parameter\\
+\end{tabular}
+\end{center}
+
 \subsection{E06S05 : Tracking habits}
-\label{sec:orgcea30dd}
+\label{sec:org2e14601}
 \subsection{E07S01 : Bulk agenda actions}
-\label{sec:org317ee33}
+\label{sec:org74d677b}
 \subsection{E07S02 : Presenting my system}
-\label{sec:orgf9326d2}
+\label{sec:org4b6f57d}
 \subsection{E07S03 : Google Calendar integration}
-\label{sec:org4845dae}
+\label{sec:org6091f1c}
 \subsection{E07S04 : Source code in OrgMode}
-\label{sec:org64cf568}
+\label{sec:orga22d68d}
+\begin{itemize}
+\item See topic \href{https://orgmode.org/manual/Literal-Examples.html}{Literal Examples} .
+\item The souce code language which you want to use in your writing must be
+customized by \texttt{org-babel-load-language} .
+\item Use  C-c C-,  to insert source code sample
+instead of  < s tab  after Emacs v26.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{ll}
+Parameters & Meaning\\
+\hline
+\texttt{:results raw} & raw\\
+\texttt{:results table} & (default) table\\
+\texttt{:results list} & list\\
+\texttt{:results table} & no results\\
+\end{tabular}
+\end{center}
+
+\begin{verbatim}
+# press C-c C-c to evaluate shell command following by adding result. 
+ls -l /tmp
+\end{verbatim}
+
+\begin{verbatim}
+总用量 72
+drwx------ 3 hxz  hxz  4096 Feb  9 19:26 2048-game-1DrVa1
+drwx------ 3 hxz  hxz  4096 Feb  9 19:29 2048-game-TdBl6G
+drwx------ 2 hxz  hxz  4096 Feb 14 19:24 babel-4PNIXT
+-rwx------ 1 root root    0 Feb  8 12:22 com.sangfor.dns_server_op_lock
+-rwx------ 1 root root    0 Feb  8 12:23 com.sangfor.lockcert
+-rwx------ 1 root root    0 Feb  8 12:22 com.sangfor.lockecagent
+-rw------- 1 hxz  hxz     0 Feb  8 12:23 config-err-FFkDpV
+-rw-rw-r-- 1 hxz  hxz   174 Feb 10 17:54 cookie.txt
+drwx------ 2 hxz  hxz  4096 Feb 14 15:46 emacs1000
+-rw------- 1 hxz  hxz     0 Feb 14 19:24 emacsIZkEfj
+\end{verbatim}
+
 \subsection{E07S05 :}
-\label{sec:orgd009b4a}
+\label{sec:org3e36d54}
 \section{Use Emacs}
-\label{sec:orgdd7d0d1}
+\label{sec:orgaa3c052}
+\subsection{01 - setting up the package manager}
+\label{sec:orga9f7dfa}
+\subsection{02 - org}
+\label{sec:org389d5a1}
+\subsection{03 - Elisp}
+\label{sec:orgc734c21}
+\subsection{04 - Buffers}
+\label{sec:orgbcad8d9}
+\subsection{05 - Windows}
+\label{sec:org368fafb}
+\subsection{06 - Search (Swiper)}
+\label{sec:org1875a14}
+\subsection{07 - Navigating with Avy}
+\label{sec:org659953a}
+\subsection{08 - Auto-complete}
+\label{sec:org991fec2}
+\begin{enumerate}
+\item Search auto-complete keys help. 
+\begin{itemize}
+\item C-h k
+\item M-/
+\end{itemize}
+\item See the help , then I know use 
+\begin{itemize}
+\item M-/
+\item C-p
+\end{itemize}
+\end{enumerate}
+\subsection{09 - Themes}
+\label{sec:org40b890b}
+\subsection{10 - org init file}
+\label{sec:org11a1e7f}
+\subsection{11 - reveal.js and org-mode}
+\label{sec:orgf34ba6d}
+\subsection{12 - flycheck and Jedi for Python}
+\label{sec:orgcaee279}
+\subsection{13 - yasnippet}
+\label{sec:orgd6c4c19}
+\subsection{14 - Thoughts on Using Emacs}
+\label{sec:orgd5f8911}
+\subsection{15 - macros}
+\label{sec:org127064c}
+\subsection{16 - undo tree}
+\label{sec:orgd822dd7}
+\subsection{17 - Misc features}
+\label{sec:orgf936b7b}
+\subsection{18 - iedit, narrowing, and widening}
+\label{sec:org9accfe5}
+\subsection{19 - moving to a live config}
+\label{sec:org19bc365}
+\subsection{20 - yanking}
+\label{sec:orgcc30691}
+\subsection{21 - Web Mode}
+\label{sec:org31b0aaf}
+\subsection{22 - emacsclient}
+\label{sec:orgd6b98ee}
+\subsection{24 - links}
+\label{sec:org4ec0f7b}
+\subsection{25 - tramp}
+\label{sec:org67e9ab4}
+\subsection{26 - Google Calendar and Org Agenda (good version)}
+\label{sec:org0515192}
+\subsection{26 - Google Calendar sync and Org Agenda}
+\label{sec:org4f8188e}
+\subsection{27 - shell and eshell}
+\label{sec:org4ea71c5}
+\subsection{28 - rectangles}
+\label{sec:orgf71709b}
+\subsection{29 - elfeed part 1}
+\label{sec:orge6632c0}
+\subsection{30 - emacs c++}
+\label{sec:org5039fd8}
+\subsection{31 - elfeed and macros}
+\label{sec:orgf63827c}
+\subsection{33 - projectile and dumb-jump}
+\label{sec:org213221e}
+\subsection{34 - IBuffer and Emmet mode}
+\label{sec:orgd84118a}
+\subsection{35 - blogging}
+\label{sec:org251050e}
+\subsection{36 - A touch of elisp}
+\label{sec:org417ec36}
+\subsection{37 - Treemacs file view}
+\label{sec:org959eeac}
+\subsection{38 - Dired}
+\label{sec:org8ee523f}
+\subsection{39 - mu4e}
+\label{sec:orga888226}
+\begin{itemize}
+\item See the \href{https://www.macs.hw.ac.uk/\~rs46/posts/2014-01-13-mu4e-email-client.html}{Drowning in Email; mu4e to the Rescue} . Mbsync : get release
+tarball from git. Following the next step to install
+\end{itemize}
+\begin{verbatim}
+./autogen.sh
+./configure
+make
+sudo make install
+\end{verbatim}
+\captionof{figure}{Install mbsync}
+
+\begin{itemize}
+\item Create \textbf{\textasciitilde{}/.emacs.d/.mbsyncrc} file.
+\item \textbf{MUST} open QQmail IMAPAccount and use \textbf{NEW PASSWORD} to login.
+\item Test IMAP server with
+\end{itemize}
+\begin{verbatim}
+mbsync -c ~/.emacs.d/.mbsyncrc -a
+\end{verbatim}
+
+\begin{itemize}
+\item See the \href{https://www.djcbsoftware.nl/code/mu/mu4e/Installation.html}{install mu4e in Ubuntu} .
+\item See the \href{https://pengpengxp.github.io/archive/before-2018-11-10/2018-10-14-deal\_with\_mail\_by\_mbsync\_mu4e\_emacs.html\#orgf228b24}{deal\textsubscript{with}\textsubscript{mail}\textsubscript{by}\textsubscript{mbsync}\textsubscript{mu4e}\textsubscript{emacs}} to setup mu4e. You can use \texttt{mu}
+to search in your mailbox.
+\end{itemize}
+\begin{verbatim}
+$ mu find from:service
+Wed 15 Jan 2020 09:03:55 PM CST service@vip.ccb.com 
+\end{verbatim}
+\captionof{figure}{Use \textbf{mu} to search mailbox.}
+
+\subsection{40 - atomic-chrome}
+\label{sec:org527edde}
+\subsection{41 - pandoc}
+\label{sec:org226d9ca}
+\subsection{42 - Git Gutter and Timemachine}
+\label{sec:orgc21395d}
+\subsection{43 - Music}
+\label{sec:org38ed934}
+\subsection{44 - An Org mode and PDF-tools workflow}
+\label{sec:org4c77523}
+\subsection{45 - Company or Autocomplete}
+\label{sec:org8fcdc6b}
+\subsection{46 - auto yasnippets}
+\label{sec:org3f2484b}
+\subsection{47 - Magit}
+\label{sec:org8f870ed}
+\subsection{48 - silversearcher}
+\label{sec:org989100b}
+\subsection{49 - mu4e-conversation}
+\label{sec:org493dbd3}
+\subsection{50 - presentations}
+\label{sec:org864bbcd}
+\subsection{51 - day to day with org-mode}
+\label{sec:orga9449e3}
+\subsection{52 - eyebrowse}
+\label{sec:orgc677dec}
+\subsection{53 - emailing org-agenda}
+\label{sec:orgc581106}
+\noindent\textbf{CLOSED:} \textit{[2020-02-13 Thu 18:07]}\\
+\subsection{54 - Org Tables}
+\label{sec:orgae6aeb3}
+\subsection{55 - C++ Irony Completions}
+\label{sec:org5d6e4b9}
+\subsection{56 - dictionaries}
+\label{sec:org670c4b1}
+\subsection{57 - dired-narrow}
+\label{sec:org4e76f62}
+\subsection{59 - Markdown}
+\label{sec:org62f97c9}
 \subsection{62 : Magit}
-\label{sec:org576176e}
+\label{sec:orgcb68262}
 I must learn git before using Magit.
 
+\subsection{63 - ClojureScript}
+\label{sec:org539db2d}
 \section{Git}
-\label{sec:org19a8bac}
+\label{sec:orgd2d1371}
 \subsection{Git Basic}
-\label{sec:orgad714d5}
+\label{sec:org53b3f19}
 \subsubsection{in master}
-\label{sec:orge479dec}
+\label{sec:orgf6342ef}
 \begin{enumerate}
 \item \texttt{git init}
 \item \texttt{git config -{}-global user.name 'AiPick'}
@@ -825,7 +1048,7 @@ I must learn git before using Magit.
 \item \texttt{touch .gitignore} ignore these files
 \end{enumerate}
 \subsubsection{switch to branch}
-\label{sec:orgdd8d5e4}
+\label{sec:org4d42c40}
 \begin{enumerate}
 \item \texttt{git branch mybranch}
 \item \texttt{git checkout mybranch}
@@ -834,13 +1057,13 @@ I must learn git before using Magit.
 \item \texttt{git commit -m "branch changed"}
 \end{enumerate}
 \subsubsection{switch back to master and merge}
-\label{sec:orgf1991ae}
+\label{sec:org2c3c86c}
 \begin{enumerate}
 \item \texttt{git chechout master}
 \item \texttt{git merge mybranch}
 \end{enumerate}
 \subsubsection{git to remote}
-\label{sec:orgc295495}
+\label{sec:org2ee77ff}
 \begin{enumerate}
 \item \texttt{git remote add origin https://github.com/AiPick/notes.git}
 \item \texttt{git remote}
@@ -853,13 +1076,13 @@ input username \& password
 \item \texttt{git push} before refresh github pages to get \texttt{newtest.txt} appeared in remote repo.
 \end{enumerate}
 \subsubsection{get newest repo}
-\label{sec:orge405ade}
+\label{sec:orgb4939b3}
 \begin{enumerate}
 \item \texttt{git pull}
 \end{enumerate}
 
 \subsection{magit}
-\label{sec:org8826361}
+\label{sec:orge6d9399}
 \begin{enumerate}
 \item SPC g s  magit status
 \item committed file  s
@@ -874,8 +1097,8 @@ use  A \& B  to choice what you want to reserve code.
 author comment and revised code on the timeline. You could press
  b  to backtrace in the history.
 \item use  f  to fetch repo files \cite{remy2000using} .
+10.\cite{kosba2016hawk}
 \end{enumerate}
-10.\cite{kosba2016hawk} 
 
 
 \printbibliography[title=参考文献]

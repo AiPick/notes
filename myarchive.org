@@ -23,3 +23,41 @@ Archived entries from file /home/hxz/gitdown/MyThrougth/org_emacs/emacs_notes.or
   | Active local setup line with | @@html:<kbd>@@ C-c C-c @@html:</kbd>@@   |
   | Get a menu of all keywords   | @@html:<kbd>@@ C-c C-t @@html:</kbd>@@   |
 
+
+* DONE E02S05 : Archiving                                            :FUTURE:
+  :PROPERTIES:
+  :Effort:   0:20
+  :ARCHIVE_TIME: 2020-02-13 Thu 23:03
+  :ARCHIVE_FILE: ~/gitdown/MyThrougth/org_emacs/emacs_notes.org
+  :ARCHIVE_OLPATH: Orgmode (Studing)
+  :ARCHIVE_CATEGORY: emacs_notes
+  :ARCHIVE_TODO: DONE
+  :END:
+  :CLOCKLOG:
+  CLOCK: [2020-02-12 Wed 10:45]--[2020-02-12 Wed 10:57] =>  0:12
+  :END:
+  Finished tasks collected up your org file. Define a global archives file with
+  ~#+ARCHIVE: myarchive.org::~. Archive an entry with @@html:<kbd>@@ C-c C-x
+  C-a @@html:</kbd>@@ . Archive a subtree with @@html:<kbd>@@ C-c C-x C-s @@html:</kbd>@@ .
+
+  When you complete you task, you can move out of your DONE tasks to archives files.
+
+
+* DONE E02S05 : Archiving                                            :FUTURE:
+  :PROPERTIES:
+  :Effort:   0:20
+  :ARCHIVE_TIME: 2020-02-13 Thu 23:03
+  :ARCHIVE_FILE: ~/gitdown/MyThrougth/org_emacs/emacs_notes.org
+  :ARCHIVE_OLPATH: Orgmode (Studing)
+  :ARCHIVE_CATEGORY: emacs_notes
+  :ARCHIVE_TODO: DONE
+  :END:
+  :CLOCKLOG:
+  CLOCK: [2020-02-12 Wed 10:45]--[2020-02-12 Wed 10:57] =>  0:12
+  :END:
+  Finished tasks collected up your org file. Define a global archives file with
+  ~#+ARCHIVE: myarchive.org::~. Archive an entry with @@html:<kbd>@@ C-c C-x
+  C-a @@html:</kbd>@@ . Archive a subtree with @@html:<kbd>@@ C-c C-x C-s @@html:</kbd>@@ .
+
+  When you complete you task, you can move out of your DONE tasks to archives files.
+

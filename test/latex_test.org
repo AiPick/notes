@@ -1,0 +1,78 @@
+#+OPTIONS: toc:2 p:2 H:3 todo:nil tags:nil
+
+#+AUTHOR:hexinzheng
+#+TITLE: EMACS NOTES
+
+#+LATEX_COMPILER: xelatex
+#+LATEX_CLASSOPTIONS: [a4paper]
+#+LATEX_HEADER: \usepackage{fontspec}
+#+LATEX_HEADER: \usepackage{CJK}
+#+LATEX_HEADER: \usepackage{ctex}
+#+LATEX_HEADER: \usepackage{geometry}
+#+LATEX_HEADER: \usepackage{xcolor}
+#+LATEX_HEADER: \usepackage[hidelinks]{hyperref}
+#+LATEX_HEADER: \usepackage[bibstyle=gb7714-2015,
+#+LATEX_HEADER:     citestyle=gb7714-2015,
+#+LATEX_HEADER:     backend=biber,
+#+LATEX_HEADER:     backref=true,
+#+LATEX_HEADER:     seconds=true,
+#+LATEX_HEADER:     sorting=none]{biblatex}
+#+LATEX_HEADER: \addbibresource{../main.bib}
+
+# 配置仿宋字体
+#+LATEX_HEADER: \newCJKfontfamily[fsong]\myfsong{FangSong}
+#+LATEX_HEADER: \newCJKfontfamily[fhei]\myheiti{SimHei}
+#+LATEX_HEADER: \newCJKfontfamily[fzxiaobiao]\myfzxiaobiao{方正小标宋_GBK}
+#+LATEX_HEADER: \newCJKfontfamily[ftimes]\mytimes{Times New Roman}
+
+# 主要字体族
+#+LATEX_HEADER: \setCJKmainfont[AutoFakeBold]{SimSun}
+#+LATEX_HEADER: \setCJKsansfont[AutoFakeBold]{SimHei}
+#+LATEX_HEADER: \setmainfont{Times New Roman}
+#+LATEX_HEADER: \setsansfont{Arial}
+
+# 页面配置
+#+LATEX_HEADER: \geometry{
+#+LATEX_HEADER:   paper      = a4paper,
+#+LATEX_HEADER:   vmargin    = 2.54cm,
+#+LATEX_HEADER:   % hmargin    = 3.17cm,
+#+LATEX_HEADER:   left       = 2.5cm,
+#+LATEX_HEADER:   right      = 2cm,
+#+LATEX_HEADER:   headheight = 0.75cm,
+#+LATEX_HEADER:   headsep    = 0.29cm,
+#+LATEX_HEADER:   footskip   = 0.79cm,
+#+LATEX_HEADER: }
+
+#+LATEX_HEADER: \hypersetup{
+#+LATEX_HEADER:     colorlinks=true,
+#+LATEX_HEADER:     pdfstartview=FitH,
+#+LATEX_HEADER:     linkcolor={blue!50!black},
+#+LATEX_HEADER:     anchorcolor=violet,
+#+LATEX_HEADER:     citecolor=magenta}
+
+* 问题
+- [-] org 转换为标准 latex 文件
+- [-] org 输出为 html 文件
+- [-] 使用 github 样式显示文件
+- [X] 在 github 上建立自己的站点
+- [X] 默认浏览器改为 qutebrowser
+- [-] 安装 emacs 26.1 。主要是 emacs-26-non-common-dfsg.
+- [-] Open org-mode html in EWW.
+
+
+** DONE E02S02 : Agenda view (advanced)                              :BASIC:
+   :PROPERTIES:
+   :Effort:   0:20
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-12 Wed 09:33]--[2020-02-12 Wed 09:44] =>  0:11
+   :END:
+
+   | Timeline cite:baliga2018performance  for current buffer        | @@html:<kbd>@@ L @@html:</kbd>@@ |
+   | List all TODO entries                | @@html:<kbd>@@ t @@html:</kbd>@@ |
+   | Entries with a special TODO Keywords | @@html:<kbd>@@ T @@html:</kbd>@@ |
+   | Match tags/propoerties/TODO keywords | @@html:<kbd>@@ M @@html:</kbd>@@ |
+   | Like before, but only TODO keywords  | @@html:<kbd>@@ M @@html:</kbd>@@ |
+   | Search for keywords                  | @@html:<kbd>@@ s @@html:</kbd>@@ |
+   
+\printbibliography[title=参考文献]

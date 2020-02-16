@@ -1,0 +1,6 @@
+test
+
+cite:expect
+
+bibliographystyle:unsrt
+bibliography:test.bib
