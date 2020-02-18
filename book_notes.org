@@ -1,0 +1,100 @@
+:red_circle:
+#+SETUPFILE: /home/hxz/gitdown/org-html-themes/setup/theme-readtheorg-local.setup
+#+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
+
+# no default toc at all
+# #+OPTIONS: toc:2
+#+OPTIONS: p:2
+
+# only number at level 2
+#+OPTIONS: H:3
+
+# can use colors,date,email,.....
+#+INCLUDE: "~/gitdown/org-macros/org-macros.setup"
+
+#+COLUMNS: %7TODO(To Do) %40ITEM(TASK) %TAGS(Tags) %6CLOCKSUM(Clock) %8Effort(Effort){:}
+#+PROPERTIES: Effort_ALL 0:15 0:30 0:45 1:00 1:30 2:00
+#+PROPERTIES: Rating_ALL + ++ +++ ++++ +++++
+#+SEQ_TODO: NEXT(n/!) TODO(t@/!) WAITING(w) FAILED(f) SCRATCH(s@/!) Q:(q) | DONE(d@) CANCELLED(c@) MORE(m) 
+#+TAGS: zero(0) one(1) two(2) three(3)
+#+ARCHIVE: myarchive.org::
+#+OPTIONS: d:t p:t todo:nil tags:nil
+#+STARTUP: align
+
+#+AUTHOR:hexinzheng
+#+TITLE: Type Theory Notes
+
+#+LATEX_COMPILER: xelatex
+#+LATEX_CLASSOPTIONS: [a4paper]
+#+LATEX_HEADER: \usepackage{fontspec}
+#+LATEX_HEADER: \usepackage{CJK}
+#+LATEX_HEADER: \usepackage{ctex}
+#+LATEX_HEADER: \usepackage{geometry}
+#+LATEX_HEADER: \usepackage{xcolor}
+#+LATEX_HEADER: \usepackage[hidelinks]{hyperref}
+#+LATEX_HEADER: \usepackage[bibstyle=gb7714-2015,
+#+LATEX_HEADER:     citestyle=gb7714-2015,
+#+LATEX_HEADER:     backend=biber,
+#+LATEX_HEADER:     backref=true,
+#+LATEX_HEADER:     seconds=true,
+#+LATEX_HEADER:     sorting=none]{biblatex}
+#+LATEX_HEADER: \addbibresource{../main.bib}
+
+# 配置仿宋字体
+#+LATEX_HEADER: \newCJKfontfamily[fsong]\myfsong{FangSong}
+#+LATEX_HEADER: \newCJKfontfamily[fhei]\myheiti{SimHei}
+#+LATEX_HEADER: \newCJKfontfamily[fzxiaobiao]\myfzxiaobiao{方正小标宋_GBK}
+#+LATEX_HEADER: \newCJKfontfamily[ftimes]\mytimes{Times New Roman}
+
+# 主要字体族
+#+LATEX_HEADER: \setCJKmainfont[AutoFakeBold]{SimSun}
+#+LATEX_HEADER: \setCJKsansfont[AutoFakeBold]{SimHei}
+#+LATEX_HEADER: \setmainfont{Times New Roman}
+#+LATEX_HEADER: \setsansfont{Arial}
+
+# 页面配置
+#+LATEX_HEADER: \geometry{
+#+LATEX_HEADER:   paper      = a4paper,
+#+LATEX_HEADER:   vmargin    = 2.54cm,
+#+LATEX_HEADER:   left       = 2.5cm,
+#+LATEX_HEADER:   right      = 2cm,
+#+LATEX_HEADER:   headheight = 0.75cm,
+#+LATEX_HEADER:   headsep    = 0.29cm,
+#+LATEX_HEADER:   footskip   = 0.79cm,
+#+LATEX_HEADER: }
+
+#+LATEX_HEADER: \hypersetup{
+#+LATEX_HEADER:     colorlinks=true,
+#+LATEX_HEADER:     pdfstartview=FitH,
+#+LATEX_HEADER:     linkcolor={blue!50!black},
+#+LATEX_HEADER:     anchorcolor=violet,
+#+LATEX_HEADER:     citecolor=magenta}
+:END:
+
+* Coq Art's 2004
+  :PROPERTIES:
+  :UNNUMBERED: t
+  :END:
+** A Brief Overview
+** Types and Expressions
+** Propositions and Proofs
+** Dependent Products, or Pandora's Box
+** Everyday Logic
+** Inductive Data Types
+   :PROPERTIES:
+   :Effort:   2:00:00
+   :END:
+   :CLOCKLOG:
+   CLOCK: [2020-02-18 Tue 10:39]
+   :END:
+    
+** Tactics and Automation
+** Inductive Predicates
+** Functions and Their Specifications                                  :one:
+** Extraction and Imperative Programming                               :one:
+** A Case Study                                                        :one:
+** The Module System                                                   :one:
+** Infinite Objects and Proofs                                         :two:
+** Foundations of Inductive Types                                      :two:
+** General Recursion                                                   :one:
+** Proof by Reflection                                                 :one:
