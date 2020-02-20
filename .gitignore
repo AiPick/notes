@@ -7,6 +7,6 @@
 *.pdf
 *.html
 *.el
-/data
-/auto
-/styles
+data/
+auto/
+styles/
