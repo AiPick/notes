@@ -1,10 +1,10 @@
-:red_circle:
+:arrow_double_down:
 #+SETUPFILE: /home/hxz/gitdown/org-html-themes/setup/theme-readtheorg-local.setup
 #+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
 
 # no default toc at all
-# #+OPTIONS: toc:2
-#+OPTIONS: p:2
+
+#+OPTIONS:d:t p:t todo:nil tags:nil p:2 toc:2 ^:nil _:nil
 
 # only number at level 2
 #+OPTIONS: H:3
@@ -14,15 +14,15 @@
 
 #+COLUMNS: %7TODO(To Do) %40ITEM(TASK) %TAGS(Tags) %6CLOCKSUM(Clock) %8Effort(Effort){:}
 #+PROPERTIES: Effort_ALL 0:15 0:30 0:45 1:00 1:30 2:00
+#+PROPERTY: Pages 
 #+PROPERTIES: Rating_ALL + ++ +++ ++++ +++++
-#+SEQ_TODO: NEXT(n/!) TODO(t@/!) WAITING(w) FAILED(f) SCRATCH(s@/!) Q:(q) | DONE(d@) CANCELLED(c@) MORE(m) 
+#+SEQ_TODO: NEXT(n/!) TODO(t@/!)  BREAK(b@/!)  :exclamation:(f@/!) SCRATCH(s@/!) Q:(q) | DONE(d@) CANCELLED(c@) MORE(m) 
 #+TAGS: zero(0) one(1) two(2) three(3)
 #+ARCHIVE: myarchive.org::
-#+OPTIONS: d:t p:t todo:nil tags:nil
 #+STARTUP: align
 
 #+AUTHOR:hexinzheng
-#+TITLE: Type Theory Notes
+#+TITLE: Coq Art's 2004
 
 #+LATEX_COMPILER: xelatex
 #+LATEX_CLASSOPTIONS: [a4paper]
@@ -31,6 +31,8 @@
 #+LATEX_HEADER: \usepackage{ctex}
 #+LATEX_HEADER: \usepackage{geometry}
 #+LATEX_HEADER: \usepackage{xcolor}
+#+LATEX_HEADER: \usepackage{underscore}
+#+LATEX_HEADER: \usepackage{amssymb}
 #+LATEX_HEADER: \usepackage[hidelinks]{hyperref}
 #+LATEX_HEADER: \usepackage[bibstyle=gb7714-2015,
 #+LATEX_HEADER:     citestyle=gb7714-2015,
@@ -71,30 +73,756 @@
 #+LATEX_HEADER:     citecolor=magenta}
 :END:
 
-* Coq Art's 2004
+* A Brief Overview
   :PROPERTIES:
-  :UNNUMBERED: t
+  :Effort:   2:00:00
   :END:
-** A Brief Overview
-** Types and Expressions
+  :CLOCKLOG:
+  CLOCK: [2020-02-20 Thu 17:57]--[2020-02-20 Thu 18:30] =>  0:33
+  CLOCK: [2020-02-19 Wed 19:21]--[2020-02-19 Wed 19:37] =>  0:16
+  :END:
+** Expressions, Types, and Functions
+   + function :: from a computer science point of view: functions are effective
+     computing processes
+   + computing :: successive reductions of terms to an irreducible form. For
+     this reason, there are computable functions that can be described in Coq
+     but for which the compuation cannot be performed by the reduction
+     mechanism.
 ** Propositions and Proofs
-** Dependent Products, or Pandora's Box
-** Everyday Logic
-** Inductive Data Types
-   :PROPERTIES:
-   :Effort:   2:00:00
-   :END:
    :CLOCKLOG:
-   CLOCK: [2020-02-18 Tue 10:39]
+   CLOCK: [2020-02-20 Thu 18:55]--[2020-02-20 Thu 19:13] =>  0:18
    :END:
+
+   | assertion                         | value         |
+   |-----------------------------------+---------------|
+   | $3\leq 8$                         | True or False |
+   | list concatenation is associative | True or False |
+
+   - tactics :: make it easier to construct a proof of a propersition. In many cases, tactics make it possible to construct a proof automatically, but this cannot always be the case. There is a wide variety of available tactics and expert users also have the possibility to add their own tactics (see [[The Tactic Definition Language]] )
+   
+** Propositions and Types
+   - Automath project :: write proof using $\lambda\text{-calc}$.
+   - /Curry-Howard isomorphism/ :: In [[#chap_3_prop_proofs][Propositions and Proofs]] , we explain the relation between proofs and programming.
+   - CIC :: The characteristic Calculus of Construction (CIC) is that every type is also a _term_ and aslo has a _type_ . For instance, the _type_ of a proposition is called ~Prop~ . The proposition $3\leq 8$ is a _term_ of type ~Prop~ . That's , $3\leq 8 : \mathbb{P}$ .
+   - Predicates :: Predicate could then be considered as a function, whose type is $\mathbb{S} \rightarrow \mathbb{P}$ .
+   | Predicate                           | Formula                                      | Type                                                                              | See                                                                                       |
+   |-------------------------------------+----------------------------------------------+-----------------------------------------------------------------------------------+-------------------------------------------------------------------------------------------|
+   | 2 is even                           | $\forall n:\mathbb{N} , n = 2 \land Even(n)$ | nat $\rightarrow$ Prop                                                            | [[#chap4_dependent_products][Chap 4]]                                                                                    |
+   | to be a sorted list                 |                                              | (list $\mathbb{Z}$ ) $\rightarrow$ Prop                                           |                                                                                           |
+   | transitive relation on $\mathbb{Z}$ |                                              | ( $\mathbb{Z}$ $\rightarrow$ $\mathbb{Z}$ $\rightarrow$ Prop ) $\rightarrow$ Prop | ( $\mathbb{Z}$ $\rightarrow$ $\mathbb{Z}$ $\rightarrow$ Prop ) Predicate being parameters |
+   | Polymorphic for every $A$           |                                              | $(A \rightarrow A \rightarrow \text{Prop} ) \rightarrow \text{Prop}$              |                                                                                           |
+
+** Specifications and Certified Programs
+   :CLOCKLOG:
+   CLOCK: [2020-02-20 Thu 20:57]--[2020-02-20 Thu 21:07] =>  0:10
+   CLOCK: [2020-02-20 Thu 19:35]--[2020-02-20 Thu 20:07] =>  0:32
+   :END:
+   
+    - Usage :: Propostion can refer to _types_ and _programs_. /Coq/ type system also make it possible to consider the converse:
+#+begin_quote
+The type of programm can contain /constraints/ expressed as /proposition/ that must be satisfied by /data/. This is *dependent type* . 
+#+end_quote
+
+** A Sorting Example
+   :CLOCKLOG:
+   CLOCK: [2020-02-20 Thu 21:31]--[2020-02-20 Thu 22:16] =>  0:45
+   :END:
+   - Question :: How can we specify a sorting program ?
+*** Inductive Definitions
+   - Properties :: we can define a predicate with the help of clauses that enumerate sufficient conditions for this predicate to be satisfied.
+Sorted (inductive definition) 
+1. the empty list is _sorted_ .
+2. every list with only one elements is _sorted_ .
+3. if a list of the form $n::l$ is sorted and if $p\leq n$ then the list  $p::n::l$ is _sorted_.
+
+*** The Relation “to have the same elements”
+    - Permutation :: (Z $\rightarrow$ list Z $\rightarrow$ nat) which maps any number $z$ and list $l$ to the number of times that $z$ occurs in $l$ .
+    -  Binary relation :: How to specify binary relation of two list ? 
+\[
+l \equiv l^{\prime} \Leftrightarrow \forall z:Z, \text{nb_occ}\; z\; l = \text{nb_occ}\; z\; l^{\prime}
+\]
+    - Two lemmas :: We cannot prove that definition, but we can easily prove $\equiv$ is an equivalent relation and it satisfies the following properties :
+\[ \text{equiv_cons} : \forall z: \mathbb{Z}, \forall l,l^{\prime}: \text{list}\;\mathbb{Z},
+ l \equiv l^{\prime} \Rightarrow z :: l \equiv z :: l^{\prime} \]   
+
+\[ \text{equiv_perm} : \forall n,p: \mathbb{Z}, \forall l,l^{\prime}: \text{list}\;\mathbb{Z},
+ l \equiv l^{\prime} \Rightarrow n :: p :: l \equiv p :: n :: l^{\prime} \]   
+
+*** A Specification for a Sorting Program
+    :CLOCKLOG:
+    CLOCK: [2020-02-20 Thu 22:21]--[2020-02-20 Thu 22:30] =>  0:09
+    :END:
     
-** Tactics and Automation
-** Inductive Predicates
-** Functions and Their Specifications                                  :one:
-** Extraction and Imperative Programming                               :one:
-** A Case Study                                                        :one:
-** The Module System                                                   :one:
-** Infinite Objects and Proofs                                         :two:
-** Foundations of Inductive Types                                      :two:
-** General Recursion                                                   :one:
-** Proof by Reflection                                                 :one:
+    We have already seen that the /Coq/ type system integrates complex specifications, with which we can constrain the input and output data of programs.
+    - Sorting algorithm type :: $\text{Z_sort}$
+    - Function :: list Z $\rightarrow$ list Z 
+
+*** An Auxiliary Function
+*** The Main Sorting Function
+    Using the extraction algorithm on this program, we obtain a functional program to sort list of integers. This capability to construct mechanically a program from the proof that a specification can be satisfied is extremely important! 
+
+** Learning Coq
+   - /Gallina/ :: the language that is used to describe terms, types, proofs, and programs.
+   - /Vernacular/ :: the command language.
+   
+** Contents of This Book
+   omitted
+** Lexical Conventions
+   omitted
+
+* Types and Expressions
+** First Steps
+*** Terms, Expressions, Types
+*** Interpretation Scopes
+*** Type Checking
+** The Rules of the Game
+*** Simple Types
+*** Identifiers, Environments, Contexts
+*** Expressions and Their Types
+*** Free and Bound Variables; α-conversion
+** Declarations and Definitions
+*** Global Declarations and Definitions
+*** Sections and Local Variables
+** Computing
+
+  Computing in Coq means doing one of the following four reductions (see [[#bib-compute-in-coq][compute
+  in coq]] ).
+- beta ( $\beta$ ) :: apply a function to its arguments
+- iota ( $\iota$ ) :: pattern matching related reduction
+- delta ( $\delta$ ) :: unfold a definition (something defined by Definition, Fixpoint etc.)
+- zeta ( $\zeta$ ) :: unfold a local definition (something defined by let ... := ... in)
+
+  For instance, The tactic ~simpl~ performs $\beta\iota$ -reductions plus some
+  $\delta$ -reductions (only when further $\beta\iota$ -reductions are
+  possible).
+
+   
+
+*** Substitution
+*** Reduction Rules
+*** Reduction Sequences
+*** Convertibility
+** Types, Sorts, and Universes
+
+  - specification :: Every term whose type is /Set/ is called a /specification/.
+  - programs :: Every term whose type is specification is called a /programs/.
+  - type :: All of /Set/ belong to a universes called /Type/ in Coq. 
+  \[
+    \text{Specification}:\text{Set}:\text{Type}
+    \tag{term-type model}
+  \] 
+
+   If the type of a term is /Set/, then the considered term is a
+   /specification/. In this way, we can give a name to this specification.
+#+begin_src coq
+Definition op_spec : Set := Z -> Z -> Z.
+(* op_spec is a specificaion whose type is Set! *)
+(* We can use NEW specification to define new operation type. *)
+Definition plus_def : op_spec := fun x y:Z => x + y.
+
+(* Error! Because the type of op_not_spec is Z, op_not_spec is a normal function.
+   Howerver, the right expression of equation is Z -> Z -> which can not being
+   a function body  *)
+Definition op_not_spec : Z := Z -> Z -> Z.
+#+end_src
+
+  - realization :: Given a specification $A:\text{Set}$ in a give $E \cup
+    \Gamma$ , if we can construct a term $t$ in $A$ such that $t:A \in E \cup
+    \Gamma$ , then we find a /realization/ $t$ of specification $A$ .
+  
+*** The Set Sort
+*** Universes
+*** Definitions and Declarations of Specifications
+** Realizing Specifications
+* Propositions and Proofs
+  :PROPERTIES:
+  :CUSTOM_ID: chap_3_prop_proofs
+  :END:
+  
+** Minimal Propositional Logic
+*** The World of Propositions and Proofs
+\[
+\text{Proof} : \text{Proposition} : \text{Type}
+\tag{proof-prop model}
+\]
+
+#+caption: Proof as Programs
+| Logic                     | Language                  | Check        | Result |
+|---------------------------+---------------------------+--------------+--------|
+| Proof                     | Program                   |              |        |
+| Hypotheses                | Local declarations        | Check Q:Prop | Q:Prop |
+| Axioms                    | Global declarations       |              |        |
+| Theorem                   | Definitions               |              |        |
+|---------------------------+---------------------------+--------------+--------|
+| Hypothesis $h:\mathbb{P}$ | Variable $h:\mathbb{P}$   |              |        |
+| Axioms $x:\mathbb{P}$     | Parameters $x:\mathbb{P}$ |              |        |
+
+For $E, \Gamma \vdash \pi : P$ , Axioms $\in E$ , Hypothesis $\in \Gamma$ ,
+$\pi$ is a proof of $P$ .
+
+*** Goals and Tactics
+
+- Goals :: Neeb to be proved , such as $P$ . If we want to give a solution for
+  current $P$ , then we try to solve $E,\Gamma \vdash ? : P$ whose $? = t$ ,
+  which is one of solutions.
+- Tactics :: A set of command which decompose the goal into simpler subgoals .
+
+*** A First Goal-directed Proof
+
+#+caption: First simple goal-directed proof
+#+begin_src coq
+  Theorem imp_trans : (P -> Q) -> (Q -> R) -> P -> R .
+  Proof.
+    intros H1 H2 p.
+    apply H2.
+    apply H1.
+    assumption.
+  Qed.
+
+  Print imp_trans.
+#+end_src
+
+- Goal :: 
+#+begin_src coq
+(P -> Q) -> (Q -> R) -> P -> R
+#+end_src
+- Tactics :: 
+#+begin_src coq
+    intros H1 H2 p.
+    apply H2.
+    apply H1.
+#+end_src
+- $E,\Gamma \vdash ? : P$ :: 
+  + $? =$ H_2 (H_1 p)
+  + $P =$ (P -> Q) -> (Q -> R) -> P -> R
+  + $\Gamma =$ (H1 : P -> Q) (H2 : Q -> R) (p : P)
+#+begin_src coq
+imp_trans = fun (H1 : P -> Q) (H2 : Q -> R) (p : P) => H2 (H1 p)
+     : (P -> Q) -> (Q -> R) -> P -> R
+#+end_src
+
+** Relating Typing Rules and Tactics
+*** Proposition Building Rules
+*** Inference Rules and Tactics
+#+caption: ~assumption~ vs ~exact~ when elimite the goal 
+| assumption                          | exact                                                  |
+|-------------------------------------+--------------------------------------------------------|
+| assumption usually used in $\Gamma$ | When $x$ only exist in $E$, must use $\text{exact}\;x$ |
+
+- head type & final type :: see book 3.2.2.1 P54
+
+** Structure of an Interactive Proof
+*** Activating the Goal Handling System
+     Theorem $x:P$ 
+     + $x$ is the name of theorem.
+     + $P$ is the statement of the theorem.
+
+*** Current Stage of an Interactive Proof
+    For current proof stage $g_i \vdash \Gamma_{i}$ , we could use command ~Show
+    [number]~ to display how many subgoals of current stage.
+
+*** Undoing
+    When failing by apply some tactics, proof could be revert to the last
+    correct step by using ~Undo n~ tactic, where ~n~ is the expecting undo
+    steps.
+    
+    Using ~Restart~ to reset proof procedure , and even could be ~Abort~ a proof
+    when could not complete the current proof.
+
+*** Regular End of a Proof
+
+    Finishing a proof by using ~Qed~.
+
+** Proof Irrelevance
+   see [[https://lean-forward.github.io/logical-verification/2018/41_notes.html][proof irrelevance in Lean | notes 41]] 
+
+   What is the difference between *Prop* and *Set* ?
+
+   Each proposition (when interpreted as a type) is either empty or has exactly
+   one inhabitant: Prop = { $\emptyset$ , { $\star$ }}
+\[
+   \forall\;(p:Prop) (h_1\: h_2 :p), h_1 = h_2
+\]
+   This is called proof irrelevance and makes reasoning about dependent types easier.
+   
+*** Theorem Versus Definition
+
+    *Theorem* and *Lemma* is opaque. *Definition* and *Let* is transparent. 
+
+*** Are Tactics Helpful for Building Programs?
+    Not sure. To building a programs only using tactics may lead to unreliable
+    behavior. If we want to use transparent definition, all details are
+    important and one should avoid using tactics the rely on a choice by the Coq
+    system. 
+** Sections and Proofs
+** Composing Tactics
+*** Tactical
+\[
+    tac_1;tac_2;\ldots;tac_n.
+    \tag{composition tactics}
+\]
+\[
+    tac_1;[tac_2 | \ldots | tac_i;tac_{i+1};\ldots;tac_n].
+    \tag{generalized tactics}
+\]
+\[
+    tac_1;(tac_2 \|  tac_2^{\prime} ).
+    \tag{orelse tactics}
+\]
+\[
+    tac_1;[ idtac | tac_2 | tac_3]; assumption .
+    \tag{unchanged goal tactics}
+\]
+*** Maintenance Issues
+    It is complicated for massive code. 
+
+** On Completeness for Propositional Logic
+   
+   What are the limits of the tools we just present ? Can we prove everything
+   with the reduced set of the tactics ?
+
+*** A Complete Set of Tactics
+    Answer: The tactics set only including Apply , Intro and Assumption are
+    sufficient to prove every statement that is provable in the minimal
+    propositional logic.
+
+*** Unprovable Propositions
+    There are goals without solution at all, such taht $p:Prop \vdash p$ .
+** Some More Tactics
+*** The cut and assert Tactics
+*** An Introduction to Automatic Tactics
+** A New Kind of Abstraction
+
+* Dependent Products, or Pandora's Box
+  :PROPERTIES:
+  :CUSTOM_ID: chap4_dependent_products
+  :END:
+  Dependent type is result type depending input data parameters.
+
+** In Praise of Dependence .
+*** Extending the Scope of Arrows .
+    What's the predicate ? A very simple way to build a proposition is to
+    consider them as the result of applying function that take as parameters one
+    or two natural numbers an return a proposition. This is a predicate! For
+    instance, "x $\leq$ y" write as " le x y " . *le* is a funciton, $x$ and $y$
+    are input parameters , the result type of " le x y " is proposition. 
+
+    Predicate type = $N \rightarrow N \rightarrow Prop$ .
+
+    Logical connections can be consider a function that takes two propositons as
+    parameters and return a proposition as the result.
+*** On Binding .
+*** A New Construct .
+    Dependent Types : $\forall v:A,B$ , $v$ is not only a term but also a type at the same time.
+
+    What's the different between the indexed set in the math and the dependent type in the Coq ?
+
+    |      | concept         | symbol                          | key different  |
+    |------+-----------------+---------------------------------+----------------|
+    | math | indexed family  | $A = A_1 \times A_2 \times A_3$ | in Set theory  |
+    | coq  | dependent types | $\forall v:A,B$                 | in type theory |
+    
+    |         | dependent types              | abstraction                |
+    |---------+------------------------------+----------------------------|
+    | symbol  | $\forall v:A,B$              | $A \rightarrow B$          |
+    | concpet | emphasize type, funtion type | funtion, not function type |
+   
+
+** Typing Rules and Dependent Products .
+
+    $\forall v:A,B$ is a _function type_ which map any $v$ of type $A$ to a term
+    $B$ where $v$ may occur in $B$. If $v$ don't occur in $B$ , then it become
+    $A\rightarrow B$ .
+
+*** The Application Typing Rule .
+
+    This mechanism contrasts with the common practice of "polymorphic" programming
+    languages:
+
+    + OCAML: The type parameters are determined by type inference; the
+      constraints imposed by the constant that appear in an expression can force
+      the instantiation of polymorphic types.
+    + C: The programmer needs to play the dangerous game oftype casting around
+      the void * type to represent generic pointers.
+    + Java: Polymorphism is expressed with classes and interfaces and
+      instantiation should be done by inheritance, but type casts cannot be
+      avoided.
+
+    The Coq approach is simpler, but more abstract: types may be arguments
+    to functions in the same way that integers, lists, and functions may be. To
+    generalize a well-known motto: ''types are first-class citizens."
+
+*** The Abstraction Typing Rule .
+    When $v$ don not occur in the result type $B$ , $\forall v:A.B$ rewrite as
+    $A\rightarrow B$ . For instance, 
+\[
+  \forall A\: B:\text{Set}, A\rightarrow B \rightarrow A\times B
+\]
+    is actually a simple concise expression of :
+\[
+  (\forall A\: B:\text{Set})\; (a:A)\; (b:B)\; , A\rightarrow B \rightarrow A\times B
+\]
+
+   $a$ do not occur in the result type $A\times B$, but $A$ occur in the
+   $A\times B$. For this reason, $\forall A\: B:\text{Set}, A\rightarrow B
+   \rightarrow A\times B$ are non-dependent types for variables $a$ and $b$, but
+   dependent for types $A$ and $B$.
+
+*** Type Inference .
+*** The Conversion Rule .
+*** Dependent Products and the Convertibility Order .
+
+** * Expressive Power of the Dependent Product .
+*** Formation Rule for Products .
+*** Dependent Types .
+*** Polymorphism .
+*** Equality in the Coq System .
+*** Higher-Order Types .
+
+* Everyday Logic
+** Practical Aspects of Dependent Products
+*** exact and assumption
+*** The intro Tactic
+*** The apply Tactic
+*** The unfold Tactic
+** Logical Connectives
+*** Introduction and Elimination Rules
+*** Using Contradictions
+*** Negation
+*** Conjunction and Disjunction
+*** About the repeat Tactical
+*** Existential Quantification
+** Equality and Rewriting
+*** Proving Equalities
+*** Using Equality: Rewriting Tactics
+*** * The pattern Tactic
+*** * Conditional Rewriting
+*** Searching Theorems for Rewriting
+*** Other Tactics on Equality
+** Tactic Summary Table
+** *** Impredicative Definitions
+*** Warning
+*** True and False
+*** Leibniz Equality
+*** Some Other Connectives and Quantifiers
+*** A Guideline for Impredicative Definitions
+* Inductive Data Types
+  :PROPERTIES:
+  :Effort:   10:00:00
+  :PAGES:    158-208
+  :END:
+  :CLOCKLOG:
+  CLOCK: [2020-02-19 Wed 19:37]--[2020-02-19 Wed 20:30] =>  0:53
+  CLOCK: [2020-02-19 Wed 14:53]--[2020-02-19 Wed 17:00] =>  2:07
+  CLOCK: [2020-02-18 Tue 20:44]--[2020-02-18 Tue 21:23] =>  0:39
+  CLOCK: [2020-02-18 Tue 15:21]--[2020-02-18 Tue 15:36] =>  0:15
+  CLOCK: [2020-02-18 Tue 13:10]--[2020-02-18 Tue 14:14] =>  1:04
+  CLOCK: [2020-02-18 Tue 10:39]--[2020-02-18 Tue 11:55] =>  1:16
+  :END:
+  Each inductive type corresponds to a computation structure, based on pattern matching and recursion.
+  Question:
+  - [ ] What's computation structure ?
+  - [ ] What's inductive type ?
+
+** Types Without Recursion
+   Mind map : types without recursion $\rightarrow$ types with recursion.
+   
+   | Types   | non-Recursion | Recursion | notation |
+   |---------+---------------+-----------+----------|
+   | tuples  | $\circ$       |           | $a.b$    |
+   | records | $\circ$       |           | $a.b$    |
+
+*** Enumerated Types
+#+begin_src coq
+Inductive month : Set :=
+| January | February | March     | April   | May      | June 
+| July    | August   | September | October | November | December.
+#+end_src
+
+   + Inductive definition :: ~month~
+   + Theorem :: ~month_ind~
+   + Induction principle :: ~month_ind~
+
+#+RESULTS:  
+#+begin_example
+month_ind
+     : forall P : month -> Prop,
+       P January -> P February -> P March -> P April ->
+       P May -> P June -> P July -> P August -> P September
+       -> P October -> P November -> P December ->
+       forall m : month, P m
+#+end_example
+    
+   Also, product ~month_rec~ except that the initial quantification handles a
+   property whose value is in ~Set~  rather than in ~Prop~ .
+
+#+begin_example
+month_rec
+     : forall P : month -> Set ,     <--- not Prop
+     ...same as forwarding example...
+        forall m : month, P m
+#+end_example
+
+   With the ~month_rec~ function, we can define a function over the type ~month~
+   by *Pattern Match* . 
+   + [Type Recursor] give example for Inductive Types.
+   + [[Pattern Matching]] is the simplest example for ~month_rec~ .
+   
+   With the ~month_rect:Type~ function, it supursedes the ~month_ind:Set~ and
+   the ~month_rec:Prop~ . Strictly speacking, it is actually more powerful,
+   since it used to prove that November and June are distinct .
+
+*** Simple Reasoning and Computing
+    + ~Reset~ :: command can cancel previous definition.
+    + ~Pattern term~ :: If current goal is $T$ whose instance is $\phi(t)$ ,
+      $\phi(t):T$ represent all of proved item whose goal is $T$ . If we use
+      ~Pattern t~ , current goal $T$ is transformed to
+      $\beta\text{-expansion}$ , that is , $(\lambda x^A . \phi (x)^T)\;t$ .
+    + induction :: induction structure on proof 
+    
+   | Concept      | Type         | Example   | Code   |
+   |--------------+--------------+-----------+--------|
+   | propersition | $\mathbb{P}$ | 2 is even | Even 2 |
+     
+*** The ~elim~ Tactic
+*** Pattern Matching
+**** Pattern Matching Evaluation
+*** Record Types
+*** Records with Variants
+** Case-Based Reasoning
+*** The case Tactic
+*** Contradictory Equalities
+**** The ~dicriminate~ Tactic
+**** The Inner Workings of ~discriminate~                               :two:
+**** The ~injection~  Tactic
+**** The Inner Workings of injection                                    :two:
+*** Inductive Types and Equality
+*** Guidelines for the case Tactic                                      :one:
+**** A Proof that Fails
+**** First Approach: Delay ~intros~ 
+**** Second Approach: Use ~generalize~ 
+**** Third Approach: Introduce an Equality
+** Recursive Types
+*** Natural Numbers as an Inductive Type
+*** Proof by Induction on Natural Numbers
+*** Recursive Programming
+*** Variations in the Form of Constructors
+*** Types with Functional Fields                                        :two:
+**** A New Representation of Binary Trees
+**** Infinitely Branching Trees                                       :three:
+*** Proofs on Recursive Functions
+*** Anonymous Recursive Functions (~fix~)
+*** Polymorphic Types
+*** Polymorphic Lists
+*** The ~option~ Type
+*** The Type of Pairs
+*** The Type of Disjoint Sums
+** Dependent Inductive Types                                           :one:
+*** First-Order Data as Parameters
+*** Variably Dependent Inductive Types
+** Empty Types                                                         :one:
+*** Non-dependent Empty Types
+*** Dependence and Empty Types
+* Tactics and Automation
+** Tactics for Inductive Types
+*** Case-by-Case Analysis and Recursion
+*** Conversions
+** Tactics auto and eauto
+*** Tactic Database Handling: Hint
+*** * The eauto Tactic
+** Automatic Tactics for Rewriting
+*** The autorewrite Tactic
+*** The subst Tactic
+** Numerical Tactics
+*** The ring Tactic
+*** The omega Tactic
+*** The field Tactic
+*** The fourier Tactic
+** Other Decision Procedures
+** The Tactic Definition Language
+   :PROPERTIES:
+   :CUSTOM_ID: sec_tactic_def_lang
+   :END:
+*** Arguments in Tactics
+*** Pattern Matching
+*** Using Reduction in Defined Tactics
+* Inductive Predicates
+** Inductive Properties
+*** A Few Examples
+*** Inductive Predicates and Logic Programming
+*** Advice for Inductive Definitions
+*** The Example of Sorted Lists
+** Inductive Properties and Logical Connectives
+*** Representing Truth
+*** Representing Contradiction
+*** Representing Conjunction
+*** Representing Disjunction
+*** Representing Existential Quantification
+*** Representing Equality
+*** *** Heterogeneous Equality
+*** An Exotic Induction Principle?
+** Reasoning about Inductive Properties
+*** Structured intros
+*** The constructor Tactics
+*** * Induction on Inductive Predicates
+*** * Induction on le
+** * Inductive Relations and Functions
+*** Representing the Factorial Function
+*** ** Representing the Semantics of a Language
+*** ** Proving Semantic Properties
+** * Elaborate Behavior of elim
+*** Instantiating the Argument
+*** Inversion
+* Functions and Their Specifications                                    :one:
+** Inductive Types for Specifications
+*** The “Subset” Type
+*** Nested Subset Types
+*** Certified Disjoint Sum
+*** Hybrid Disjoint Sum
+** Strong Specifications
+*** Well-specified Functions
+*** Building Functions as Proofs
+*** Preconditions for Partial Functions
+*** ** Proving Preconditions
+*** ** Reinforcing Specifications
+*** *** Minimal Specification Strengthening
+*** The refine Tactic
+** Variations on Structural Recursion
+*** Structural Recursion with Multiple Steps
+*** Simplifying the Step
+*** Recursive Functions with Several Arguments
+** ** Binary Division
+*** Weakly Specified Division
+*** Well-specified Binary Division
+10 * Extraction and Imperative Programming
+** Extracting Toward Functional Languages
+*** The Extraction Command
+*** The Extraction Mechanism
+*** Prop, Set, and Extraction
+** Describing Imperative Programs
+*** The Why Tool
+*** *** The Inner Workings of Why
+* Extraction and Imperative Programming                                 :one:
+* A Case Study                                                          :one:
+** Binary Search Trees
+*** The Data Structure
+*** A Naïve Approach to Deciding Occurrence
+*** Describing Search Trees
+** Specifying Programs
+*** Finding an Occurrence
+*** Inserting a Number
+*** ** Removing a Number
+** Auxiliary Lemmas
+** Realizing Specifications
+*** Realizing the Occurrence Test
+*** Insertion
+*** Removing Elements
+** Possible Improvements
+** Another Example
+* The Module System                                                     :one:
+** Signatures
+** Modules
+*** Building a Module
+*** An Example: Keys
+*** Parametric Modules (Functors)
+** A Theory of Decidable Order Relations
+*** Enriching a Theory with a Functor
+*** Lexicographic Order as a Functor
+** A Dictionary Module
+*** Enriched Implementations
+*** Constructing a Dictionary with a Functor
+*** A Trivial Implementation
+*** An Eﬃcient Implementation
+** Conclusion
+* Infinite Objects and Proofs                                           :two:
+** Co-inductive Types
+*** The CoInductive Command
+*** Specific Features of Co-inductive Types
+*** Infinite Lists (Streams)
+*** Lazy Lists
+*** Lazy Binary Trees
+** Techniques for Co-inductive Types
+*** Building Finite Objects
+*** Pattern Matching
+** Building Infinite Objects
+*** A Failed Attempt
+*** The CoFixpoint Command
+*** A Few Co-recursive Functions
+*** Badly Formed Definitions
+** Unfolding Techniques
+*** Systematic Decomposition
+*** Applying the Decomposition Lemma
+*** Simplifying a Call to a Co-recursive Function
+** Inductive Predicates over Co-inductive Types
+** Co-inductive Predicates
+*** A Predicate for Infinite Sequences
+*** Building Infinite Proofs
+*** Guard Condition Violation
+*** Elimination Techniques
+** Bisimilarity
+*** The bisimilar Predicate
+*** Using Bisimilarity
+** The Park Principle
+** LTL
+*** Case Study: Transition Systems
+*** Automata and Traces
+** Conclusion
+
+* Foundations of Inductive Types                                        :two:
+** Formation Rules
+*** The Inductive Type
+*** The Constructors
+*** Building the Induction Principle
+*** Typing Recursors
+*** Induction Principles for Predicates
+*** The Scheme Command
+** *** Pattern Matching and Recursion on Proofs
+*** Restrictions on Pattern Matching
+*** Relaxing the Restrictions
+*** Recursion
+** Mutually Inductive Types
+*** Trees and Forests
+*** Proofs by Mutual Induction
+*** *** Trees and Tree Lists
+* General Recursion                                                     :one:
+** Bounded Recursion
+** ** Well-founded Recursive Functions
+*** Well-founded Relations
+*** Accessibility Proofs
+*** Assembling Well-founded Relations
+*** Well-founded Recursion
+*** The Recursor well_founded_induction
+*** Well-founded Euclidean Division
+*** Nested Recursion
+** ** General Recursion by Iteration
+*** The Functional Related to a Recursive Function
+*** Termination Proof
+*** Building the Actual Function
+*** Proving the Fixpoint Equation
+*** Using the Fixpoint Equation
+*** Discussion
+** *** Recursion on an Ad Hoc Predicate
+*** Defining an Ad Hoc Predicate
+*** Inversion Theorems
+*** Defining the Function
+*** Proving Properties of the Function
+
+* Proof by Reflection                                                   :one:
+** General Presentation
+** Direct Computation Proofs
+** ** Proof by Algebraic Computation
+*** Proofs Modulo Associativity
+*** Making the Type and the Operator More Generic
+*** *** Commutativity: Sorting Variables
+** Conclusion
+* Reference
+***** [[https://github.com/coq/coq/wiki/Reduction-Strategies-and-Evaluation-Order][Reduction Strategies and Evaluation Order · coq/coq Wiki]]
+      Explain how to use ~eval CBV | Lazy~ .
+***** [[https://coq.inria.fr/refman/language/cic.html#conversion-rules][Conversion rules | coq help]] 
+***** [[https://madiot.fr/pso/tp7.html][Computation in Coq]] 
+      :PROPERTIES:
+      :CUSTOM_ID: bib-compute-in-coq
+      :END:
+      Explain four redcutions in Coq and give some elegant examples.
+***** [[https://github.com/coq/coq/wiki/AUGER_Monad][AUGER Monad · coq/coq Wiki]] 
+***** [[https://lean-forward.github.io/][Lean Forwar | Logical verification 2018-2019]] 

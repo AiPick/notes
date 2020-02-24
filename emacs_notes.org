@@ -1,6 +1,6 @@
 :HIDE:
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
-# #+SETUPFILE: /home/hxz/gitdown/org-html-themes/setup/theme-readtheorg-local.setup
+# #+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup
+#+SETUPFILE: /home/hxz/gitdown/org-html-themes/setup/theme-readtheorg-local.setup
 #+HTML_HEAD: <style>pre.src{background:#343131;color:white;} </style>
 
 # no default toc at all
@@ -1156,7 +1156,7 @@ Wed 15 Jan 2020 09:03:55 PM CST service@vip.ccb.com
 *** in master
    1. ~git init~
    2. ~git config --global user.name 'AiPick'~
-   3. ~git config --global user.emal '2585957571@qq.com'~
+   3. ~git config --global user.email '2585957571@qq.com'~
    4. ~git add *.*~ all files *NOT* including subdir
       ~git add .~  add all file include subdir
    5. ~git status~
@@ -1205,7 +1205,45 @@ Wed 15 Jan 2020 09:03:55 PM CST service@vip.ccb.com
    9. use @@html:<kbd>@@ f @@html:</kbd>@@ to fetch repo files cite:remy2000using .
     10.cite:kosba2016hawk 
 
+* Spacemacs
+  :CLOCKLOG:
+  CLOCK: [2020-02-21 Fri 08:02]--[2020-02-21 Fri 09:32] =>  1:30
+  :END:
+** Configure my owen layer
+*** Reference
 
+1. [[https://medium.com/@cgrinaldi/creating-a-spacemacs-layer-from-an-existing-emacs-package-e][Creating a Spacemacs Layer from an Existing Emacs Package]]
+
+*** How to configuration
+
+1. Create layer 
+#+begin_src emacs-lisp
+M-x configuration-layer/create-layer 
+#+end_src
+2. Install org-note
+#+begin_src emacs-lisp
+M-x package-install org-noter
+#+end_src
+3. Configure the layer
+#+begin_src emacs-lisp
+(setq org-noter-layer-packages '(org-noter))
+(defun org-noter-layer/init-org-noter ()
+  (use-package org-noter
+               :defer t))
+#+end_src
+* 参考
 \printbibliography[title=参考文献]
-* 
-** 
+1. :dvd: [[http://kitchingroup.cheme.cmu.edu/blog/category/org-mode/][The Kitchin Research Group org-mode]] 
+   
+** coq
+***** [[https://github.com/coq/coq/wiki/Reduction-Strategies-and-Evaluation-Order][Reduction Strategies and Evaluation Order · coq/coq Wiki]]
+      Explain how to use ~eval CBV | Lazy~ .
+***** [[https://madiot.fr/pso/tp7.html][Computation in Coq]] 
+      Explain four redcutions in Coq and give some elegant examples.
+****** Computing in Coq means doing one of the following four reductions:
+- beta :: apply a function to its arguments
+- iota :: pattern matching related reduction
+- delta :: unfold a definition (something defined by Definition, Fixpoint etc.)
+- zeta :: unfold a local definition (something defined by let ... := ... in)
+
+***** [[https://github.com/coq/coq/wiki/AUGER_Monad][AUGER Monad · coq/coq Wiki]] 
